@@ -1,5 +1,7 @@
 extends Control
 
+export var names = []
+export var expressions = []
 export var dialogue = []
 
 var dialogue_index = 0

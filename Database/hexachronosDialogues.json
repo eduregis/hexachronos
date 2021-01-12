@@ -7,6 +7,13 @@
                 {"name": "Zikko", "expression": "neutral", "text": "Fala ae"},
                 {"name": "Titta", "expression": "happy", "text": "Eaí cara"}
             ]
+        },
+        {
+            "id": "0002",
+            "sequence": [
+                {"name": "Zikko", "expression": "neutral", "text": "Vapo Vapo"},
+                {"name": "Titta", "expression": "happy", "text": "Executamo os cara"}
+            ]
         }
     ]
 }
