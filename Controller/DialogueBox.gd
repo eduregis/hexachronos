@@ -1,13 +1,6 @@
 extends Control
 
-var dialogue = [
-	'Uma vez Flamengo, sempre Flamengo,',
-	'Flamengo sempre eu hei de ser,',
-	'É meu maior prazer, vê-lo brilhar,',
-	'Seja na terra, seja no mar,',
-	'vencer, vencer, vencer,',
-	'uma vez Flamengo, Flamengo até morrer!'
-]
+export var dialogue = []
 
 var dialogue_index = 0
 
@@ -25,6 +18,9 @@ func _process(delta):
 			$Tween.stop_all()
 			$RichTextLabel.percent_visible = 1
 			finished = true
+	
+func test():
+	print("aaa")
 	
 func load_dialogue():
 	if dialogue_index < dialogue.size():

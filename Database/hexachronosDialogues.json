@@ -1,0 +1,12 @@
+{
+    "name": "hexachronos",
+    "dialogues": [
+        {
+            "id": "0001",
+            "sequence": [
+                {"name": "Zikko", "expression": "neutral", "text": "Fala ae"},
+                {"name": "Titta", "expression": "happy", "text": "Eaí cara"}
+            ]
+        }
+    ]
+}
