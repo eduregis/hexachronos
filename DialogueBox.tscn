@@ -76,7 +76,8 @@ __meta__ = {
 }
 
 [node name="next-indicator" type="Sprite" parent="DialogueBox"]
-position = Vector2( 683.01, 128.939 )
+visible = false
+position = Vector2( 683.01, 129.937 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
@@ -85,3 +86,4 @@ autoplay = "Idle"
 anims/Idle = SubResource( 2 )
 
 [node name="Tween" type="Tween" parent="DialogueBox"]
+[connection signal="tween_completed" from="DialogueBox/Tween" to="DialogueBox" method="_on_Tween_tween_completed"]
