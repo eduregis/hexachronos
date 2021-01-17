@@ -8,17 +8,20 @@ var tile_map = []
 var tile_map_position = []
 
 func _ready():
-	load_tilemap()
-	#load_dialogue("0001")
+	load_tilemap("0001")
+	load_dialogue("0001")
 	
-func load_tilemap():
-	tile_map = [
-		[0, 1, 1, 1],
-		[1, 1, 1, 1],
-		[1, 1, 1, 1, 1],
-		[1, 1, 1, 1],
-		[0, 1, 1, 1],
-	]
+func load_tilemap(text_code):
+	var file = File.new()
+	file.open("res://Database/hexachronosTilemaps.json", file.READ)
+	var json = file.get_as_text()
+	var json_result = JSON.parse(json).result
+	file.close()
+	
+	for tilemaps in json_result["tilemaps"]:
+		if tilemaps["id"] == text_code:
+			tile_map = tilemaps["tiles"]
+	
 	instance_tilemap()
 
 func instance_tilemap():
