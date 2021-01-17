@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Hexachronos"
-run/main_scene="res://View/Main.tscn"
+run/main_scene="res://View/Scene1.tscn"
 config/icon="res://icon.png"
 
 [rendering]
