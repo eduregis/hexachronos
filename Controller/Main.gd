@@ -26,15 +26,14 @@ func instance_tilemap():
 		var tile_vector_position = []
 		for cell in array:
 			var tile_position = Vector2(window.x/6 + x*185 + (y % 2)*92, window.y/2 + y *30)
-			tile_vector_position.append(tile_position)
-			if cell == 1:
-				var tile = Tile.instance()
-				tile.set_position(tile_position)
-				self.add_child(tile)
+			var tile = Tile.instance()
+			tile.set_position(tile_position)
+			tile_vector_position.append(tile)
+			self.add_child(tile)
 			x += 1
 		tile_map_position.append(tile_vector_position)
 		y += 1
-	print(tile_map_position)
+	print(tile_map_position[0][0])
 
 
 func load_dialogue(text_code):
