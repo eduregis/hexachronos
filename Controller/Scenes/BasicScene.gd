@@ -70,62 +70,70 @@ func set_character(char_name, char_index, team):
 			self.add_child(character)
 
 func pathfinder(tile_index, char_range):
-	var new_paths = []
+	var paths = []
+	var incoming_paths = []
 	
 	if tile_index.y - 1 >= 0:
 		if int(tile_index.y) % 2 != 0:
 			if (tile_code[tile_index.y - 1].size() > tile_index.x + 1):
 				if tile_map[tile_index.y - 1][tile_index.x + 1].occupied == false && tile_code[tile_index.y - 1][tile_index.x + 1] == 1:
-					new_paths.append(Vector2(tile_index.x + 1, tile_index.y - 1))
-					
+					paths.append(Vector2(tile_index.x + 1, tile_index.y - 1))
 		else:
 			if (tile_code[tile_index.y - 1].size() > tile_index.x):
 				if tile_map[tile_index.y - 1][tile_index.x].occupied == false && tile_code[tile_index.y - 1][tile_index.x] == 1:
-					new_paths.append(Vector2(tile_index.x, tile_index.y - 1))	
+					paths.append(Vector2(tile_index.x, tile_index.y - 1))	
 
 	if (tile_code.size() > tile_index.y + 1):
 		if int(tile_index.y) % 2 != 0:
 			if (tile_code[tile_index.y + 1].size() > tile_index.x + 1):
 				if tile_map[tile_index.y + 1][tile_index.x + 1].occupied == false && tile_code[tile_index.y + 1][tile_index.x + 1] == 1:
-					new_paths.append(Vector2(tile_index.x + 1, tile_index.y + 1))
-
+					paths.append(Vector2(tile_index.x + 1, tile_index.y + 1))
 		else:
 			if (tile_code[tile_index.y + 1].size() > tile_index.x):
 				if tile_map[tile_index.y + 1][tile_index.x].occupied == false && tile_code[tile_index.y + 1][tile_index.x] == 1:
-					new_paths.append(Vector2(tile_index.x, tile_index.y + 1))
+					paths.append(Vector2(tile_index.x, tile_index.y + 1))
 
 	if (tile_code.size() > tile_index.y + 2):
 		if (tile_code[tile_index.y + 2].size() > tile_index.x):
 			if tile_map[tile_index.y + 2][tile_index.x].occupied == false && tile_code[tile_index.y + 2][tile_index.x] == 1:
-				new_paths.append(Vector2(tile_index.x, tile_index.y + 2))
+				paths.append(Vector2(tile_index.x, tile_index.y + 2))
 
 	if (tile_code.size() > tile_index.y + 1):
 		if int(tile_index.y) % 2 != 0:
 			if (tile_code[tile_index.y + 1].size() > tile_index.x):
 				if tile_map[tile_index.y + 1][tile_index.x].occupied == false && tile_code[tile_index.y + 1][tile_index.x] == 1:
-					new_paths.append(Vector2(tile_index.x, tile_index.y + 1))
+					paths.append(Vector2(tile_index.x, tile_index.y + 1))
 		else:
-			if (tile_code[tile_index.y + 1].size() > tile_index.x - 1):
+			if (0 <= tile_index.x - 1):
 				if tile_map[tile_index.y + 1][tile_index.x - 1].occupied == false && tile_code[tile_index.y + 1][tile_index.x - 1] == 1:
-					new_paths.append(Vector2(tile_index.x - 1, tile_index.y + 1))
+					paths.append(Vector2(tile_index.x - 1, tile_index.y + 1))
 
 	if tile_index.y - 1 >= 0:
 		if int(tile_index.y) % 2 != 0:
 			if (tile_code[tile_index.y - 1].size() > tile_index.x):
 				if tile_map[tile_index.y - 1][tile_index.x].occupied == false && tile_code[tile_index.y - 1][tile_index.x] == 1:
-					new_paths.append(Vector2(tile_index.x, tile_index.y - 1))
+					paths.append(Vector2(tile_index.x, tile_index.y - 1))
 		else:
-			if (tile_code[tile_index.y - 1].size() > tile_index.x - 1):
+			if (0 <= tile_index.x - 1):
 				if tile_map[tile_index.y - 1][tile_index.x - 1].occupied == false && tile_code[tile_index.y - 1][tile_index.x - 1] == 1:
-					new_paths.append(Vector2(tile_index.x - 1, tile_index.y - 1))
+					paths.append(Vector2(tile_index.x - 1, tile_index.y - 1))
 	
 	if tile_index.y - 2 >= 0:
 		if (tile_code[tile_index.y - 2].size() > tile_index.x):
 			if tile_map[tile_index.y - 2][tile_index.x].occupied == false && tile_code[tile_index.y - 2][tile_index.x] == 1:
-				new_paths.append(Vector2(tile_index.x, tile_index.y - 2))
+				paths.append(Vector2(tile_index.x, tile_index.y - 2))
 
+	if char_range - 1 > 0:
+		for path in paths:
+			var new_paths = pathfinder(path, char_range - 1)
+			for new_path in new_paths:
+				if paths.find(new_path, 0) == -1 && incoming_paths.find(new_path, 0) == -1: 
+					incoming_paths.append(new_path)
 	
-	return new_paths
+	for path in incoming_paths:
+		paths.append(path)
+	
+	return paths
 	
 func load_dialogue(text_code):
 	var window = get_viewport_rect().size
