@@ -1,16 +1,12 @@
 extends Node2D
 
-var DialogueBox = preload("res://View/DialogueBox.tscn")
+var DialogueBox = preload("res://View/Components/DialogueBox.tscn")
 var Tile = preload("res://View/Components/HexagonTile.tscn")
 
 var tile_map = []
 
 var tile_map_position = []
 
-func _ready():
-	load_tilemap("0001")
-	load_dialogue("0001")
-	
 func load_tilemap(text_code):
 	var file = File.new()
 	file.open("res://Database/hexachronosTilemaps.json", file.READ)
@@ -37,7 +33,8 @@ func instance_tilemap():
 			tile.set_position(tile_position)
 			tile.tile_index = Vector2(x, y)
 			tile_vector_position.append(tile)
-			self.add_child(tile)
+			if cell == 1:
+				self.add_child(tile)
 			x += 1
 		tile_map_position.append(tile_vector_position)
 		y += 1
