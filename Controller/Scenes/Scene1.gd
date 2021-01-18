@@ -5,5 +5,5 @@ func _ready():
 	set_ally("Tanker", 1, 1)
 	set_ally("Mechanic", 2, 2)
 	set_foe("Foe", 3, 2)
-	#load_dialogue("0001")
+	load_dialogue("0001")
 	

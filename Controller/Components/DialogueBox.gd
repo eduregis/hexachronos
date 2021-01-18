@@ -3,6 +3,7 @@ extends Control
 export var names = []
 export var expressions = []
 export var dialogue = []
+export var sounds = []
 
 var makoto_angry = preload("res://Assets/CharacterSprites/makoto_angry.png")
 var makoto_surprised = preload("res://Assets/CharacterSprites/makoto_surprised.png")
@@ -33,6 +34,7 @@ func load_dialogue():
 	if dialogue_index < dialogue.size():
 		finished = false
 		load_character_image(names[dialogue_index], expressions[dialogue_index])
+		load_sound(sounds[dialogue_index])
 		$RichTextLabel.bbcode_text = dialogue[dialogue_index]
 		$RichTextLabel.percent_visible = 0
 		
@@ -45,6 +47,7 @@ func load_dialogue():
 				fade_in_character()
 		else:
 			fade_in_character()
+		
 		$Tween.start()
 	else:
 		queue_free()
@@ -76,7 +79,12 @@ func load_character_image(name, expression):
 					$CharacterImage.texture = ryuji_happy
 				"sad":
 					$CharacterImage.texture = ryuji_sad
-	
+
+func load_sound(sound):
+	match sound:
+		"robot":
+			$AudioStreamPlayer.stream = load("res://SoundEffects/robot_move.wav")
+			$AudioStreamPlayer.play()
 
 func _on_Tween_tween_completed(object, key):
 	finished = true

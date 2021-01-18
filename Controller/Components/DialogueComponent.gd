@@ -15,6 +15,7 @@ func set_dialogue_code(text_code):
 	var names = []
 	var expressions = []
 	var text = []
+	var sounds = []
 	
 	for dialogues in json_result["dialogues"]:
 		if dialogues["id"] == text_code:
@@ -22,6 +23,8 @@ func set_dialogue_code(text_code):
 				names.append(dialogue["name"])
 				expressions.append(dialogue["expression"])
 				text.append("(" + dialogue["name"] + ") " + dialogue["text"])
+				sounds.append(dialogue["sound"])
 			$DialogueBox.dialogue = text
 			$DialogueBox.names = names
 			$DialogueBox.expressions = expressions
+			$DialogueBox.sounds = sounds
