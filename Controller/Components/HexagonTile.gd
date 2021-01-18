@@ -24,7 +24,8 @@ func char_tile():
 	occupied = true
 
 func path_tile():
-	$Sprite.modulate = Color(0.7, 0.7, 0.7)
+	if !occupied:
+		$Sprite.modulate = Color(0.7, 0.7, 0.7)
 	path = true
 
 func _on_TileHitBox_mouse_entered():
@@ -35,8 +36,8 @@ func _on_TileHitBox_mouse_entered():
 func _on_TileHitBox_mouse_exited():
 	if !occupied:
 		$Sprite.modulate = Color(1, 1, 1)
-	if path:
-		$Sprite.modulate = Color(0.7, 0.7, 0.7)
+		if path:
+			$Sprite.modulate = Color(0.7, 0.7, 0.7)
 
 
 func _on_TileHitBox_input_event(viewport, event, shape_idx):

@@ -35,7 +35,7 @@ func next_turn_stage():
 			clean_paths()
 		"end of turn":
 			next_turn()
-	print(turn_stage)
+#	print(turn_stage)
 
 func clean_paths():
 	for tile_lines in tile_map:
@@ -49,8 +49,14 @@ func next_turn():
 		turn_order_index = 0
 	turn_stage = "menu"
 
+func command_character_to(tile_index, tile_position):
+#	print(tile_index)
+	if turn_stage == "move":
+		move_character_to(tile_index, tile_position)
+	elif turn_stage == "attack":
+		attack_character_to(tile_index, tile_position)
+
 func move_character_to(tile_index, tile_position):
-	print(tile_index)
 	if tile_map[tile_index.y][tile_index.x].path:
 		tile_map[tile_index.y][tile_index.x].char_tile()
 		tile_map[characters[turn_order_index].index.y][characters[turn_order_index].index.x].occupied = false
@@ -59,6 +65,13 @@ func move_character_to(tile_index, tile_position):
 		characters[turn_order_index].move_to(tile_position)
 		
 		next_turn_stage()
+
+func attack_character_to(tile_index, tile_position):
+	for character in characters:
+		if character.index == tile_index:
+			if character.team != characters[turn_order_index].team:
+				character.take_damage(characters[turn_order_index])
+	next_turn_stage()
 
 func load_tilemap(text_code):
 	
@@ -88,7 +101,7 @@ func instance_tilemap():
 			tile.tile_index = Vector2(x, y)
 			tile_vector_position.append(tile)
 			if cell == 1:
-				tile.connect("path_move_to", self, "move_character_to")
+				tile.connect("path_move_to", self, "command_character_to")
 				self.add_child(tile)
 			x += 1
 		tile_map.append(tile_vector_position)
@@ -125,51 +138,51 @@ func pathfinder(tile_index, char_range):
 	if tile_index.y - 1 >= 0:
 		if int(tile_index.y) % 2 != 0:
 			if (tile_code[tile_index.y - 1].size() > tile_index.x + 1):
-				if tile_map[tile_index.y - 1][tile_index.x + 1].occupied == false && tile_code[tile_index.y - 1][tile_index.x + 1] == 1:
+				if (tile_map[tile_index.y - 1][tile_index.x + 1].occupied == false || turn_stage == "attack") && tile_code[tile_index.y - 1][tile_index.x + 1] == 1:
 					paths.append(Vector2(tile_index.x + 1, tile_index.y - 1))
 		else:
 			if (tile_code[tile_index.y - 1].size() > tile_index.x):
-				if tile_map[tile_index.y - 1][tile_index.x].occupied == false && tile_code[tile_index.y - 1][tile_index.x] == 1:
+				if (tile_map[tile_index.y - 1][tile_index.x].occupied == false || turn_stage == "attack") && tile_code[tile_index.y - 1][tile_index.x] == 1:
 					paths.append(Vector2(tile_index.x, tile_index.y - 1))	
 
 	if (tile_code.size() > tile_index.y + 1):
 		if int(tile_index.y) % 2 != 0:
 			if (tile_code[tile_index.y + 1].size() > tile_index.x + 1):
-				if tile_map[tile_index.y + 1][tile_index.x + 1].occupied == false && tile_code[tile_index.y + 1][tile_index.x + 1] == 1:
+				if (tile_map[tile_index.y + 1][tile_index.x + 1].occupied == false || turn_stage == "attack") && tile_code[tile_index.y + 1][tile_index.x + 1] == 1:
 					paths.append(Vector2(tile_index.x + 1, tile_index.y + 1))
 		else:
 			if (tile_code[tile_index.y + 1].size() > tile_index.x):
-				if tile_map[tile_index.y + 1][tile_index.x].occupied == false && tile_code[tile_index.y + 1][tile_index.x] == 1:
+				if (tile_map[tile_index.y + 1][tile_index.x].occupied == false || turn_stage == "attack") && tile_code[tile_index.y + 1][tile_index.x] == 1:
 					paths.append(Vector2(tile_index.x, tile_index.y + 1))
 
 	if (tile_code.size() > tile_index.y + 2):
 		if (tile_code[tile_index.y + 2].size() > tile_index.x):
-			if tile_map[tile_index.y + 2][tile_index.x].occupied == false && tile_code[tile_index.y + 2][tile_index.x] == 1:
+			if (tile_map[tile_index.y + 2][tile_index.x].occupied == false || turn_stage == "attack") && tile_code[tile_index.y + 2][tile_index.x] == 1:
 				paths.append(Vector2(tile_index.x, tile_index.y + 2))
 
 	if (tile_code.size() > tile_index.y + 1):
 		if int(tile_index.y) % 2 != 0:
 			if (tile_code[tile_index.y + 1].size() > tile_index.x):
-				if tile_map[tile_index.y + 1][tile_index.x].occupied == false && tile_code[tile_index.y + 1][tile_index.x] == 1:
+				if (tile_map[tile_index.y + 1][tile_index.x].occupied == false || turn_stage == "attack") && tile_code[tile_index.y + 1][tile_index.x] == 1:
 					paths.append(Vector2(tile_index.x, tile_index.y + 1))
 		else:
 			if (0 <= tile_index.x - 1):
-				if tile_map[tile_index.y + 1][tile_index.x - 1].occupied == false && tile_code[tile_index.y + 1][tile_index.x - 1] == 1:
+				if (tile_map[tile_index.y + 1][tile_index.x - 1].occupied == false || turn_stage == "attack") && tile_code[tile_index.y + 1][tile_index.x - 1] == 1:
 					paths.append(Vector2(tile_index.x - 1, tile_index.y + 1))
 
 	if tile_index.y - 1 >= 0:
 		if int(tile_index.y) % 2 != 0:
 			if (tile_code[tile_index.y - 1].size() > tile_index.x):
-				if tile_map[tile_index.y - 1][tile_index.x].occupied == false && tile_code[tile_index.y - 1][tile_index.x] == 1:
+				if (tile_map[tile_index.y - 1][tile_index.x].occupied == false || turn_stage == "attack") && tile_code[tile_index.y - 1][tile_index.x] == 1:
 					paths.append(Vector2(tile_index.x, tile_index.y - 1))
 		else:
 			if (0 <= tile_index.x - 1):
-				if tile_map[tile_index.y - 1][tile_index.x - 1].occupied == false && tile_code[tile_index.y - 1][tile_index.x - 1] == 1:
+				if (tile_map[tile_index.y - 1][tile_index.x - 1].occupied == false || turn_stage == "attack") && tile_code[tile_index.y - 1][tile_index.x - 1] == 1:
 					paths.append(Vector2(tile_index.x - 1, tile_index.y - 1))
 	
 	if tile_index.y - 2 >= 0:
 		if (tile_code[tile_index.y - 2].size() > tile_index.x):
-			if tile_map[tile_index.y - 2][tile_index.x].occupied == false && tile_code[tile_index.y - 2][tile_index.x] == 1:
+			if (tile_map[tile_index.y - 2][tile_index.x].occupied == false || turn_stage == "attack") && tile_code[tile_index.y - 2][tile_index.x] == 1:
 				paths.append(Vector2(tile_index.x, tile_index.y - 2))
 
 	if char_range - 1 > 0:

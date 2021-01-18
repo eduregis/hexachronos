@@ -4,6 +4,27 @@ export var index = Vector2.ZERO
 export var character_info = {}
 export var team = ""
 
+var damage_text_position
+
+func _ready():
+	$RichTextLabel.modulate = Color(1,1,1,0)
+	if team == "foe":
+		$Sprite.flip_h = true
+	damage_text_position = $RichTextLabel.rect_position
+
+func take_damage(char_attack):
+	character_info["hp"] -= char_attack.character_info["attack"]
+	$RichTextLabel.bbcode_text = String(char_attack.character_info["attack"])
+	$Tween.interpolate_property(
+		$RichTextLabel, "modulate", Color(1,1,1,1), Color(1,1,1,0), 1, 
+		Tween.TRANS_SINE, Tween.EASE_IN_OUT
+	)
+	$Tween.interpolate_property(
+		$RichTextLabel, "rect_position:y", damage_text_position.y, damage_text_position.y - 30, 1, 
+		Tween.TRANS_SINE, Tween.EASE_IN_OUT
+	)
+	$Tween.start()
+
 func move_to(tile_position):
 	var tween1 = get_node("Tween")
 	var tween2 = get_node("Tween")
@@ -28,4 +49,9 @@ func move_to(tile_position):
 			Tween.TRANS_SINE, Tween.EASE_IN
 		)
 	tween2.start()
-#	position = tile_position
+
+
+func _on_Tween_tween_completed(object, key):
+	if character_info["hp"] <= 0:
+		queue_free()
+	$RichTextLabel.rect_position = damage_text_position

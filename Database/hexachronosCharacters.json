@@ -22,6 +22,17 @@
             "speed": 30,
             "movement": 3,
             "range": 2
+        },
+        {
+            "name": "Foe",
+            "hp": 50,
+            "attack": 15,
+            "defense": 10,
+            "accuracy": 10,
+            "dodge": 8,
+            "speed": 15,
+            "movement": 2,
+            "range": 1
         }
     ]
 }
