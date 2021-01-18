@@ -7,7 +7,47 @@ var Character = preload("res://View/Components/Character.tscn")
 var tile_code = []
 var tile_map = []
 var characters = []
+
 var turn_order_index = 0
+var turn_stage = "menu"
+
+func _process(delta):
+	if Input.is_action_just_pressed("ui_accept"):
+		next_turn_stage()
+
+func next_turn_stage():
+	match turn_stage:
+		"menu":
+			turn_stage = "move"
+			var paths = pathfinder(characters[turn_order_index].index, characters[turn_order_index].character_info["movement"])
+			for path in paths:
+				tile_map[path.y][path.x].path_tile()
+		"move":
+			turn_stage = "attack menu"
+			clean_paths()
+		"attack menu":
+			turn_stage = "attack"
+			var paths = pathfinder(characters[turn_order_index].index, characters[turn_order_index].character_info["range"])
+			for path in paths:
+				tile_map[path.y][path.x].path_tile()
+		"attack":
+			turn_stage = "end of turn"
+			clean_paths()
+		"end of turn":
+			next_turn()
+	print(turn_stage)
+
+func clean_paths():
+	for tile_lines in tile_map:
+		for tile in tile_lines:
+			tile.remove_path()
+			
+func next_turn():
+	if turn_order_index + 1 < characters.size():
+		turn_order_index += 1
+	else:
+		turn_order_index = 0
+	turn_stage = "menu"
 
 func move_character_to(tile_index, tile_position):
 	print(tile_index)
@@ -18,11 +58,7 @@ func move_character_to(tile_index, tile_position):
 		characters[turn_order_index].index = tile_index
 		characters[turn_order_index].move_to(tile_position)
 		
-		
-		
-		for tile_lines in tile_map:
-			for tile in tile_lines:
-				tile.remove_path()
+		next_turn_stage()
 
 func load_tilemap(text_code):
 	
@@ -79,9 +115,6 @@ func set_character(char_name, char_index, team):
 			character.team = team
 			character.set_position(tile_map[char_index.y][char_index.x].position)
 			tile_map[char_index.y][char_index.x].char_tile()
-			var paths = pathfinder(Vector2(char_index.x, char_index.y), character_info["range"])
-			for path in paths:
-				tile_map[path.y][path.x].path_tile()
 			characters.append(character)
 			self.add_child(character)
 

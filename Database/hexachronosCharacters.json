@@ -9,6 +9,18 @@
             "accuracy": 10,
             "dodge": 8,
             "speed": 10,
+            "movement": 2,
+            "range": 1
+        },
+        {
+            "name": "Mechanic",
+            "hp": 40,
+            "attack": 18,
+            "defense": 12,
+            "accuracy": 10,
+            "dodge": 15,
+            "speed": 30,
+            "movement": 3,
             "range": 2
         }
     ]

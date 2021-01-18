@@ -12,7 +12,11 @@ func move_to(tile_position):
 			Tween.TRANS_LINEAR, Tween.TRANS_LINEAR
 		)
 	tween1.start()
-	var yAnchor = position.y - 30
+	var yAnchor
+	if position.y < tile_position.y:
+		yAnchor = position.y - 30
+	else:
+		yAnchor = tile_position.y - 30
 	tween2.interpolate_property(
 			self, "position:y", position.y , yAnchor, 0.3, 
 			Tween.TRANS_SINE, Tween.EASE_OUT
