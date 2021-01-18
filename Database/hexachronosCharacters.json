@@ -1,0 +1,38 @@
+{
+    "name": "hexachronos",
+    "characters": [
+        {
+            "name": "Tanker",
+            "hp": 100,
+            "attack": 15,
+            "defense": 30,
+            "accuracy": 10,
+            "dodge": 8,
+            "speed": 10,
+            "movement": 2,
+            "range": 1
+        },
+        {
+            "name": "Mechanic",
+            "hp": 40,
+            "attack": 18,
+            "defense": 12,
+            "accuracy": 10,
+            "dodge": 15,
+            "speed": 30,
+            "movement": 3,
+            "range": 2
+        },
+        {
+            "name": "Foe",
+            "hp": 50,
+            "attack": 15,
+            "defense": 10,
+            "accuracy": 10,
+            "dodge": 8,
+            "speed": 15,
+            "movement": 2,
+            "range": 1
+        }
+    ]
+}
