@@ -13,7 +13,7 @@ func _ready():
 	$TileHitBox/HitBox.connect("path_move", self, "path_move_to")
 	yield(get_tree().create_timer((tile_index.x + tile_index.y) * 0.1), "timeout")
 	$Tween.interpolate_property(
-		$Sprite, "scale", Vector2.ZERO, Vector2(0.7, 0.7), 0.4, 
+		$Sprite, "scale", Vector2.ZERO, Vector2(1, 1), 0.4, 
 		Tween.TRANS_LINEAR, Tween.TRANS_LINEAR
 	)
 	$Tween.start()

@@ -99,7 +99,7 @@ func instance_tilemap():
 		x = 0
 		var tile_vector_position = []
 		for cell in array:
-			var tile_position = Vector2(window.x/6 + x*185 + (y % 2)*92, window.y/2 + y *30)
+			var tile_position = Vector2(window.x/4 + x*266 + (y % 2)*133, window.y/2 + y *43)
 			var tile = Tile.instance()
 			tile.set_position(tile_position)
 			tile.tile_index = Vector2(x, y)
