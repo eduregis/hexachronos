@@ -20,16 +20,20 @@ func next_turn_stage():
 		"menu":
 			turn_stage = "move"
 			var paths = pathfinder(characters[turn_order_index].index, characters[turn_order_index].character_info["movement"])
+			var path_index = 0
 			for path in paths:
-				tile_map[path.y][path.x].path_tile()
+				tile_map[path.y][path.x].path_tile(path_index)
+				path_index += 1
 		"move":
 			turn_stage = "attack menu"
 			clean_paths()
 		"attack menu":
 			turn_stage = "attack"
 			var paths = pathfinder(characters[turn_order_index].index, characters[turn_order_index].character_info["range"])
+			var path_index = 0
 			for path in paths:
-				tile_map[path.y][path.x].path_tile()
+				tile_map[path.y][path.x].path_tile(path_index)
+				path_index += 1
 		"attack":
 			turn_stage = "end of turn"
 			clean_paths()
@@ -50,7 +54,7 @@ func next_turn():
 	turn_stage = "menu"
 
 func command_character_to(tile_index, tile_position):
-#	print(tile_index)
+	print(tile_index)
 	if turn_stage == "move":
 		move_character_to(tile_index, tile_position)
 	elif turn_stage == "attack":
@@ -128,6 +132,7 @@ func set_character(char_name, char_index, team):
 			character.team = team
 			character.set_position(tile_map[char_index.y][char_index.x].position)
 			tile_map[char_index.y][char_index.x].char_tile()
+			character.connect("char_attack_to", self, "command_character_to")
 			characters.append(character)
 			self.add_child(character)
 

@@ -4,13 +4,28 @@ export var index = Vector2.ZERO
 export var character_info = {}
 export var team = ""
 
+signal char_attack_to
+
 var damage_text_position
 
 func _ready():
 	$RichTextLabel.modulate = Color(1,1,1,0)
+	$Sprite.modulate = Color(1,1,1,0)
 	if team == "foe":
 		$Sprite.flip_h = true
 	damage_text_position = $RichTextLabel.rect_position
+	var tween = get_node("Tween")
+	yield(get_tree().create_timer((index.x + index.y) * 0.1), "timeout")
+	tween.interpolate_property(
+		$Sprite, "modulate", Color(1, 1, 1, 0) , Color(1, 1, 1, 1), 0.4, 
+		Tween.TRANS_LINEAR, Tween.TRANS_LINEAR
+	)
+	var yPosition = $Sprite.position.y
+	tween.interpolate_property(
+		$Sprite, "position:y", yPosition - 100 , yPosition, 0.4, 
+		Tween.TRANS_QUAD, Tween.EASE_IN
+	)
+	tween.start()
 
 func take_damage(char_attack):
 	character_info["hp"] -= char_attack.character_info["attack"]

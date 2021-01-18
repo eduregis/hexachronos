@@ -95,7 +95,6 @@ __meta__ = {
 }
 
 [node name="next-indicator" type="Sprite" parent="DialogueBox"]
-visible = false
 position = Vector2( 683.01, 132.216 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )

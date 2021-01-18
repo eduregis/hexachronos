@@ -18,6 +18,8 @@ input_pickable = true
 [node name="HitBox" type="CollisionPolygon2D" parent="TileHitBox"]
 polygon = PoolVector2Array( 30.6949, -28.9081, 59.3004, -0.435017, 30.6949, 28.7002, -30.6216, 28.5678, -59.4919, 0.227146, -30.4891, -29.173 )
 script = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
 [connection signal="input_event" from="TileHitBox" to="TileHitBox/HitBox" method="_on_TileHitBox_input_event"]
 [connection signal="mouse_entered" from="TileHitBox" to="." method="_on_TileHitBox_mouse_entered"]
 [connection signal="mouse_exited" from="TileHitBox" to="." method="_on_TileHitBox_mouse_exited"]
