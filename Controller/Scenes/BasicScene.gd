@@ -9,6 +9,21 @@ var tile_map = []
 var characters = []
 var turn_order_index = 0
 
+func move_character_to(tile_index, tile_position):
+	print(tile_index)
+	if tile_map[tile_index.y][tile_index.x].path:
+		tile_map[tile_index.y][tile_index.x].char_tile()
+		tile_map[characters[turn_order_index].index.y][characters[turn_order_index].index.x].occupied = false
+		
+		characters[turn_order_index].index = tile_index
+		characters[turn_order_index].move_to(tile_position)
+		
+		
+		
+		for tile_lines in tile_map:
+			for tile in tile_lines:
+				tile.remove_path()
+
 func load_tilemap(text_code):
 	
 	var file = File.new()
@@ -37,6 +52,7 @@ func instance_tilemap():
 			tile.tile_index = Vector2(x, y)
 			tile_vector_position.append(tile)
 			if cell == 1:
+				tile.connect("path_move_to", self, "move_character_to")
 				self.add_child(tile)
 			x += 1
 		tile_map.append(tile_vector_position)
@@ -58,6 +74,7 @@ func set_character(char_name, char_index, team):
 	for character_info in json_result["characters"]:
 		if character_info["name"] == char_name:
 			var character = Character.instance()
+			character.index = Vector2(char_index.x, char_index.y)
 			character.character_info = character_info
 			character.team = team
 			character.set_position(tile_map[char_index.y][char_index.x].position)
@@ -65,7 +82,6 @@ func set_character(char_name, char_index, team):
 			var paths = pathfinder(Vector2(char_index.x, char_index.y), character_info["range"])
 			for path in paths:
 				tile_map[path.y][path.x].path_tile()
-				pass
 			characters.append(character)
 			self.add_child(character)
 
