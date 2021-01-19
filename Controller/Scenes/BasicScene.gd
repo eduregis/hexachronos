@@ -3,10 +3,13 @@ extends Node2D
 var DialogueBox = preload("res://View/Components/DialogueBox.tscn")
 var Tile = preload("res://View/Components/HexagonTile.tscn")
 var Character = preload("res://View/Components/Character.tscn")
+var Background = preload("res://View/Components/Background.tscn")
 
 var tile_code = []
 var tile_map = []
 var characters = []
+
+var background
 
 var turn_order_index = 0
 var turn_stage = "menu"
@@ -126,15 +129,16 @@ func set_character(char_name, char_index, team):
 	
 	for character_info in json_result["characters"]:
 		if character_info["name"] == char_name:
-			var character = Character.instance()
-			character.index = Vector2(char_index.x, char_index.y)
-			character.character_info = character_info
-			character.team = team
-			character.set_position(tile_map[char_index.y][char_index.x].position)
-			tile_map[char_index.y][char_index.x].char_tile()
-			character.connect("char_attack_to", self, "command_character_to")
-			characters.append(character)
-			self.add_child(character)
+			if tile_code[char_index.y][char_index.x] == 1:
+				var character = Character.instance()
+				character.index = Vector2(char_index.x, char_index.y)
+				character.character_info = character_info
+				character.team = team
+				character.set_position(tile_map[char_index.y][char_index.x].position)
+				tile_map[char_index.y][char_index.x].char_tile()
+				character.connect("char_attack_to", self, "command_character_to")
+				characters.append(character)
+				self.add_child(character)
 
 func pathfinder(tile_index, char_range):
 	var paths = []
@@ -208,3 +212,13 @@ func load_dialogue(text_code):
 	dialogueBox.set_dialogue_code(text_code)
 	dialogueBox.set_position(Vector2(window.x/2, window.y))
 	self.add_child(dialogueBox)
+
+func load_background(background_code):
+	if background == null:
+		var window = get_viewport_rect().size
+		background = Background.instance()
+		background.set_position(Vector2(window.x/2, window.y))
+		background.change_background(background_code)
+		self.add_child(background)
+	else:
+		background.change_background(background_code)
