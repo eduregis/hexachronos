@@ -7,9 +7,16 @@ var path = false
 signal path_move_to
 
 func _ready():
+	$Sprite.scale = Vector2.ZERO
 	$TileHitBox/HitBox.tile_index = tile_index
 	$TileHitBox/HitBox.tile_position = position
 	$TileHitBox/HitBox.connect("path_move", self, "path_move_to")
+	yield(get_tree().create_timer((tile_index.x + tile_index.y) * 0.1), "timeout")
+	$Tween.interpolate_property(
+		$Sprite, "scale", Vector2.ZERO, Vector2(0.7, 0.7), 0.4, 
+		Tween.TRANS_LINEAR, Tween.TRANS_LINEAR
+	)
+	$Tween.start()
 
 func path_move_to():
 	emit_signal("path_move_to", tile_index, position)
@@ -20,12 +27,22 @@ func remove_path():
 		$Sprite.modulate = Color(1, 1, 1)
 
 func char_tile():
-	$Sprite.modulate = Color(0.3, 0.3, 0.3)
+	yield(get_tree().create_timer((tile_index.x + tile_index.y) * 0.1), "timeout")
+	$Tween.interpolate_property(
+			$Sprite, "modulate", Color(1, 1, 1) , Color(0.3, 0.3, 0.3), 0.4, 
+			Tween.TRANS_SINE, Tween.TRANS_LINEAR
+		)
+	$Tween.start()
 	occupied = true
 
-func path_tile():
+func path_tile(path_index):
 	if !occupied:
-		$Sprite.modulate = Color(0.7, 0.7, 0.7)
+		yield(get_tree().create_timer(path_index * 0.02), "timeout")
+		$Tween.interpolate_property(
+			$Sprite, "modulate", Color(1, 1, 1) , Color(0.7, 0.7, 0.7), 0.4, 
+			Tween.TRANS_SINE, Tween.TRANS_LINEAR
+		)
+		$Tween.start()
 	path = true
 
 func _on_TileHitBox_mouse_entered():
@@ -38,7 +55,3 @@ func _on_TileHitBox_mouse_exited():
 		$Sprite.modulate = Color(1, 1, 1)
 		if path:
 			$Sprite.modulate = Color(0.7, 0.7, 0.7)
-
-
-func _on_TileHitBox_input_event(viewport, event, shape_idx):
-	print(tile_index)
