@@ -6,23 +6,22 @@ func _ready():
 	set_ally("Tanker", 1, 1)
 	set_ally("Mechanic", 2, 2)
 	set_foe("Foe", 3, 2)
-#	load_dialogue("0001")
-#	yield(self, "end_of_dialogue")
-#	yield(get_tree().create_timer(0.5), "timeout")
-#	load_dialogue("0002")
 	pass
 
 func post_menu_inserts():
-	print("aa")
+#	load_dialogue("0001")
+#	yield(self, "end_of_dialogue")
+#	yield(get_tree().create_timer(0.5), "timeout")
+	pass
 
 func post_move_inserts():
-	print("bb")
+	pass
 
 func post_attack_menu_inserts():
-	print("cc")
+	pass
 
 func post_attack_inserts():
-	print("dd")
+	pass
 
 func post_turn_inserts():
-	print("ee")
+	pass

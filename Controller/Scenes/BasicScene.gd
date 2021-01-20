@@ -17,7 +17,7 @@ var turn_stage = "menu"
 signal end_of_dialogue
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept") && characters.size() > 0:
+	if Input.is_action_just_pressed("ui_right") && characters.size() > 0:
 		next_turn_stage()
 
 #	funções à serem sobreescritas
