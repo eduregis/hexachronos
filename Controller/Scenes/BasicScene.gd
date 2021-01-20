@@ -14,9 +14,27 @@ var background
 var turn_order_index = 0
 var turn_stage = "menu"
 
+signal end_of_dialogue
+
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept") && characters.size() > 0:
 		next_turn_stage()
+
+#	funções à serem sobreescritas
+func post_menu_inserts():
+	pass
+
+func post_move_inserts():
+	pass
+
+func post_attack_menu_inserts():
+	pass
+
+func post_attack_inserts():
+	pass
+
+func post_turn_inserts():
+	pass
 
 func next_turn_stage():
 	match turn_stage:
@@ -27,9 +45,11 @@ func next_turn_stage():
 			for path in paths:
 				tile_map[path.y][path.x].path_tile(path_index)
 				path_index += 1
+			post_menu_inserts()
 		"move":
 			turn_stage = "attack menu"
 			clean_paths()
+			post_move_inserts()
 		"attack menu":
 			turn_stage = "attack"
 			var paths = pathfinder(characters[turn_order_index].index, characters[turn_order_index].character_info["range"])
@@ -37,11 +57,14 @@ func next_turn_stage():
 			for path in paths:
 				tile_map[path.y][path.x].path_tile(path_index)
 				path_index += 1
+			post_attack_menu_inserts()
 		"attack":
 			turn_stage = "end of turn"
 			clean_paths()
+			post_attack_inserts()
 		"end of turn":
 			next_turn()
+			post_turn_inserts()
 #	print(turn_stage)
 
 func clean_paths():
@@ -211,7 +234,11 @@ func load_dialogue(text_code):
 	var dialogueBox = DialogueBox.instance()
 	dialogueBox.set_dialogue_code(text_code)
 	dialogueBox.set_position(Vector2(window.x/2, window.y))
+	dialogueBox.connect("end_of_dialogue", self, "end_of_dialogue")
 	self.add_child(dialogueBox)
+
+func end_of_dialogue():
+	emit_signal("end_of_dialogue")
 
 func load_background(background_code):
 	if background == null:

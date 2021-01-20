@@ -5,6 +5,8 @@ export var expressions = []
 export var dialogue = []
 export var sounds = []
 
+signal end_of_dialogue
+
 var makoto_angry = preload("res://Assets/CharacterSprites/makoto_angry.png")
 var makoto_surprised = preload("res://Assets/CharacterSprites/makoto_surprised.png")
 var makoto_neutral = preload("res://Assets/CharacterSprites/makoto_neutral.png")
@@ -50,6 +52,7 @@ func load_dialogue():
 		
 		$Tween.start()
 	else:
+		emit_signal("end_of_dialogue")
 		queue_free()
 	dialogue_index += 1
 	

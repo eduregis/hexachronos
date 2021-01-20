@@ -1,7 +1,12 @@
 extends Control
 
+signal end_of_dialogue
+
 func _ready():
-	pass
+	$DialogueBox.connect("end_of_dialogue", self, "end_of_dialogue")
+
+func end_of_dialogue():
+	emit_signal("end_of_dialogue")
 
 func set_dialogue_code(text_code):
 	# fazendo a chamada para o arquivo .JSON
