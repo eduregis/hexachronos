@@ -3,8 +3,10 @@ extends Node2D
 export var index = Vector2.ZERO
 export var character_info = {}
 export var team = ""
+export var defeated = false
 
 signal char_attack_to
+signal defeated
 
 var damage_text_position
 
@@ -67,6 +69,7 @@ func move_to(tile_position):
 
 
 func _on_Tween_tween_completed(object, key):
-	if character_info["hp"] <= 0:
-		queue_free()
+	if character_info["hp"] <= 0 && defeated == false:
+		emit_signal("defeated", team)
+		defeated = true
 	$RichTextLabel.rect_position = damage_text_position

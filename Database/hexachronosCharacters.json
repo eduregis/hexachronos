@@ -25,7 +25,7 @@
         },
         {
             "name": "Foe",
-            "hp": 50,
+            "hp": 5,
             "attack": 15,
             "defense": 10,
             "accuracy": 10,

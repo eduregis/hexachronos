@@ -13,12 +13,20 @@ var background
 
 var turn_order_index = 0
 var turn_stage = "menu"
+var is_combat = false
+
+var allies = 0
+var foes = 0
 
 signal end_of_dialogue
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_right") && characters.size() > 0:
 		next_turn_stage()
+		
+	if is_combat:
+		if allies == 0 || foes == 0:
+			end_combat()
 
 #	funções à serem sobreescritas
 func post_menu_inserts():
@@ -85,6 +93,13 @@ func command_character_to(tile_index, tile_position):
 		move_character_to(tile_index, tile_position)
 	elif turn_stage == "attack":
 		attack_character_to(tile_index, tile_position)
+		
+func character_defeated(team):
+	match team:
+		"ally":
+			allies -= 1
+		"foe":
+			foes -= 1
 
 func move_character_to(tile_index, tile_position):
 	if tile_map[tile_index.y][tile_index.x].path:
@@ -160,8 +175,13 @@ func set_character(char_name, char_index, team):
 				character.set_position(tile_map[char_index.y][char_index.x].position)
 				tile_map[char_index.y][char_index.x].char_tile()
 				character.connect("char_attack_to", self, "command_character_to")
+				character.connect("defeated", self, "character_defeated")
 				characters.append(character)
 				self.add_child(character)
+				if team == "ally":
+					allies += 1
+				elif team == "foe":
+					foes += 1
 
 func pathfinder(tile_index, char_range):
 	var paths = []
@@ -249,3 +269,9 @@ func load_background(background_code):
 		self.add_child(background)
 	else:
 		background.change_background(background_code)
+
+func start_combat():
+	is_combat = true
+	
+func end_combat():
+	pass
