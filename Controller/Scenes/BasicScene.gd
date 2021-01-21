@@ -1,6 +1,7 @@
 extends Node2D
 
 var DialogueBox = preload("res://View/Components/DialogueBox.tscn")
+var QuestionBox = preload("res://View/Components/QuestionBox.tscn")
 var Tile = preload("res://View/Components/HexagonTile.tscn")
 var Character = preload("res://View/Components/Character.tscn")
 var Background = preload("res://View/Components/Background.tscn")
@@ -13,10 +14,39 @@ var background
 
 var turn_order_index = 0
 var turn_stage = "menu"
+var is_combat = false
+
+var allies = 0
+var foes = 0
+
+var answer_index = 0
+
+signal end_of_dialogue
+signal answer_index
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_right") && characters.size() > 0:
 		next_turn_stage()
+		
+	if is_combat:
+		if allies == 0 || foes == 0:
+			end_combat()
+
+#	funções à serem sobreescritas
+func post_menu_inserts():
+	pass
+
+func post_move_inserts():
+	pass
+
+func post_attack_menu_inserts():
+	pass
+
+func post_attack_inserts():
+	pass
+
+func post_turn_inserts():
+	pass
 
 func next_turn_stage():
 	match turn_stage:
@@ -27,9 +57,11 @@ func next_turn_stage():
 			for path in paths:
 				tile_map[path.y][path.x].path_tile(path_index)
 				path_index += 1
+			post_menu_inserts()
 		"move":
 			turn_stage = "attack menu"
 			clean_paths()
+			post_move_inserts()
 		"attack menu":
 			turn_stage = "attack"
 			var paths = pathfinder(characters[turn_order_index].index, characters[turn_order_index].character_info["range"])
@@ -37,11 +69,14 @@ func next_turn_stage():
 			for path in paths:
 				tile_map[path.y][path.x].path_tile(path_index)
 				path_index += 1
+			post_attack_menu_inserts()
 		"attack":
 			turn_stage = "end of turn"
 			clean_paths()
+			post_attack_inserts()
 		"end of turn":
 			next_turn()
+			post_turn_inserts()
 #	print(turn_stage)
 
 func clean_paths():
@@ -62,6 +97,13 @@ func command_character_to(tile_index, tile_position):
 		move_character_to(tile_index, tile_position)
 	elif turn_stage == "attack":
 		attack_character_to(tile_index, tile_position)
+		
+func character_defeated(team):
+	match team:
+		"ally":
+			allies -= 1
+		"foe":
+			foes -= 1
 
 func move_character_to(tile_index, tile_position):
 	if tile_map[tile_index.y][tile_index.x].path:
@@ -137,8 +179,13 @@ func set_character(char_name, char_index, team):
 				character.set_position(tile_map[char_index.y][char_index.x].position)
 				tile_map[char_index.y][char_index.x].char_tile()
 				character.connect("char_attack_to", self, "command_character_to")
+				character.connect("defeated", self, "character_defeated")
 				characters.append(character)
 				self.add_child(character)
+				if team == "ally":
+					allies += 1
+				elif team == "foe":
+					foes += 1
 
 func pathfinder(tile_index, char_range):
 	var paths = []
@@ -211,7 +258,24 @@ func load_dialogue(text_code):
 	var dialogueBox = DialogueBox.instance()
 	dialogueBox.set_dialogue_code(text_code)
 	dialogueBox.set_position(Vector2(window.x/2, window.y))
+	dialogueBox.connect("end_of_dialogue", self, "end_of_dialogue")
 	self.add_child(dialogueBox)
+
+func end_of_dialogue():
+	emit_signal("end_of_dialogue")
+
+func load_question(text_code):
+	var window = get_viewport_rect().size
+	var questionBox = QuestionBox.instance()
+	questionBox.set_question_code(text_code)
+	questionBox.set_position(Vector2(window.x/2, window.y))
+	questionBox.connect("answer_index", self, "end_of_question")
+	self.add_child(questionBox)
+	
+func end_of_question(index):
+	answer_index = index
+	emit_signal("answer_index")
+	
 
 func load_background(background_code):
 	if background == null:
@@ -222,3 +286,9 @@ func load_background(background_code):
 		self.add_child(background)
 	else:
 		background.change_background(background_code)
+
+func start_combat():
+	is_combat = true
+	
+func end_combat():
+	pass

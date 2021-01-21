@@ -26,6 +26,7 @@ func _process(delta):
 			load_dialogue()
 		else:
 			$Tween.stop_all()
+			$TweenCharacter.stop_all()
 			$RichTextLabel.percent_visible = 1
 			$CharacterImage.modulate = Color(1, 1, 1, 1)
 			finished = true
@@ -37,9 +38,9 @@ func load_dialogue():
 		load_sound(sounds[dialogue_index])
 		$RichTextLabel.bbcode_text = dialogue[dialogue_index]
 		$RichTextLabel.percent_visible = 0
-		
+		var dialogue_length = dialogue[dialogue_index].length()
 		$Tween.interpolate_property(
-			$RichTextLabel, "percent_visible", 0 , 1, 1, 
+			$RichTextLabel, "percent_visible", 0 , 1, dialogue_length * 0.02, 
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
 		)
 		if dialogue_index > 0:
@@ -55,12 +56,13 @@ func load_dialogue():
 	
 func fade_in_character():
 	$CharacterImage.modulate = Color(1, 1, 1, 0)
-	$Tween.interpolate_property(
+	$TweenCharacter.interpolate_property(
 		$CharacterImage, "modulate", 
 		Color(1, 1, 1, 0), Color(1, 1, 1, 1), 0.3, 
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
 	)
-
+	$TweenCharacter.start()
+	
 func load_character_image(name, expression):
 	match name:
 		"Makoto":

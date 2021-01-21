@@ -14,7 +14,7 @@ func _ready():
 	yield(get_tree().create_timer((tile_index.x + tile_index.y) * 0.1), "timeout")
 	$Tween.interpolate_property(
 		$Sprite, "scale", Vector2.ZERO, Vector2(0.7, 0.7), 0.4, 
-		Tween.TRANS_LINEAR, Tween.TRANS_LINEAR
+		Tween.TRANS_QUAD, Tween.EASE_IN_OUT
 	)
 	$Tween.start()
 
