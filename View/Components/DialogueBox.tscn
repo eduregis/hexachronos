@@ -95,6 +95,7 @@ __meta__ = {
 }
 
 [node name="next-indicator" type="Sprite" parent="DialogueBox"]
+visible = false
 position = Vector2( 683.01, 132.216 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
@@ -104,6 +105,8 @@ autoplay = "Idle"
 anims/Idle = SubResource( 2 )
 
 [node name="Tween" type="Tween" parent="DialogueBox"]
+
+[node name="TweenCharacter" type="Tween" parent="DialogueBox"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DialogueBox"]
 [connection signal="tween_completed" from="DialogueBox/Tween" to="DialogueBox" method="_on_Tween_tween_completed"]

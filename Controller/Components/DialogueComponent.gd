@@ -7,6 +7,7 @@ func _ready():
 
 func end_of_dialogue():
 	emit_signal("end_of_dialogue")
+	queue_free()
 
 func set_dialogue_code(text_code):
 	# fazendo a chamada para o arquivo .JSON

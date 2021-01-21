@@ -1,6 +1,7 @@
 extends Node2D
 
 var DialogueBox = preload("res://View/Components/DialogueBox.tscn")
+var QuestionBox = preload("res://View/Components/QuestionBox.tscn")
 var Tile = preload("res://View/Components/HexagonTile.tscn")
 var Character = preload("res://View/Components/Character.tscn")
 var Background = preload("res://View/Components/Background.tscn")
@@ -18,7 +19,10 @@ var is_combat = false
 var allies = 0
 var foes = 0
 
+var answer_index = 0
+
 signal end_of_dialogue
+signal answer_index
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_right") && characters.size() > 0:
@@ -259,6 +263,19 @@ func load_dialogue(text_code):
 
 func end_of_dialogue():
 	emit_signal("end_of_dialogue")
+
+func load_question(text_code):
+	var window = get_viewport_rect().size
+	var questionBox = QuestionBox.instance()
+	questionBox.set_question_code(text_code)
+	questionBox.set_position(Vector2(window.x/2, window.y))
+	questionBox.connect("answer_index", self, "end_of_question")
+	self.add_child(questionBox)
+	
+func end_of_question(index):
+	answer_index = index
+	emit_signal("answer_index")
+	
 
 func load_background(background_code):
 	if background == null:

@@ -1,0 +1,106 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Fonts/GaramondPremrPro-Smbd.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/dialog-background.png" type="Texture" id=2]
+[ext_resource path="res://Controller/Components/QuestionBox.gd" type="Script" id=3]
+[ext_resource path="res://Controller/Components/QuestionComponent.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[node name="QuestionComponent" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuestionBox" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -362.0
+margin_top = -204.0
+margin_right = 363.0
+margin_bottom = -35.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CharacterImage" type="TextureRect" parent="QuestionBox"]
+anchor_left = 0.738
+anchor_right = 0.738
+margin_left = -151.05
+margin_top = -300.0
+margin_right = 150.95
+margin_bottom = 2.0
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="QuestionBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Statement" type="RichTextLabel" parent="QuestionBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = 15.0
+margin_right = -15.0
+margin_bottom = -119.0
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0.478431, 0.254902, 0.254902, 1 )
+bbcode_text = "Pergunta"
+text = "Pergunta"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="QuestionBox"]
+
+[node name="Answer1" type="Button" parent="QuestionBox"]
+margin_left = 24.0
+margin_top = 46.0
+margin_right = 693.0
+margin_bottom = 83.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer2" type="Button" parent="QuestionBox"]
+margin_left = 24.0
+margin_top = 83.0
+margin_right = 693.0
+margin_bottom = 120.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer3" type="Button" parent="QuestionBox"]
+margin_left = 24.0
+margin_top = 120.0
+margin_right = 693.0
+margin_bottom = 157.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="QuestionBox"]
+[connection signal="tween_completed" from="QuestionBox/Tween" to="QuestionBox" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="QuestionBox/Answer1" to="QuestionBox" method="_on_Answer1_pressed"]
+[connection signal="pressed" from="QuestionBox/Answer2" to="QuestionBox" method="_on_Answer2_pressed"]
+[connection signal="pressed" from="QuestionBox/Answer3" to="QuestionBox" method="_on_Answer3_pressed"]

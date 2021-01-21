@@ -5,8 +5,6 @@ export var expressions = []
 export var dialogue = []
 export var sounds = []
 
-signal end_of_dialogue
-
 var makoto_angry = preload("res://Assets/CharacterSprites/makoto_angry.png")
 var makoto_surprised = preload("res://Assets/CharacterSprites/makoto_surprised.png")
 var makoto_neutral = preload("res://Assets/CharacterSprites/makoto_neutral.png")
@@ -24,10 +22,12 @@ func _ready():
 func _process(delta):
 	$"next-indicator".visible = finished
 	if Input.is_action_just_pressed("ui_accept"):
+		print(finished)
 		if finished:
 			load_dialogue()
 		else:
 			$Tween.stop_all()
+			$TweenCharacter.stop_all()
 			$RichTextLabel.percent_visible = 1
 			$CharacterImage.modulate = Color(1, 1, 1, 1)
 			finished = true
@@ -52,18 +52,18 @@ func load_dialogue():
 		
 		$Tween.start()
 	else:
-		emit_signal("end_of_dialogue")
 		queue_free()
 	dialogue_index += 1
 	
 func fade_in_character():
 	$CharacterImage.modulate = Color(1, 1, 1, 0)
-	$Tween.interpolate_property(
+	$TweenCharacter.interpolate_property(
 		$CharacterImage, "modulate", 
 		Color(1, 1, 1, 0), Color(1, 1, 1, 1), 0.3, 
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
 	)
-
+	$TweenCharacter.start()
+	
 func load_character_image(name, expression):
 	match name:
 		"Makoto":

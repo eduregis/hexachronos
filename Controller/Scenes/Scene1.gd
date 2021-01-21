@@ -1,19 +1,26 @@
 extends "res://Controller/Scenes/BasicScene.gd"
 
 func _ready():
-#	load_background("black")
-	load_tilemap("0001")
-	set_ally("Tanker", 1, 1)
-	set_ally("Mechanic", 2, 2)
-	set_foe("Foe", 3, 2)
-	start_combat()
-	pass
+	load_question("0001")
+	yield(self, "answer_index")
+	if answer_index == 1:
+		load_dialogue("0001")
 
-func post_menu_inserts():
+#	GERAR TILEMAP
+#	load_tilemap("0001")
+#	set_ally("Tanker", 1, 1)
+#	set_ally("Mechanic", 2, 2)
+#	set_foe("Foe", 3, 2)
+#	start_combat()
+
+#	SEQUENCIA DE DIALOGOS
+#	load_background("black")
 #	load_dialogue("0001")
 #	yield(self, "end_of_dialogue")
 #	yield(get_tree().create_timer(0.5), "timeout")
 #	load_dialogue("0002")
+
+func post_menu_inserts():
 	pass
 
 func post_move_inserts():
@@ -29,6 +36,10 @@ func post_turn_inserts():
 	pass
 
 func end_combat():
+	if allies == 0:
+		print("you lose")
+	elif foes == 0:
+		print("you win")
 	turn_order_index = 0
 	turn_stage = "menu"
 	for character in characters:
@@ -36,6 +47,8 @@ func end_combat():
 	for tile_vector in tile_map:
 		for tile in tile_vector:
 			self.remove_child(tile)
+	tile_map = []
+	tile_code = []
 	allies = 0
 	foes = 0
 	is_combat = false
