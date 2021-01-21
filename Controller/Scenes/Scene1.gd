@@ -2,11 +2,12 @@ extends "res://Controller/Scenes/BasicScene.gd"
 
 func _ready():
 #	load_dialogue("0001")
-	load_question("0001")
-	yield(self, "answer_index")
-	yield(get_tree().create_timer(0.5), "timeout")
-	if answer_index == 1:
-		load_dialogue("0001")
+#	load_question("0001")
+#	yield(self, "answer_index")
+#	load_quick_transition(true)
+#	if answer_index == 1:
+#		yield(transition, "end_of_transition")
+#		load_dialogue("0001")
 
 #	GERAR TILEMAP
 #	load_tilemap("0001")
@@ -16,7 +17,12 @@ func _ready():
 #	start_combat()
 
 #	SEQUENCIA DE DIALOGOS
-#	load_background("black")
+	
+	load_background("test")
+	yield(get_tree().create_timer(1.5), "timeout")
+	load_background("black")
+	yield(get_tree().create_timer(1.5), "timeout")
+	load_background("test")
 #	load_dialogue("0001")
 #	yield(self, "end_of_dialogue")
 #	yield(get_tree().create_timer(0.5), "timeout")
