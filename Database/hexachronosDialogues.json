@@ -1,0 +1,23 @@
+{
+    "name": "hexachronos",
+    "dialogues": [
+        {
+            "id": "0001",
+            "sequence": [
+                {"name": "Ryuji", "expression": "happy", "text": "Encontramos o cofre! Finalmente!", "sound": ""},
+                {"name": "Makoto", "expression": "surprised", "text": "Eu já tinha perdido as esperanças...", "sound": "robot"},
+                {"name": "Makoto", "expression": "neutral", "text": "Agora precisamos encontrar um jeito de abrir.", "sound": ""},
+                {"name": "Ryuji", "expression": "surprised", "text": "Ué, achei que tinhamos os explosivos..", "sound": ""},
+                {"name": "Makoto", "expression": "angry", "text": "Usamos o último pra abrir aquela passagem. \nQue droga! vamos ter que achar outra maneira!", "sound": ""},
+                {"name": "Ryuji", "expression": "sad", "text": "De volta a estaca zero...", "sound": ""}
+            ]
+        },
+        {
+            "id": "0002",
+            "sequence": [
+                {"name": "Zikko", "expression": "neutral", "text": "Vapo Vapo", "sound": ""},
+                {"name": "Titta", "expression": "happy", "text": "Executamo os cara", "sound": ""}
+            ]
+        }
+    ]
+}
