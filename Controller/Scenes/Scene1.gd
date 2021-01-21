@@ -1,8 +1,10 @@
 extends "res://Controller/Scenes/BasicScene.gd"
 
 func _ready():
+#	load_dialogue("0001")
 	load_question("0001")
 	yield(self, "answer_index")
+	yield(get_tree().create_timer(0.5), "timeout")
 	if answer_index == 1:
 		load_dialogue("0001")
 
@@ -19,6 +21,7 @@ func _ready():
 #	yield(self, "end_of_dialogue")
 #	yield(get_tree().create_timer(0.5), "timeout")
 #	load_dialogue("0002")
+	pass
 
 func post_menu_inserts():
 	pass

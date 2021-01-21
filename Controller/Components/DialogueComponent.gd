@@ -3,10 +3,24 @@ extends Control
 signal end_of_dialogue
 
 func _ready():
+	self.modulate = Color(1, 1, 1, 0)
 	$DialogueBox.connect("end_of_dialogue", self, "end_of_dialogue")
+	$DialogueTween.interpolate_property(
+		self, "modulate", 
+		Color(1, 1, 1, 0), Color(1, 1, 1, 1), 0.4, 
+		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
+	)
+	$DialogueTween.start()
 
 func end_of_dialogue():
 	emit_signal("end_of_dialogue")
+	$DialogueTween.interpolate_property(
+		self, "modulate", 
+		Color(1, 1, 1, 1), Color(1, 1, 1, 0), 0.4, 
+		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
+	)
+	$DialogueTween.start()
+	yield($DialogueTween, "tween_completed")
 	queue_free()
 
 func set_dialogue_code(text_code):

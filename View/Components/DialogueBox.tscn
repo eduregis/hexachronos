@@ -109,4 +109,6 @@ anims/Idle = SubResource( 2 )
 [node name="TweenCharacter" type="Tween" parent="DialogueBox"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DialogueBox"]
+
+[node name="DialogueTween" type="Tween" parent="."]
 [connection signal="tween_completed" from="DialogueBox/Tween" to="DialogueBox" method="_on_Tween_tween_completed"]

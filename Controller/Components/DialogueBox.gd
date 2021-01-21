@@ -22,7 +22,6 @@ func _ready():
 func _process(delta):
 	$"next-indicator".visible = finished
 	if Input.is_action_just_pressed("ui_accept"):
-		print(finished)
 		if finished:
 			load_dialogue()
 		else:
@@ -39,9 +38,9 @@ func load_dialogue():
 		load_sound(sounds[dialogue_index])
 		$RichTextLabel.bbcode_text = dialogue[dialogue_index]
 		$RichTextLabel.percent_visible = 0
-		
+		var dialogue_length = dialogue[dialogue_index].length()
 		$Tween.interpolate_property(
-			$RichTextLabel, "percent_visible", 0 , 1, 1, 
+			$RichTextLabel, "percent_visible", 0 , 1, dialogue_length * 0.02, 
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
 		)
 		if dialogue_index > 0:

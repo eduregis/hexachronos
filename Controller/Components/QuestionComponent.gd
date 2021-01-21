@@ -3,10 +3,24 @@ extends Control
 signal answer_index
 
 func _ready():
+	self.modulate = Color(1, 1, 1, 0)
 	$QuestionBox.connect("answer_index", self, "answer_index")
+	$QuestionTween.interpolate_property(
+		self, "modulate", 
+		Color(1, 1, 1, 0), Color(1, 1, 1, 1), 0.4, 
+		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
+	)
+	$QuestionTween.start()
 
 func answer_index(index):
 	emit_signal("answer_index", index)
+	$QuestionTween.interpolate_property(
+		self, "modulate", 
+		Color(1, 1, 1, 1), Color(1, 1, 1, 0), 0.4, 
+		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
+	)
+	$QuestionTween.start()
+	yield($QuestionTween, "tween_completed")
 	queue_free()
 
 func set_question_code(text_code):
