@@ -32,6 +32,7 @@ func _process(delta):
 	
 	
 func load_question():
+	fade_in_character()
 	load_character_image(char_name, expression)
 	load_sound(sound)
 	$Statement.bbcode_text = dialogue
@@ -49,7 +50,6 @@ func load_question():
 	)
 	$Tween.start()
 	yield($Tween, "tween_completed")
-	fade_in_character()
 	fade_in_answer()
 	$Tween.start()
 

@@ -5,12 +5,14 @@ var QuestionBox = preload("res://View/Components/QuestionBox.tscn")
 var Tile = preload("res://View/Components/HexagonTile.tscn")
 var Character = preload("res://View/Components/Character.tscn")
 var Background = preload("res://View/Components/Background.tscn")
+var Transition = preload("res://View/Components/Transition.tscn")
 
 var tile_code = []
 var tile_map = []
 var characters = []
 
 var background
+var transition
 
 var turn_order_index = 0
 var turn_stage = "menu"
@@ -286,6 +288,16 @@ func load_background(background_code):
 		self.add_child(background)
 	else:
 		background.change_background(background_code)
+
+func load_quick_transition(quick_transition):
+	var window = get_viewport_rect().size
+	transition = Transition.instance()
+	transition.set_position(Vector2(window.x/2, window.y))
+	transition.quick_transition = quick_transition
+	self.add_child(transition)
+
+func dismiss_transition():
+	transition.dismiss_transition()
 
 func start_combat():
 	is_combat = true
