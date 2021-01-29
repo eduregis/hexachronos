@@ -52,7 +52,6 @@ func post_turn_inserts():
 	pass
 
 func next_turn_stage():
-	print(paths.size())
 	match turn_stage:
 		"menu":
 			turn_stage = "move"
@@ -61,8 +60,8 @@ func next_turn_stage():
 			for path in paths:
 				tile_map[path.y][path.x].path_tile(path_index)
 				path_index += 1
-			move_foe_IA()
-#			print(paths.size())
+			if characters[turn_order_index].team == "foe":
+				move_foe_IA()
 			post_menu_inserts()
 		"move":
 			turn_stage = "attack menu"
@@ -75,7 +74,6 @@ func next_turn_stage():
 			for path in paths:
 				tile_map[path.y][path.x].path_tile(path_index)
 				path_index += 1
-#			print(paths.size())
 			post_attack_menu_inserts()
 		"attack":
 			turn_stage = "end of turn"
@@ -108,8 +106,23 @@ func command_character_to(tile_index, tile_position):
 			attack_character_to(tile_index, tile_position)
 
 func move_foe_IA():
-	if characters[turn_order_index].team == "foe":
-		print("inimigo andou")
+	yield(get_tree().create_timer(1.0), "timeout")
+	var find_target = false
+	var foe_paths = pathfinder(characters[turn_order_index].index, characters[turn_order_index].character_info["movement"], true)
+	foe_paths.append(characters[turn_order_index].index)
+	for foe_path in foe_paths:
+		var adjacent_paths = pathfinder(foe_path, characters[turn_order_index].character_info["range"], false)
+		for adjacent_path in adjacent_paths:
+			for character in characters:
+				if (character.index == adjacent_path) && (character.team == "ally") && !find_target:
+					find_target = true
+					move_character_to(foe_path, tile_map[foe_path.y][foe_path.x].position)
+	if !find_target: 
+		var rand_value = foe_paths[randi() % foe_paths.size()]
+		move_character_to(rand_value, tile_map[rand_value.y][rand_value.x].position)
+
+func attack_foe_IA():
+	pass
 
 func character_defeated(team):
 	match team:
