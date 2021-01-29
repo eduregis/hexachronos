@@ -10,19 +10,19 @@ func _ready():
 #		load_dialogue("0001")
 
 #	GERAR TILEMAP
-#	load_tilemap("0001")
-#	set_ally("Tanker", 1, 1)
-#	set_ally("Mechanic", 2, 2)
-#	set_foe("Foe", 3, 2)
-#	start_combat()
+	load_tilemap("0001")
+	set_ally("Tanker", 1, 1)
+	set_ally("Mechanic", 2, 2)
+	set_foe("Foe", 3, 2)
+	start_combat()
 
 #	SEQUENCIA DE DIALOGOS
 	
-	load_background("test")
-	yield(get_tree().create_timer(1.5), "timeout")
-	load_background("black")
-	yield(get_tree().create_timer(1.5), "timeout")
-	load_background("test")
+#	load_background("test")
+#	yield(get_tree().create_timer(1.5), "timeout")
+#	load_background("black")
+#	yield(get_tree().create_timer(1.5), "timeout")
+#	load_background("test")
 #	load_dialogue("0001")
 #	yield(self, "end_of_dialogue")
 #	yield(get_tree().create_timer(0.5), "timeout")
