@@ -20,6 +20,9 @@ margin_left = -640.0
 margin_top = -715.68
 margin_right = 639.0
 margin_bottom = 0.320007
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Background1" type="TextureRect" parent="BackgroundBox"]
 anchor_right = 1.0
