@@ -5,12 +5,31 @@ export var character_info = {}
 export var team = ""
 export var defeated = false
 
+# basic stats
+export var strength = 0
+export var dexterity = 0
+export var intelligence = 0
+export var vitality = 0
+export var agility = 0
+export var luck = 0
+
+# generated stats
+export var hp = 0
+export var hp_max = 0
+export var attack = 0
+export var defense = 0
+export var hit_rate = 0
+export var evasion = 0
+export var crit_rate = 0
+export var movement = 0
+
 signal char_attack_to
 signal defeated
 
 var damage_text_position
 
 func _ready():
+	set_stats()
 	$RichTextLabel.modulate = Color(1,1,1,0)
 	$Sprite.modulate = Color(1,1,1,0)
 	if team == "foe":
@@ -29,9 +48,43 @@ func _ready():
 	)
 	tween.start()
 
+func set_stats():
+	strength = character_info["strength"]
+	dexterity = character_info["dexterity"]
+	intelligence = character_info["intelligence"]
+	vitality = character_info["vitality"]
+	agility = character_info["agility"]
+	luck = character_info["luck"]
+	
+	hp_max = int(vitality*4.7)
+	hp = hp_max
+	attack = int(strength + (dexterity/2))
+	defense = int(vitality + (agility/2))
+	hit_rate = int(dexterity + (agility/2) + (luck/4))
+	evasion = int(agility + (dexterity/2) + (luck/4))
+	movement = int(agility/6) + 1
+	
+	print(character_info["name"])
+	print("hp: ", hp)
+	print("attack: ", attack)
+	print("defense: ", defense)
+	print("hit_rate: ", hit_rate)
+	print("evasion: ", evasion)
+	print("")
+
 func take_damage(char_attack):
-	character_info["hp"] -= char_attack.character_info["attack"]
-	$RichTextLabel.bbcode_text = String(char_attack.character_info["attack"])
+	var hit_rate_final = ((85 * char_attack.hit_rate) / evasion)
+	var hit_rate_random = (randi() % 100)
+	if hit_rate_final >= hit_rate_random:
+		var damage_oscilation = 80 + (randi() % 30)
+		var damage = ((damage_oscilation * char_attack.attack * char_attack.attack) / (defense * 100))
+		var crit_rate_random = (randi() % 100)
+		if luck >= crit_rate_random:
+			damage = int(damage * 1.5)
+		hp -= damage
+		$RichTextLabel.bbcode_text = "[center]" + String(damage) + "[/center]"
+	else:
+		$RichTextLabel.bbcode_text = "[center]MISS[/center]"
 	$Tween.interpolate_property(
 		$RichTextLabel, "modulate", Color(1,1,1,1), Color(1,1,1,0), 1, 
 		Tween.TRANS_SINE, Tween.EASE_IN_OUT
@@ -69,7 +122,7 @@ func move_to(tile_position):
 
 
 func _on_Tween_tween_completed(object, key):
-	if character_info["hp"] <= 0 && defeated == false:
+	if hp <= 0 && defeated == false:
 		emit_signal("defeated", team)
 		defeated = true
 	$RichTextLabel.rect_position = damage_text_position
