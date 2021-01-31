@@ -97,7 +97,10 @@ func next_turn():
 		turn_order_index += 1
 	else:
 		turn_order_index = 0
-	turn_stage = "menu"
+	if characters[turn_order_index].defeated == true:
+		next_turn()
+	else:
+		turn_stage = "menu"
 
 func command_character_to(tile_index, tile_position):
 	print(tile_index)

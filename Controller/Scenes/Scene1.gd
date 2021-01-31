@@ -12,9 +12,10 @@ func _ready():
 
 #	GERAR TILEMAP
 	load_tilemap("0001")
-#	set_ally("Tanker", 1, 1)
+	set_ally("Tanker", 1, 1)
 	set_ally("Mechanic", 2, 2)
 	set_foe("Foe", 3, 2)
+	set_foe("Foe", 3, 3)
 	start_combat()
 
 #	SEQUENCIA DE DIALOGOS

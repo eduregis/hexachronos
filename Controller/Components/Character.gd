@@ -81,7 +81,10 @@ func take_damage(char_attack):
 		var crit_rate_random = (randi() % 100)
 		if luck >= crit_rate_random:
 			damage = int(damage * 1.5)
-		hp -= damage
+		if hp - damage < 0:
+			hp = 0
+		else:
+			hp -= damage
 		$RichTextLabel.bbcode_text = "[center]" + String(damage) + "[/center]"
 	else:
 		$RichTextLabel.bbcode_text = "[center]MISS[/center]"
