@@ -1,6 +1,7 @@
 extends "res://Controller/Scenes/BasicScene.gd"
 
 func _ready():
+	randomize()
 #	load_dialogue("0001")
 #	load_question("0001")
 #	yield(self, "answer_index")
@@ -14,6 +15,7 @@ func _ready():
 	set_ally("Tanker", 1, 1)
 	set_ally("Mechanic", 2, 2)
 	set_foe("Foe", 3, 2)
+	set_foe("Foe", 3, 3)
 	start_combat()
 
 #	SEQUENCIA DE DIALOGOS

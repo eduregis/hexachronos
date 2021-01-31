@@ -55,7 +55,7 @@ func next_turn_stage():
 	match turn_stage:
 		"menu":
 			turn_stage = "move"
-			paths = pathfinder(characters[turn_order_index].index, characters[turn_order_index].character_info["movement"], true)
+			paths = pathfinder(characters[turn_order_index].index, characters[turn_order_index].movement, true)
 			var path_index = 0
 			for path in paths:
 				tile_map[path.y][path.x].path_tile(path_index)
@@ -97,7 +97,10 @@ func next_turn():
 		turn_order_index += 1
 	else:
 		turn_order_index = 0
-	turn_stage = "menu"
+	if characters[turn_order_index].defeated == true:
+		next_turn()
+	else:
+		turn_stage = "menu"
 
 func command_character_to(tile_index, tile_position):
 	print(tile_index)
@@ -110,7 +113,7 @@ func command_character_to(tile_index, tile_position):
 func move_foe_IA():
 	yield(get_tree().create_timer(1.0), "timeout")
 	var find_target = false
-	var foe_paths = pathfinder(characters[turn_order_index].index, characters[turn_order_index].character_info["movement"], true)
+	var foe_paths = pathfinder(characters[turn_order_index].index, characters[turn_order_index].movement, true)
 	foe_paths.append(characters[turn_order_index].index)
 	for foe_path in foe_paths:
 		var adjacent_paths = pathfinder(foe_path, characters[turn_order_index].character_info["range"], false)
@@ -126,7 +129,7 @@ func move_foe_IA():
 func attack_foe_IA():
 	yield(get_tree().create_timer(1.0), "timeout")
 	var find_target = false
-	var foe_paths = pathfinder(characters[turn_order_index].index, characters[turn_order_index].character_info["movement"], false)
+	var foe_paths = pathfinder(characters[turn_order_index].index, characters[turn_order_index].movement, false)
 	for foe_path in foe_paths:
 		for character in characters:
 			if (character.index == foe_path) && (character.team == "ally") && !find_target:
