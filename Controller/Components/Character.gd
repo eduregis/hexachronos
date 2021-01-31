@@ -32,6 +32,7 @@ func _ready():
 	set_stats()
 	$RichTextLabel.modulate = Color(1,1,1,0)
 	$Sprite.modulate = Color(1,1,1,0)
+	scale = Vector2(0.7, 0.7)
 	if team == "foe":
 		$Sprite.flip_h = true
 	damage_text_position = $RichTextLabel.rect_position

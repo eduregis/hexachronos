@@ -119,7 +119,7 @@ func move_foe_IA():
 		var adjacent_paths = pathfinder(foe_path, characters[turn_order_index].character_info["range"], false)
 		for adjacent_path in adjacent_paths:
 			for character in characters:
-				if (character.index == adjacent_path) && (character.team == "ally") && !find_target:
+				if (character.index == adjacent_path) && (character.team == "ally") && (character.defeated == false) && !find_target:
 					find_target = true
 					move_character_to(foe_path, tile_map[foe_path.y][foe_path.x].position)
 	if !find_target: 
@@ -132,7 +132,7 @@ func attack_foe_IA():
 	var foe_paths = pathfinder(characters[turn_order_index].index, characters[turn_order_index].movement, false)
 	for foe_path in foe_paths:
 		for character in characters:
-			if (character.index == foe_path) && (character.team == "ally") && !find_target:
+			if (character.index == foe_path) && (character.team == "ally") && (character.defeated == false) && !find_target:
 				find_target = true
 				attack_character_to(foe_path, tile_map[foe_path.y][foe_path.x].position)
 	if !find_target:
@@ -160,7 +160,7 @@ func attack_character_to(tile_index, tile_position):
 		if paths.find(tile_index, 0) != -1:
 			for character in characters:
 				if character.index == tile_index:
-					if character.team != characters[turn_order_index].team:
+					if (character.team != characters[turn_order_index].team) && (character.defeated == false):
 						character.take_damage(characters[turn_order_index])
 						next_turn_stage()
 
@@ -186,7 +186,7 @@ func instance_tilemap():
 		x = 0
 		var tile_vector_position = []
 		for cell in array:
-			var tile_position = Vector2(window.x/6 + x*185 + (y % 2)*92, window.y/2 + y *30)
+			var tile_position = Vector2(window.x/6 + x*127 + (y % 2)*64, window.y/2 + y *21)
 			var tile = Tile.instance()
 			tile.set_position(tile_position)
 			tile.tile_index = Vector2(x, y)

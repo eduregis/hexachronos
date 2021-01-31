@@ -7,6 +7,7 @@ var path = false
 signal path_move_to
 
 func _ready():
+	scale = Vector2(0.7, 0.7)
 	$Sprite.scale = Vector2.ZERO
 	$TileHitBox/HitBox.tile_index = tile_index
 	$TileHitBox/HitBox.tile_position = position
