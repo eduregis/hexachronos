@@ -1,5 +1,10 @@
 extends Node2D
 
+var move_btn = preload("res://Assets/MenuButtons/move_btn.png")
+var move_btn_clicked = preload("res://Assets/MenuButtons/move_btn_clicked.png")
+var attack_btn = preload("res://Assets/MenuButtons/attack_btn.png")
+var attack_btn_clicked = preload("res://Assets/MenuButtons/attack_btn_clicked.png")
+
 # control variables
 export var index = Vector2.ZERO
 export var character_info = {}
@@ -25,9 +30,14 @@ export var crit_rate = 0
 export var movement = 0
 
 signal char_attack_to
+signal move
+signal attack
 signal defeated
+signal pass_stage
 
 var damage_text_position
+var move_btn_position
+var attack_btn_position
 
 func _ready():
 	set_stats()
@@ -37,6 +47,8 @@ func _ready():
 	if team == "foe":
 		$Sprite.flip_h = true
 	damage_text_position = $RichTextLabel.rect_position
+	move_btn_position = $Menu/MoveButton.position
+	attack_btn_position = $Menu/AttackButton.position
 	var tween = get_node("Tween")
 	yield(get_tree().create_timer((index.x + index.y) * 0.1), "timeout")
 	tween.interpolate_property(
@@ -75,31 +87,70 @@ func set_stats():
 	print("")
 
 func show_menu(move_button):
-	$Menu.visible = true
-	$Menu/AttackButton.modulate = Color(1, 1, 1, 0)
-	if move_button:
+	if team == "ally":
+		$Menu.visible = true
+		$Menu/MoveButton.modulate = Color(1, 1, 1, 0)
+		$Menu/AttackButton.visible = true
+		
 		var tween = get_node("Tween")
+		if move_button:
+			$Menu/MoveButton.visible = true
+			tween.interpolate_property(
+				$Menu/MoveButton, "modulate", Color(1, 1, 1, 0) , Color(1, 1, 1, 1), 0.1, 
+				Tween.TRANS_LINEAR, Tween.TRANS_LINEAR
+			)
+			var yPosition = $Menu/MoveButton.position.y
+			tween.interpolate_property(
+				$Menu/MoveButton, "position:y", yPosition - 50 , yPosition, 0.1, 
+				Tween.TRANS_LINEAR, Tween.EASE_IN
+			)
+			var xPosition = $Menu/MoveButton.position.x
+			tween.interpolate_property(
+				$Menu/MoveButton, "position:x", xPosition + 100 , xPosition, 0.1, 
+				Tween.TRANS_LINEAR, Tween.EASE_IN
+			)
 		tween.interpolate_property(
 			$Menu/AttackButton, "modulate", Color(1, 1, 1, 0) , Color(1, 1, 1, 1), 0.1, 
 			Tween.TRANS_LINEAR, Tween.TRANS_LINEAR
 		)
-		var yPosition = $Menu/AttackButton.position.y
+		$Menu/AttackButton.modulate = Color(1, 1, 1, 0)
+		var xAttackPosition = $Menu/AttackButton.position.x
 		tween.interpolate_property(
-			$Menu/AttackButton, "position:y", yPosition - 50 , yPosition, 0.1, 
+			$Menu/AttackButton, "position:x", xAttackPosition + 112 , xAttackPosition, 0.1, 
 			Tween.TRANS_LINEAR, Tween.EASE_IN
-		)
-		var xPosition = $Menu/AttackButton.position.x
-		tween.interpolate_property(
-			$Menu/AttackButton, "position:x", xPosition + 100 , xPosition, 0.1, 
-			Tween.TRANS_LINEAR, Tween.EASE_IN
-		)
+		)	
 		tween.start()
-		
-		
-func dismiss_menu():
-	$Menu.visible = true
-	$Menu/AttackButton.visible = true
+	else:
+		emit_signal("pass_stage")
 
+func dismiss_menu():
+	yield(get_tree().create_timer(0.2), "timeout")
+	var yMovePosition = $Menu/MoveButton.position.y
+	var xMovePosition = $Menu/MoveButton.position.x
+	var attackPosition = $Menu/AttackButton.position
+	if $Menu/MoveButton.modulate == Color(1, 1, 1, 1):
+		$MenuTween.interpolate_property(
+			$Menu/MoveButton, "modulate", Color(1, 1, 1, 1) , Color(1, 1, 1, 0), 0.1, 
+			Tween.TRANS_LINEAR, Tween.TRANS_LINEAR
+		)
+		$MenuTween.interpolate_property(
+			$Menu/MoveButton, "position:y", yMovePosition , yMovePosition - 50, 0.1, 
+			Tween.TRANS_LINEAR, Tween.EASE_IN
+		)
+		$MenuTween.interpolate_property(
+			$Menu/MoveButton, "position:x", xMovePosition, xMovePosition  + 100, 0.1, 
+			Tween.TRANS_LINEAR, Tween.EASE_IN
+		)
+	$MenuTween.interpolate_property(
+		$Menu/AttackButton, "modulate", Color(1, 1, 1, 1) , Color(1, 1, 1, 0), 0.1, 
+		Tween.TRANS_LINEAR, Tween.TRANS_LINEAR
+	)
+	$MenuTween.interpolate_property(
+		$Menu/AttackButton, "position:x", attackPosition.x, attackPosition.x + 112, 0.1, 
+		Tween.TRANS_LINEAR, Tween.EASE_IN
+	)
+	$MenuTween.start()
+	
 func take_damage(char_attack):
 	var hit_rate_final = ((85 * char_attack.hit_rate) / evasion)
 	var hit_rate_random = (randi() % 100)
@@ -151,23 +202,43 @@ func move_to(tile_position):
 		)
 	tween2.start()
 
-
 func _on_Tween_tween_completed(object, key):
 	if hp <= 0 && defeated == false:
 		emit_signal("defeated", team)
 		defeated = true
 	$RichTextLabel.rect_position = damage_text_position
-	
 
+func _on_MenuTween_tween_all_completed():
+	$Menu/MoveButton.position = move_btn_position
+	$Menu/AttackButton.position = attack_btn_position
+	$Menu.visible = false
+	$Menu/MoveButton.visible = false
+	$Menu/MoveButton/Sprite.texture = move_btn
+	$Menu/AttackButton.visible = false
+	$Menu/AttackButton/Sprite.texture = attack_btn
+
+func _on_MoveButtonHitBox_input_event(viewport, event, shape_idx):
+	if  event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
+		$Menu/MoveButton/Sprite.texture = move_btn_clicked
+		dismiss_menu()
+		emit_signal("move")
+
+func _on_MoveButtonHitBox_mouse_entered():
+	$Menu/MoveButton/Sprite.scale = Vector2(0.67, 0.67)
+
+func _on_MoveButtonHitBox_mouse_exited():
+	$Menu/MoveButton/Sprite.scale = Vector2(0.63, 0.63)
 
 func _on_AttackButtonHitBox_input_event(viewport, event, shape_idx):
 	if  event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
-		print(character_info["name"])
-
+		$Menu/AttackButton/Sprite.texture = attack_btn_clicked
+		dismiss_menu()
+		emit_signal("attack")
 
 func _on_AttackButtonHitBox_mouse_entered():
 	$Menu/AttackButton/Sprite.scale = Vector2(0.67, 0.67)
 
-
 func _on_AttackButtonHitBox_mouse_exited():
 	$Menu/AttackButton/Sprite.scale = Vector2(0.63, 0.63)
+
+

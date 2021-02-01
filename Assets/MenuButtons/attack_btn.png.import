@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/attackBtn.png-14ea0f07341ecd47172c80b35e412eb7.stex"
+path="res://.import/attack_btn.png-640339c4fd379153b0df86434ad723ca.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/MenuButtons/attackBtn.png"
-dest_files=[ "res://.import/attackBtn.png-14ea0f07341ecd47172c80b35e412eb7.stex" ]
+source_file="res://Assets/MenuButtons/attack_btn.png"
+dest_files=[ "res://.import/attack_btn.png-640339c4fd379153b0df86434ad723ca.stex" ]
 
 [params]
 
