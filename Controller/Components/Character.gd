@@ -32,6 +32,7 @@ func _ready():
 	set_stats()
 	$RichTextLabel.modulate = Color(1,1,1,0)
 	$Sprite.modulate = Color(1,1,1,0)
+	scale = Vector2(0.7, 0.7)
 	if team == "foe":
 		$Sprite.flip_h = true
 	damage_text_position = $RichTextLabel.rect_position
@@ -78,7 +79,7 @@ func take_damage(char_attack):
 	if hit_rate_final >= hit_rate_random:
 		var damage_oscilation = 80 + (randi() % 30)
 		var damage = ((damage_oscilation * char_attack.attack * char_attack.attack) / (defense * 100))
-		var crit_rate_random = (randi() % 100)
+		var crit_rate_random = (randi() % 40)
 		if luck >= crit_rate_random:
 			damage = int(damage * 1.5)
 		if hp - damage < 0:
