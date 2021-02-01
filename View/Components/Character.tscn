@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/char.png" type="Texture" id=1]
 [ext_resource path="res://Controller/Components/Character.gd" type="Script" id=2]
 [ext_resource path="res://Fonts/GaramondPremrPro-Smbd.otf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/MenuButtons/attack_btn.png" type="Texture" id=4]
 [ext_resource path="res://Assets/MenuButtons/move_btn.png" type="Texture" id=5]
+[ext_resource path="res://Assets/MenuButtons/defend_btn.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 28
@@ -37,7 +38,6 @@ texture = ExtResource( 1 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Menu" type="Node2D" parent="."]
-visible = false
 z_index = 99
 
 [node name="MoveButton" type="Node2D" parent="Menu"]
@@ -71,6 +71,19 @@ input_pickable = true
 [node name="HitBox" type="CollisionPolygon2D" parent="Menu/AttackButton/AttackButtonHitBox"]
 polygon = PoolVector2Array( 75.4473, -23.9707, 90.2797, -0.530045, 75.7121, 22.6457, -77.6979, 16.2228, -89.8955, -0.394218, -77.3444, -17.0112 )
 
+[node name="DefendButton" type="Node2D" parent="Menu"]
+position = Vector2( -141.128, -40.694 )
+
+[node name="Sprite" type="Sprite" parent="Menu/DefendButton"]
+scale = Vector2( 0.63, 0.63 )
+texture = ExtResource( 6 )
+
+[node name="DefendButtonHitBox" type="StaticBody2D" parent="Menu/DefendButton"]
+input_pickable = true
+
+[node name="HitBox" type="CollisionPolygon2D" parent="Menu/DefendButton/DefendButtonHitBox"]
+polygon = PoolVector2Array( 78.1831, -16.9344, 90.287, -0.465065, 78.9768, 16.5995, -75.9932, 23.1475, -90.6767, -0.861916, -75.5964, -24.2761 )
+
 [node name="MenuTween" type="Tween" parent="."]
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
 [connection signal="input_event" from="Menu/MoveButton/MoveButtonHitBox" to="." method="_on_MoveButtonHitBox_input_event"]
@@ -79,4 +92,7 @@ polygon = PoolVector2Array( 75.4473, -23.9707, 90.2797, -0.530045, 75.7121, 22.6
 [connection signal="input_event" from="Menu/AttackButton/AttackButtonHitBox" to="." method="_on_AttackButtonHitBox_input_event"]
 [connection signal="mouse_entered" from="Menu/AttackButton/AttackButtonHitBox" to="." method="_on_AttackButtonHitBox_mouse_entered"]
 [connection signal="mouse_exited" from="Menu/AttackButton/AttackButtonHitBox" to="." method="_on_AttackButtonHitBox_mouse_exited"]
+[connection signal="input_event" from="Menu/DefendButton/DefendButtonHitBox" to="." method="_on_DefendButtonHitBox_input_event"]
+[connection signal="mouse_entered" from="Menu/DefendButton/DefendButtonHitBox" to="." method="_on_DefendButtonHitBox_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/DefendButton/DefendButtonHitBox" to="." method="_on_DefendButtonHitBox_mouse_exited"]
 [connection signal="tween_all_completed" from="MenuTween" to="." method="_on_MenuTween_tween_all_completed"]

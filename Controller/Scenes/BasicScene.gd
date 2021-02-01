@@ -120,6 +120,7 @@ func next_turn():
 	else:
 		turn_stage = "menu"
 		yield(get_tree().create_timer(1.0), "timeout")
+		characters[turn_order_index].remove_buffs()
 		characters[turn_order_index].show_menu(true)
 
 func command_character_to(tile_index, tile_position):
@@ -244,6 +245,7 @@ func set_character(char_name, char_index, team):
 				character.connect("defeated", self, "character_defeated")
 				character.connect("move", self, "menu_to_move")
 				character.connect("attack", self, "menu_to_attack")
+				character.connect("defend", self, "next_turn")
 				character.connect("pass_stage", self, "next_turn_stage")
 				characters.append(character)
 				self.add_child(character)
