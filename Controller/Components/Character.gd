@@ -1,5 +1,6 @@
 extends Node2D
 
+# control variables
 export var index = Vector2.ZERO
 export var character_info = {}
 export var team = ""
@@ -73,6 +74,32 @@ func set_stats():
 	print("evasion: ", evasion)
 	print("")
 
+func show_menu(move_button):
+	$Menu.visible = true
+	$Menu/AttackButton.modulate = Color(1, 1, 1, 0)
+	if move_button:
+		var tween = get_node("Tween")
+		tween.interpolate_property(
+			$Menu/AttackButton, "modulate", Color(1, 1, 1, 0) , Color(1, 1, 1, 1), 0.1, 
+			Tween.TRANS_LINEAR, Tween.TRANS_LINEAR
+		)
+		var yPosition = $Menu/AttackButton.position.y
+		tween.interpolate_property(
+			$Menu/AttackButton, "position:y", yPosition - 50 , yPosition, 0.1, 
+			Tween.TRANS_LINEAR, Tween.EASE_IN
+		)
+		var xPosition = $Menu/AttackButton.position.x
+		tween.interpolate_property(
+			$Menu/AttackButton, "position:x", xPosition + 100 , xPosition, 0.1, 
+			Tween.TRANS_LINEAR, Tween.EASE_IN
+		)
+		tween.start()
+		
+		
+func dismiss_menu():
+	$Menu.visible = true
+	$Menu/AttackButton.visible = true
+
 func take_damage(char_attack):
 	var hit_rate_final = ((85 * char_attack.hit_rate) / evasion)
 	var hit_rate_random = (randi() % 100)
@@ -130,3 +157,17 @@ func _on_Tween_tween_completed(object, key):
 		emit_signal("defeated", team)
 		defeated = true
 	$RichTextLabel.rect_position = damage_text_position
+	
+
+
+func _on_AttackButtonHitBox_input_event(viewport, event, shape_idx):
+	if  event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
+		print(character_info["name"])
+
+
+func _on_AttackButtonHitBox_mouse_entered():
+	$Menu/AttackButton/Sprite.scale = Vector2(0.67, 0.67)
+
+
+func _on_AttackButtonHitBox_mouse_exited():
+	$Menu/AttackButton/Sprite.scale = Vector2(0.63, 0.63)

@@ -341,6 +341,8 @@ func dismiss_transition():
 
 func start_combat():
 	is_combat = true
+	yield(get_tree().create_timer(1.5), "timeout")
+	characters[turn_order_index].show_menu(true)
 	
 func end_combat():
 	pass
