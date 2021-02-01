@@ -13,9 +13,9 @@ func _ready():
 #	GERAR TILEMAP
 	load_tilemap("0001")
 	set_ally("Tanker", 1, 1)
-#	set_ally("Mechanic", 1, 5)
+	set_ally("Mechanic", 1, 5)
 	set_foe("Foe", 6, 2)
-#	set_foe("Foe", 5, 5)
+	set_foe("Foe", 5, 5)
 	start_combat()
 
 #	SEQUENCIA DE DIALOGOS
