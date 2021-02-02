@@ -6,6 +6,8 @@ var attack_btn = preload("res://Assets/MenuButtons/attack_btn.png")
 var attack_btn_clicked = preload("res://Assets/MenuButtons/attack_btn_clicked.png")
 var defend_btn = preload("res://Assets/MenuButtons/defend_btn.png")
 var defend_btn_clicked = preload("res://Assets/MenuButtons/defend_btn_clicked.png")
+var skill_btn = preload("res://Assets/MenuButtons/skill_btn.png")
+var skill_btn_clicked = preload("res://Assets/MenuButtons/skill_btn_clicked.png")
 
 # control variables
 export var index = Vector2.ZERO
@@ -43,6 +45,7 @@ var damage_text_position
 var move_btn_position
 var attack_btn_position
 var defend_btn_position
+var skill_btn_position
 
 func _ready():
 	set_stats()
@@ -56,6 +59,7 @@ func _ready():
 	move_btn_position = $Menu/MoveButton.position
 	attack_btn_position = $Menu/AttackButton.position
 	defend_btn_position = $Menu/DefendButton.position
+	skill_btn_position = $Menu/SkillButton.position
 	var tween = get_node("Tween")
 	yield(get_tree().create_timer((index.x + index.y) * 0.1), "timeout")
 	tween.interpolate_property(
@@ -103,10 +107,12 @@ func show_menu(move_button):
 		$Menu/MoveButton.modulate = Color(1, 1, 1, 0)
 		$Menu/AttackButton.visible = true
 		$Menu/DefendButton.visible = true
+		$Menu/SkillButton.visible = true
 		
 		var tween = get_node("Tween")
 		if move_button:
 			$Menu/MoveButton.visible = true
+			# Move Button Animation
 			tween.interpolate_property(
 				$Menu/MoveButton, "modulate", Color(1, 1, 1, 0) , Color(1, 1, 1, 1), 0.1, 
 				Tween.TRANS_LINEAR, Tween.TRANS_LINEAR
@@ -121,6 +127,7 @@ func show_menu(move_button):
 				$Menu/MoveButton, "position:x", xPosition + 100 , xPosition, 0.1, 
 				Tween.TRANS_LINEAR, Tween.EASE_IN
 			)
+		# Attack Button Animation
 		tween.interpolate_property(
 			$Menu/AttackButton, "modulate", Color(1, 1, 1, 0) , Color(1, 1, 1, 1), 0.1, 
 			Tween.TRANS_LINEAR, Tween.TRANS_LINEAR
@@ -131,6 +138,7 @@ func show_menu(move_button):
 			$Menu/AttackButton, "position:x", xAttackPosition + 112 , xAttackPosition, 0.1, 
 			Tween.TRANS_LINEAR, Tween.EASE_IN
 		)
+		# Defend Button Animation
 		tween.interpolate_property(
 			$Menu/DefendButton, "modulate", Color(1, 1, 1, 0) , Color(1, 1, 1, 1), 0.1, 
 			Tween.TRANS_LINEAR, Tween.TRANS_LINEAR
@@ -139,6 +147,22 @@ func show_menu(move_button):
 		var xDefendPosition = $Menu/DefendButton.position.x
 		tween.interpolate_property(
 			$Menu/DefendButton, "position:x", xDefendPosition - 112 , xDefendPosition, 0.1, 
+			Tween.TRANS_LINEAR, Tween.EASE_IN
+		)
+		# Skill Button Animation
+		$Menu/SkillButton.modulate = Color(1, 1, 1, 0)
+		tween.interpolate_property(
+			$Menu/SkillButton, "modulate", Color(1, 1, 1, 0) , Color(1, 1, 1, 1), 0.1, 
+			Tween.TRANS_LINEAR, Tween.TRANS_LINEAR
+		)
+		var ySkillPosition = $Menu/SkillButton.position.y
+		tween.interpolate_property(
+			$Menu/SkillButton, "position:y", ySkillPosition - 50 , ySkillPosition, 0.1, 
+			Tween.TRANS_LINEAR, Tween.EASE_IN
+		)
+		var xSkillPosition = $Menu/SkillButton.position.x
+		tween.interpolate_property(
+			$Menu/SkillButton, "position:x", xSkillPosition - 100 , xSkillPosition, 0.1, 
 			Tween.TRANS_LINEAR, Tween.EASE_IN
 		)
 		tween.start()
@@ -151,7 +175,10 @@ func dismiss_menu():
 	var xMovePosition = $Menu/MoveButton.position.x
 	var attackPosition = $Menu/AttackButton.position
 	var defendPosition = $Menu/DefendButton.position
+	var ySkillPosition = $Menu/SkillButton.position.y
+	var xSkillPosition = $Menu/SkillButton.position.x
 	if $Menu/MoveButton.modulate == Color(1, 1, 1, 1):
+		# Move Button Animation
 		$MenuTween.interpolate_property(
 			$Menu/MoveButton, "modulate", Color(1, 1, 1, 1) , Color(1, 1, 1, 0), 0.1, 
 			Tween.TRANS_LINEAR, Tween.TRANS_LINEAR
@@ -164,6 +191,7 @@ func dismiss_menu():
 			$Menu/MoveButton, "position:x", xMovePosition, xMovePosition  + 100, 0.1, 
 			Tween.TRANS_LINEAR, Tween.EASE_IN
 		)
+	# Attack Button Animation
 	$MenuTween.interpolate_property(
 		$Menu/AttackButton, "modulate", Color(1, 1, 1, 1) , Color(1, 1, 1, 0), 0.1, 
 		Tween.TRANS_LINEAR, Tween.TRANS_LINEAR
@@ -172,12 +200,26 @@ func dismiss_menu():
 		$Menu/AttackButton, "position:x", attackPosition.x, attackPosition.x + 112, 0.1, 
 		Tween.TRANS_LINEAR, Tween.EASE_IN
 	)
+	# Defend Button Animation
 	$MenuTween.interpolate_property(
 		$Menu/DefendButton, "modulate", Color(1, 1, 1, 1) , Color(1, 1, 1, 0), 0.1, 
 		Tween.TRANS_LINEAR, Tween.TRANS_LINEAR
 	)
 	$MenuTween.interpolate_property(
 		$Menu/DefendButton, "position:x", defendPosition.x, defendPosition.x - 112, 0.1, 
+		Tween.TRANS_LINEAR, Tween.EASE_IN
+	)
+	# Skill Button Animation
+	$MenuTween.interpolate_property(
+		$Menu/SkillButton, "modulate", Color(1, 1, 1, 1) , Color(1, 1, 1, 0), 0.1, 
+		Tween.TRANS_LINEAR, Tween.TRANS_LINEAR
+	)
+	$MenuTween.interpolate_property(
+		$Menu/SkillButton, "position:y", ySkillPosition , ySkillPosition - 50, 0.1, 
+		Tween.TRANS_LINEAR, Tween.EASE_IN
+	)
+	$MenuTween.interpolate_property(
+		$Menu/SkillButton, "position:x", xSkillPosition, xSkillPosition  - 100, 0.1, 
 		Tween.TRANS_LINEAR, Tween.EASE_IN
 	)
 	$MenuTween.start()
@@ -243,6 +285,7 @@ func _on_MenuTween_tween_all_completed():
 	$Menu/MoveButton.position = move_btn_position
 	$Menu/AttackButton.position = attack_btn_position
 	$Menu/DefendButton.position = defend_btn_position
+	$Menu/SkillButton.position = skill_btn_position
 	$Menu.visible = false
 	$Menu/MoveButton.visible = false
 	$Menu/MoveButton/Sprite.texture = move_btn
@@ -250,6 +293,8 @@ func _on_MenuTween_tween_all_completed():
 	$Menu/AttackButton/Sprite.texture = attack_btn
 	$Menu/DefendButton.visible = false
 	$Menu/DefendButton/Sprite.texture = defend_btn
+	$Menu/SkillButton.visible = false
+	$Menu/SkillButton/Sprite.texture = skill_btn
 
 func _on_MoveButtonHitBox_input_event(viewport, event, shape_idx):
 	if  event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
@@ -287,3 +332,13 @@ func _on_DefendButtonHitBox_mouse_entered():
 
 func _on_DefendButtonHitBox_mouse_exited():
 	$Menu/DefendButton/Sprite.scale = Vector2(0.63, 0.63)
+	
+func _on_SkillButtonHitBox_input_event(viewport, event, shape_idx):
+	if  event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
+		dismiss_menu()
+
+func _on_SkillButtonHitBox_mouse_entered():
+	$Menu/SkillButton/Sprite.scale = Vector2(0.67, 0.67)
+
+func _on_SkillButtonHitBox_mouse_exited():
+	$Menu/SkillButton/Sprite.scale = Vector2(0.63, 0.63)
