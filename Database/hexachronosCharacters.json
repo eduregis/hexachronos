@@ -9,7 +9,8 @@
             "vitality": 16,
             "agility": 6,
             "luck": 10,
-            "range": 1
+            "range": 1,
+            "skill01_range": 2
         },
         {
             "name": "Mechanic",
@@ -19,7 +20,8 @@
             "vitality": 10,
             "agility": 13,
             "luck": 8,
-            "range": 2
+            "range": 2,
+            "skill01_range": 1
         },
         {
             "name": "Foe",
@@ -29,7 +31,8 @@
             "vitality": 11,
             "agility": 11,
             "luck": 11,
-            "range": 1
+            "range": 1,
+            "skill01_range": 0
         }
     ]
 }

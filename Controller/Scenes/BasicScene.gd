@@ -48,6 +48,9 @@ func post_attack_menu_inserts():
 func post_attack_inserts():
 	pass
 
+func post_skill_inserts():
+	pass
+
 func post_turn_inserts():
 	pass
 
@@ -87,6 +90,9 @@ func next_turn_stage():
 			post_attack_inserts()
 			yield(get_tree().create_timer(1.0), "timeout")
 			next_turn_stage()
+		"skill":
+			next_turn()
+			post_skill_inserts()
 		"end of turn":
 			next_turn()
 			post_turn_inserts()
@@ -246,7 +252,10 @@ func set_character(char_name, char_index, team):
 				character.connect("move", self, "menu_to_move")
 				character.connect("attack", self, "menu_to_attack")
 				character.connect("defend", self, "next_turn")
+				character.connect("skill", self, "use_skill")
 				character.connect("pass_stage", self, "next_turn_stage")
+				character.connect("skill_range_on", self, "skill_range_on")
+				character.connect("skill_range_off", self, "skill_range_off")
 				characters.append(character)
 				self.add_child(character)
 				if team == "ally":
@@ -261,6 +270,21 @@ func menu_to_move():
 func menu_to_attack():
 	turn_stage = "attack menu"
 	next_turn_stage()
+
+func use_skill(char_position, skill_range):
+	print(char_position, skill_range)
+	pass
+	
+func skill_range_on(char_position, skill_range):
+	var paths = pathfinder(char_position, skill_range, false)
+	for path in paths:
+		tile_map[path.y][path.x].path_tile(-1)
+	
+func skill_range_off(char_position, skill_range):
+	var paths = pathfinder(char_position, skill_range, false)
+	for path in paths:
+		tile_map[path.y][path.x].remove_path()
+		
 
 func pathfinder(tile_index, char_range, ignore_occupied_path):
 	var paths = []

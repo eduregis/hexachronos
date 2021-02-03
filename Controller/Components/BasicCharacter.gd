@@ -38,6 +38,7 @@ signal char_attack_to
 signal move
 signal attack
 signal defend
+signal skill
 signal defeated
 signal pass_stage
 
@@ -52,6 +53,7 @@ func _ready():
 	$RichTextLabel.modulate = Color(1,1,1,0)
 	$Sprite.modulate = Color(1,1,1,0)
 	$Menu.visible = false
+	$SkillMenu.visible = false
 	scale = Vector2(0.7, 0.7)
 	if team == "foe":
 		$Sprite.flip_h = true
@@ -296,6 +298,7 @@ func _on_MenuTween_tween_all_completed():
 	$Menu/SkillButton.visible = false
 	$Menu/SkillButton/Sprite.texture = skill_btn
 
+# Ações do menu
 func _on_MoveButtonHitBox_input_event(viewport, event, shape_idx):
 	if  event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
 		$Menu/MoveButton/Sprite.texture = move_btn_clicked
@@ -334,11 +337,16 @@ func _on_DefendButtonHitBox_mouse_exited():
 	$Menu/DefendButton/Sprite.scale = Vector2(0.63, 0.63)
 	
 func _on_SkillButtonHitBox_input_event(viewport, event, shape_idx):
-	if  event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
+	if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
 		dismiss_menu()
+		show_skill_menu()
 
 func _on_SkillButtonHitBox_mouse_entered():
 	$Menu/SkillButton/Sprite.scale = Vector2(0.67, 0.67)
 
 func _on_SkillButtonHitBox_mouse_exited():
 	$Menu/SkillButton/Sprite.scale = Vector2(0.63, 0.63)
+
+# Menu de técnicas
+func show_skill_menu():
+	pass

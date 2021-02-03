@@ -38,12 +38,15 @@ func char_tile():
 
 func path_tile(path_index):
 	if !occupied:
-		yield(get_tree().create_timer(path_index * 0.02), "timeout")
-		$Tween.interpolate_property(
-			$Sprite, "modulate", Color(1, 1, 1) , Color(0.7, 0.7, 0.7), 0.4, 
-			Tween.TRANS_SINE, Tween.TRANS_LINEAR
-		)
-		$Tween.start()
+		if path_index != -1:
+			yield(get_tree().create_timer(path_index * 0.02), "timeout")
+			$Tween.interpolate_property(
+				$Sprite, "modulate", Color(1, 1, 1) , Color(0.7, 0.7, 0.7), 0.4, 
+				Tween.TRANS_SINE, Tween.TRANS_LINEAR
+			)
+			$Tween.start()
+		else:
+			$Sprite.modulate = Color(0.7, 0.7, 0.7)
 	path = true
 
 func _on_TileHitBox_mouse_entered():

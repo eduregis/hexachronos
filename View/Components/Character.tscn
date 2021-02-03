@@ -101,6 +101,25 @@ input_pickable = true
 polygon = PoolVector2Array( 62.1725, 11.1239, 64.5578, 31.3282, 46.0371, 40.3079, -91.3192, -30.9417, -92.582, -59.2838, -67.7475, -72.1921 )
 
 [node name="MenuTween" type="Tween" parent="."]
+
+[node name="SkillMenu" type="Node2D" parent="."]
+
+[node name="Skill_01Button" type="Node2D" parent="SkillMenu"]
+position = Vector2( -112.21, -142.578 )
+
+[node name="Sprite" type="Sprite" parent="SkillMenu/Skill_01Button"]
+position = Vector2( -13.8421, -13.5324 )
+rotation = 0.523599
+scale = Vector2( 0.63, 0.63 )
+texture = ExtResource( 7 )
+
+[node name="Skill_01ButtonHitBox" type="StaticBody2D" parent="SkillMenu/Skill_01Button"]
+input_pickable = true
+
+[node name="HitBox" type="CollisionPolygon2D" parent="SkillMenu/Skill_01Button/Skill_01ButtonHitBox"]
+polygon = PoolVector2Array( 62.1725, 11.1239, 64.5578, 31.3282, 46.0371, 40.3079, -91.3192, -30.9417, -92.582, -59.2838, -67.7475, -72.1921 )
+
+[node name="SkillMenuTween" type="Tween" parent="."]
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
 [connection signal="input_event" from="Menu/MoveButton/MoveButtonHitBox" to="." method="_on_MoveButtonHitBox_input_event"]
 [connection signal="mouse_entered" from="Menu/MoveButton/MoveButtonHitBox" to="." method="_on_MoveButtonHitBox_mouse_entered"]
@@ -115,3 +134,7 @@ polygon = PoolVector2Array( 62.1725, 11.1239, 64.5578, 31.3282, 46.0371, 40.3079
 [connection signal="mouse_entered" from="Menu/SkillButton/SkillButtonHitBox" to="." method="_on_SkillButtonHitBox_mouse_entered"]
 [connection signal="mouse_exited" from="Menu/SkillButton/SkillButtonHitBox" to="." method="_on_SkillButtonHitBox_mouse_exited"]
 [connection signal="tween_all_completed" from="MenuTween" to="." method="_on_MenuTween_tween_all_completed"]
+[connection signal="input_event" from="SkillMenu/Skill_01Button/Skill_01ButtonHitBox" to="." method="_on_Skill_01ButtonHitBox_input_event"]
+[connection signal="mouse_entered" from="SkillMenu/Skill_01Button/Skill_01ButtonHitBox" to="." method="_on_Skill_01ButtonHitBox_mouse_entered"]
+[connection signal="mouse_exited" from="SkillMenu/Skill_01Button/Skill_01ButtonHitBox" to="." method="_on_Skill_01ButtonHitBox_mouse_exited"]
+[connection signal="tween_all_completed" from="SkillMenuTween" to="." method="_on_SkillMenuTween_tween_all_completed"]
