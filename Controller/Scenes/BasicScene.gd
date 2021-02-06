@@ -29,7 +29,7 @@ signal answer_index
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_right") && characters.size() > 0:
-		print(characters[0].defense)
+		print(characters[0].attack, " , ",characters[1].attack , " , ", characters[2].attack , " , ",characters[3].attack)
 		
 	if is_combat:
 		if allies == 0 || foes == 0:
@@ -139,6 +139,8 @@ func command_character_to(tile_index, tile_position):
 
 func move_foe_IA():
 	yield(get_tree().create_timer(1.0), "timeout")
+	var targets = []
+	var target_priority = 0
 	var find_target = false
 	var foe_paths = pathfinder(characters[turn_order_index].index, characters[turn_order_index].movement, true)
 	foe_paths.append(characters[turn_order_index].index)
@@ -146,12 +148,17 @@ func move_foe_IA():
 		var adjacent_paths = pathfinder(foe_path, characters[turn_order_index].character_info["range"], false)
 		for adjacent_path in adjacent_paths:
 			for character in characters:
-				if (character.index == adjacent_path) && (character.team == "ally") && (character.defeated == false) && !find_target:
+				if (character.index == adjacent_path) && (character.team == "ally") && (character.defeated == false):
 					find_target = true
-					move_character_to(foe_path, tile_map[foe_path.y][foe_path.x].position)
+					if target_priority < character.taunt:
+						target_priority = character.taunt
+						targets.append(foe_path)
 	if !find_target: 
 		var rand_value = foe_paths[randi() % (foe_paths.size() - 1)]
 		move_character_to(rand_value, tile_map[rand_value.y][rand_value.x].position)
+	else:
+		var target_path = targets[targets.size() - 1]
+		move_character_to(target_path, tile_map[target_path.y][target_path.x].position)
 
 func attack_foe_IA():
 	yield(get_tree().create_timer(1.0), "timeout")

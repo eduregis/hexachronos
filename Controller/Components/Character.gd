@@ -10,6 +10,7 @@ func show_skill_menu():
 	$SkillMenu.visible = true
 	$SkillMenu/Skill_01Button.modulate = Color(1, 1, 1, 0)
 	skill01_btn_position = $SkillMenu/Skill_01Button.position
+	$SkillMenu/Skill_01Button.visible = true
 	$SkillMenuTween.interpolate_property(
 		$SkillMenu/Skill_01Button, "modulate", Color(1, 1, 1, 0) , Color(1, 1, 1, 1), 0.1, 
 		Tween.TRANS_LINEAR, Tween.TRANS_LINEAR
@@ -27,7 +28,24 @@ func show_skill_menu():
 	$SkillMenuTween.start()
 	
 func dismiss_skill_menu():
-	pass
+	var xSkill_01Position = $SkillMenu/Skill_01Button.position.x
+	var ySkill_01Position = $SkillMenu/Skill_01Button.position.y
+	$SkillMenuTween.interpolate_property(
+		$SkillMenu/Skill_01Button, "modulate", Color(1, 1, 1, 1) , Color(1, 1, 1, 0), 0.1, 
+		Tween.TRANS_LINEAR, Tween.TRANS_LINEAR
+	)
+	$SkillMenuTween.interpolate_property(
+		$SkillMenu/Skill_01Button, "position:x", xSkill_01Position, xSkill_01Position  - 100, 0.1, 
+		Tween.TRANS_LINEAR, Tween.EASE_IN
+	)
+	$SkillMenuTween.interpolate_property(
+		$SkillMenu/Skill_01Button, "position:y", ySkill_01Position, ySkill_01Position  - 50, 0.1, 
+		Tween.TRANS_LINEAR, Tween.EASE_IN
+	)
+	$SkillMenuTween.start()
+	yield($SkillMenuTween, "tween_completed")
+	$SkillMenu.visible = false
+	$SkillMenu/Skill_01Button.visible = false
 	
 func _on_Skill_01ButtonHitBox_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:

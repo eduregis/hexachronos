@@ -42,6 +42,7 @@ export var evasion = 0
 export var crit_rate = 0
 export var movement = 0
 export var attack_range = 0
+export var taunt = 2
 
 signal char_attack_to
 signal move
@@ -115,16 +116,29 @@ func buff_active(buff):
 			defense = int(defense * buff.value)
 		"attack":
 			attack = int(attack * buff.value)
+		"hit_rate":
+			hit_rate = int(hit_rate * buff.value)
+		"evasion":
+			evasion = int(evasion * buff.value)
+		"taunt":
+			taunt = int(taunt * buff.value)
 
 func remove_buffs():
 	for buff in buffs:
-		buff.duration -= 1
-		if buff.duration == 0:
+		buff.duration = buff.duration - 1
+		if buff.duration <= 0:
 			match buff.effect:
 				"defense":
 					defense = int(defense / buff.value)
 				"attack":
 					attack = int(attack / buff.value)
+				"hit_rate":
+					hit_rate = int(hit_rate / buff.value)
+				"evasion":
+					evasion = int(evasion / buff.value)
+				"taunt":
+					taunt = int(taunt / buff.value)
+			buffs.erase(buff)
 			
 				
 
@@ -247,6 +261,7 @@ func take_damage(char_attack):
 		var damage = ((damage_oscilation * char_attack.attack * char_attack.attack) / (defense * 100))
 		var crit_rate_random = (randi() % 40)
 		if luck >= crit_rate_random:
+			print("CRITICAL")
 			damage = int(damage * 1.5)
 		if hp - damage < 0:
 			hp = 0
