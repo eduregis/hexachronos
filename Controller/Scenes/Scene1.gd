@@ -1,4 +1,4 @@
-extends "res://Controller/Scenes/BasicScene.gd"
+extends "res://Controller/Scenes/SceneWithSkills.gd"
 
 func _ready():
 	randomize()

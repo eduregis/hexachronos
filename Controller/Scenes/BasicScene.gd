@@ -29,7 +29,7 @@ signal answer_index
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_right") && characters.size() > 0:
-		next_turn_stage()
+		print(characters[0].defense)
 		
 	if is_combat:
 		if allies == 0 || foes == 0:
@@ -271,8 +271,7 @@ func menu_to_attack():
 	turn_stage = "attack menu"
 	next_turn_stage()
 
-func use_skill(char_position, skill_range):
-	print(char_position, skill_range)
+func use_skill(char_position, char_info):
 	pass
 	
 func skill_range_on(char_position, skill_range):

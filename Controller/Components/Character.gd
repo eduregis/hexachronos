@@ -31,14 +31,11 @@ func dismiss_skill_menu():
 	
 func _on_Skill_01ButtonHitBox_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
-		match character_info["name"]:
-			"Tanker":
-				emit_signal("skill", index, 2)
-			"Mechanic":
-				emit_signal("skill", index, 2)
+		emit_signal("skill", index, character_info["skills"][0])
+		
 func _on_Skill_01ButtonHitBox_mouse_entered():
 	$SkillMenu/Skill_01Button/Sprite.scale = Vector2(0.67, 0.67)
-	emit_signal("skill_range_on", index, 2)
+	emit_signal("skill_range_on", index, character_info["skills"][0]["range"])
 
 func _on_Skill_01ButtonHitBox_mouse_exited():
 	$SkillMenu/Skill_01Button/Sprite.scale = Vector2(0.63, 0.63)

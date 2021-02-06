@@ -1,5 +1,7 @@
 extends Node2D
 
+var Buff = preload("res://Controller/Components/Buff.gd")
+
 var move_btn = preload("res://Assets/MenuButtons/move_btn.png")
 var move_btn_clicked = preload("res://Assets/MenuButtons/move_btn_clicked.png")
 var attack_btn = preload("res://Assets/MenuButtons/attack_btn.png")
@@ -18,6 +20,9 @@ var able_move = true
 var able_attack = true
 var able_block = true
 var able_skill = true
+
+# buffs
+var buffs = []
 
 # basic stats
 export var strength = 0
@@ -104,8 +109,24 @@ func set_stats():
 	print("evasion: ", evasion)
 	print("")
 
+func buff_active(buff):
+	match buff.effect:
+		"defense":
+			defense = int(defense * buff.value)
+		"attack":
+			attack = int(attack * buff.value)
+
 func remove_buffs():
-	defense = int(vitality + (agility/2))
+	for buff in buffs:
+		buff.duration -= 1
+		if buff.duration == 0:
+			match buff.effect:
+				"defense":
+					defense = int(defense / buff.value)
+				"attack":
+					attack = int(attack / buff.value)
+			
+				
 
 func show_menu(move, attack, block, skill):
 	if team == "ally":
@@ -325,7 +346,9 @@ func _on_DefendButtonHitBox_input_event(viewport, event, shape_idx):
 	if able_block:
 		if  event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
 			$Menu/DefendButton/Sprite.texture = defend_btn_clicked
-			defense = defense * 1.5
+			var defenseMode = Buff.new(1, "defense", 1.5)
+			buff_active(defenseMode)
+			buffs.append(defenseMode)
 			dismiss_menu()
 			emit_signal("defend")
 
