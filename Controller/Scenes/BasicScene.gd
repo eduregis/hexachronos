@@ -70,7 +70,7 @@ func next_turn_stage():
 			turn_stage = "attack menu"
 			clean_paths()
 			yield(get_tree().create_timer(1.0), "timeout")
-			characters[turn_order_index].show_menu(false)
+			characters[turn_order_index].show_menu(false, true, true, true)
 			post_move_inserts()
 		"attack menu":
 			turn_stage = "attack"
@@ -127,7 +127,7 @@ func next_turn():
 		turn_stage = "menu"
 		yield(get_tree().create_timer(1.0), "timeout")
 		characters[turn_order_index].remove_buffs()
-		characters[turn_order_index].show_menu(true)
+		characters[turn_order_index].show_menu(true, true, true, true)
 
 func command_character_to(tile_index, tile_position):
 	print(tile_index)
@@ -399,7 +399,7 @@ func dismiss_transition():
 func start_combat():
 	is_combat = true
 	yield(get_tree().create_timer(1.0), "timeout")
-	characters[turn_order_index].show_menu(true)
+	characters[turn_order_index].show_menu(true, true, true, true)
 	
 func end_combat():
 	pass
