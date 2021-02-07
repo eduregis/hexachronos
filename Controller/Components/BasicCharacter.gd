@@ -16,6 +16,7 @@ export var index = Vector2.ZERO
 export var character_info = {}
 export var team = ""
 export var defeated = false
+export var inanimated = false
 var able_move = true
 var able_attack = true
 var able_block = true
@@ -48,6 +49,7 @@ signal char_attack_to
 signal move
 signal attack
 signal defend
+signal skill_menu
 signal skill
 signal defeated
 signal pass_stage
@@ -381,6 +383,7 @@ func _on_SkillButtonHitBox_input_event(viewport, event, shape_idx):
 		if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
 			dismiss_menu()
 			show_skill_menu()
+			emit_signal("skill_menu")
 
 func _on_SkillButtonHitBox_mouse_entered():
 	if able_skill:

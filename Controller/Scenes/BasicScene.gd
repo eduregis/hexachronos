@@ -24,6 +24,7 @@ var foes = 0
 var answer_index = 0
 var paths = []
 var actual_target_skill = {}
+var isMoved = false
 
 signal end_of_dialogue
 signal answer_index
@@ -82,8 +83,8 @@ func next_turn_stage():
 				path_index += 1
 			if characters[turn_order_index].team == "foe":
 				attack_foe_IA()
-			else:
-				check_if_has_targets()
+#			else:
+#				check_if_has_targets()
 			post_attack_menu_inserts()
 		"attack":
 			turn_stage = "end of turn"
@@ -91,6 +92,9 @@ func next_turn_stage():
 			post_attack_inserts()
 			yield(get_tree().create_timer(1.0), "timeout")
 			next_turn_stage()
+		"skill menu":
+			next_turn()
+			post_skill_inserts()
 		"skill":
 			next_turn()
 			post_skill_inserts()
@@ -117,11 +121,12 @@ func check_if_has_targets():
 		next_turn_stage()
 	
 func next_turn():
+	isMoved = false
 	if turn_order_index + 1 < characters.size():
 		turn_order_index += 1
 	else:
 		turn_order_index = 0
-	if characters[turn_order_index].defeated == true:
+	if characters[turn_order_index].defeated == true || characters[turn_order_index].inanimated == true:
 		next_turn()
 	else:
 		turn_stage = "menu"
@@ -131,13 +136,31 @@ func next_turn():
 
 func command_character_to(tile_index, tile_position):
 	print(tile_index, " , ", turn_stage)
+	
 	if characters[turn_order_index].team == "ally":
 		if turn_stage == "move":
 			move_character_to(tile_index, tile_position)
 		elif turn_stage == "attack":
 			attack_character_to(tile_index, tile_position)
+		elif turn_stage == "skill menu":
+			if tile_index == characters[turn_order_index].index:
+				if isMoved:
+					turn_stage = "attack menu"
+				else:
+					turn_stage = "menu"
+				clean_paths()
+				characters[turn_order_index].dismiss_skill_menu()
+				characters[turn_order_index].show_menu(!isMoved, true, true, true)
 		elif turn_stage == "skill":
-			target_skill_character_to(tile_index, tile_position)
+			if tile_index == characters[turn_order_index].index:
+				if isMoved:
+					turn_stage = "attack menu"
+				else:
+					turn_stage = "menu"
+				clean_paths()
+				characters[turn_order_index].show_menu(!isMoved, true, true, true)
+			else:
+				target_skill_character_to(tile_index, tile_position)
 
 func move_foe_IA():
 	yield(get_tree().create_timer(1.0), "timeout")
@@ -190,6 +213,7 @@ func move_character_to(tile_index, tile_position):
 		clean_paths()
 		characters[turn_order_index].show_menu(true, true, true, true)
 	else:
+		isMoved = true
 		if tile_map[tile_index.y][tile_index.x].path:
 			tile_map[tile_index.y][tile_index.x].char_tile()
 			tile_map[characters[turn_order_index].index.y][characters[turn_order_index].index.x].occupied = false
@@ -201,9 +225,12 @@ func move_character_to(tile_index, tile_position):
 
 func attack_character_to(tile_index, tile_position):
 	if tile_index == characters[turn_order_index].index:
-		turn_stage = "menu"
+		if isMoved:
+			turn_stage = "attack menu"
+		else:
+			turn_stage = "menu"
 		clean_paths()
-		characters[turn_order_index].show_menu(true, true, true, true)
+		characters[turn_order_index].show_menu(!isMoved, true, true, true)
 	else:
 		if tile_map[tile_index.y][tile_index.x].occupied:
 			if paths.find(tile_index, 0) != -1:
@@ -248,12 +275,12 @@ func instance_tilemap():
 		y += 1
 
 func set_ally(char_name, char_index_x, char_index_y):
-	set_character(char_name, Vector2(char_index_x, char_index_y), "ally")
+	set_character(char_name, Vector2(char_index_x, char_index_y), "ally", true)
 
 func set_foe(char_name, char_index_x, char_index_y):
-	set_character(char_name, Vector2(char_index_x, char_index_y), "foe")
+	set_character(char_name, Vector2(char_index_x, char_index_y), "foe", true)
 
-func set_character(char_name, char_index, team):
+func set_character(char_name, char_index, team, is_character):
 	var file = File.new()
 	file.open("res://Database/hexachronosCharacters.json", file.READ)
 	var json = file.get_as_text()
@@ -269,21 +296,26 @@ func set_character(char_name, char_index, team):
 				character.team = team
 				character.set_position(tile_map[char_index.y][char_index.x].position)
 				tile_map[char_index.y][char_index.x].char_tile()
+				if is_character:
+					if team == "ally":
+						allies += 1
+					elif team == "foe":
+						foes += 1
+				else:
+					character.inanimated = true
+					character.taunt = 3
 				character.connect("char_attack_to", self, "command_character_to")
 				character.connect("defeated", self, "character_defeated")
 				character.connect("move", self, "menu_to_move")
 				character.connect("attack", self, "menu_to_attack")
 				character.connect("defend", self, "next_turn")
 				character.connect("skill", self, "use_skill")
+				character.connect("skill_menu", self, "skill_menu")
 				character.connect("pass_stage", self, "next_turn_stage")
 				character.connect("skill_range_on", self, "skill_range_on")
 				character.connect("skill_range_off", self, "skill_range_off")
 				characters.append(character)
 				self.add_child(character)
-				if team == "ally":
-					allies += 1
-				elif team == "foe":
-					foes += 1
 
 func menu_to_move():
 	turn_stage = "menu"
@@ -292,6 +324,9 @@ func menu_to_move():
 func menu_to_attack():
 	turn_stage = "attack menu"
 	next_turn_stage()
+
+func skill_menu():
+	turn_stage = "skill menu"
 
 func use_skill(char_position, char_info):
 	pass

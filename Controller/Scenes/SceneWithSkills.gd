@@ -7,7 +7,7 @@ func use_skill(char_position, skill_info):
 	match skill_info["type"]:
 		"area":
 			match skill_info["name"]:
-				"battlecry":
+				"battle_cry":
 					var effect_zone = pathfinder(char_position, skill_info["range"], false)
 					for path in effect_zone:
 						for character in characters:
@@ -30,7 +30,7 @@ func use_skill(char_position, skill_info):
 			pass
 		"self":
 			match skill_info["name"]:
-				"berserkmode":
+				"berserk_mode":
 					var berserkMode = Buff.new(3, "berserk", 1.5)
 					characters[turn_order_index].buff_active(berserkMode)
 					characters[turn_order_index].buffs.append(berserkMode)
@@ -39,8 +39,8 @@ func use_skill(char_position, skill_info):
 			print(characters[turn_order_index].name)
 		"target":
 			clean_paths()
-			yield(get_tree().create_timer(1.0), "timeout")
 			characters[turn_order_index].dismiss_skill_menu()
+			yield(get_tree().create_timer(1.0), "timeout")
 			paths = pathfinder(char_position, skill_info["range"], false)
 			var path_index = 0
 			for path in paths:
@@ -68,3 +68,10 @@ func target_skill_character_to(tile_index, tile_position):
 					yield(get_tree().create_timer(1.0), "timeout")
 					next_turn_stage()
 					actual_target_skill = {}
+		"bizarre_construct":
+			if !tile_map[tile_index.y][tile_index.x].occupied:
+				set_character("Bizarre Construct", tile_index, characters[turn_order_index].team, false)
+				clean_paths()
+				yield(get_tree().create_timer(1.0), "timeout")
+				next_turn_stage()
+				actual_target_skill = {}

@@ -12,7 +12,7 @@
             "range": 1,
             "skills": [
                 {
-                    "name": "battlecry",
+                    "name": "battle_cry",
                     "type": "area",
                     "range": 2
                 }
@@ -64,7 +64,7 @@
             "range": 1,
             "skills": [
                 {
-                    "name": "berserkmode",
+                    "name": "berserk_mode",
                     "type": "self",
                     "range": 1
                 }
@@ -113,6 +113,17 @@
             "agility": 11,
             "luck": 11,
             "range": 1,
+            "skills": []
+        },
+        {
+            "name": "Bizarre Construct",
+            "strength": 10,
+            "dexterity": 10,
+            "tecnical": 10,
+            "vitality": 10,
+            "agility": 10,
+            "luck": 10,
+            "range": 0,
             "skills": []
         }
     ]

@@ -99,6 +99,7 @@ polygon = PoolVector2Array( 70.0584, -38.1892, 84.0892, -15.4594, 70.76, 7.83174
 [node name="MenuTween" type="Tween" parent="."]
 
 [node name="SkillMenu" type="Node2D" parent="."]
+z_index = 98
 
 [node name="Skill_01Button" type="Node2D" parent="SkillMenu"]
 position = Vector2( -112.21, -142.578 )
