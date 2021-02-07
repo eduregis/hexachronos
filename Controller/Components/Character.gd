@@ -5,6 +5,62 @@ signal skill_range_off
 
 var skill01_btn_position
 
+func buff_active(buff):
+	match buff.effect:
+		"defense":
+			defense = int(defense * buff.value)
+			buff_animation(["+ DEFESA"])
+		"attack":
+			attack = int(attack * buff.value)
+			buff_animation(["+ ATAQUE"])
+		"hit_rate":
+			hit_rate = int(hit_rate * buff.value)
+			buff_animation(["+ PRECISÃO"])
+		"evasion":
+			evasion = int(evasion * buff.value)
+			buff_animation(["+ EVASÃO"])
+		"taunt":
+			taunt = int(taunt * buff.value)
+		"berserk":
+			attack = int(attack * buff.value)
+			defense = int(defense * buff.value)
+			buff_animation(["+ ATAQUE", "- DEFESA"])
+
+func remove_buffs():
+	for buff in buffs:
+		buff.duration = buff.duration - 1
+		if buff.duration <= 0:
+			match buff.effect:
+				"defense":
+					defense = int(defense / buff.value)
+				"attack":
+					attack = int(attack / buff.value)
+				"hit_rate":
+					hit_rate = int(hit_rate / buff.value)
+				"evasion":
+					evasion = int(evasion / buff.value)
+				"taunt":
+					taunt = int(taunt / buff.value)
+				"berserk":
+					attack = int(attack / buff.value)
+					defense = int(defense / buff.value)
+			buffs.erase(buff)
+			
+func buff_animation(texts):
+	for text in texts:
+		$RichTextLabel.bbcode_text = "[center]" + String(text) + "[/center]"
+		$TextTween.interpolate_property(
+			$RichTextLabel, "modulate", Color(1,1,1,1), Color(1,1,1,0), 1, 
+			Tween.TRANS_SINE, Tween.EASE_IN_OUT
+		)
+		$TextTween.interpolate_property(
+			$RichTextLabel, "rect_position:y", damage_text_position.y, damage_text_position.y - 30, 1, 
+			Tween.TRANS_SINE, Tween.EASE_IN_OUT
+		)
+		$TextTween.start()
+		yield($TextTween, "tween_completed")
+
+
 func show_skill_menu():
 	yield(get_tree().create_timer(0.5), "timeout")
 	$SkillMenu.visible = true

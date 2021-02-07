@@ -111,36 +111,10 @@ func set_stats():
 	print("")
 
 func buff_active(buff):
-	match buff.effect:
-		"defense":
-			defense = int(defense * buff.value)
-		"attack":
-			attack = int(attack * buff.value)
-		"hit_rate":
-			hit_rate = int(hit_rate * buff.value)
-		"evasion":
-			evasion = int(evasion * buff.value)
-		"taunt":
-			taunt = int(taunt * buff.value)
+	pass
 
 func remove_buffs():
-	for buff in buffs:
-		buff.duration = buff.duration - 1
-		if buff.duration <= 0:
-			match buff.effect:
-				"defense":
-					defense = int(defense / buff.value)
-				"attack":
-					attack = int(attack / buff.value)
-				"hit_rate":
-					hit_rate = int(hit_rate / buff.value)
-				"evasion":
-					evasion = int(evasion / buff.value)
-				"taunt":
-					taunt = int(taunt / buff.value)
-			buffs.erase(buff)
-			
-				
+	pass
 
 func show_menu(move, attack, block, skill):
 	if team == "ally":
