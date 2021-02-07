@@ -337,11 +337,11 @@ func _on_MoveButtonHitBox_input_event(viewport, event, shape_idx):
 
 func _on_MoveButtonHitBox_mouse_entered():
 	if able_move:
-		$Menu/MoveButton/Sprite.scale = Vector2(0.67, 0.67)
+		$Menu/MoveButton/Sprite.scale = Vector2(1.07, 1.07)
 
 func _on_MoveButtonHitBox_mouse_exited():
 	if able_move:
-		$Menu/MoveButton/Sprite.scale = Vector2(0.63, 0.63)
+		$Menu/MoveButton/Sprite.scale = Vector2(1, 1)
 
 func _on_AttackButtonHitBox_input_event(viewport, event, shape_idx):
 	if able_attack:
@@ -352,11 +352,11 @@ func _on_AttackButtonHitBox_input_event(viewport, event, shape_idx):
 
 func _on_AttackButtonHitBox_mouse_entered():
 	if able_attack:
-		$Menu/AttackButton/Sprite.scale = Vector2(0.67, 0.67)
+		$Menu/AttackButton/Sprite.scale = Vector2(1.07, 1.07)
 
 func _on_AttackButtonHitBox_mouse_exited():
 	if able_attack:
-		$Menu/AttackButton/Sprite.scale = Vector2(0.63, 0.63)
+		$Menu/AttackButton/Sprite.scale = Vector2(1, 1)
 
 func _on_DefendButtonHitBox_input_event(viewport, event, shape_idx):
 	if able_block:
@@ -370,11 +370,11 @@ func _on_DefendButtonHitBox_input_event(viewport, event, shape_idx):
 
 func _on_DefendButtonHitBox_mouse_entered():
 	if able_block:
-		$Menu/DefendButton/Sprite.scale = Vector2(0.67, 0.67)
+		$Menu/DefendButton/Sprite.scale = Vector2(1.07, 1.07)
 
 func _on_DefendButtonHitBox_mouse_exited():
 	if able_block:
-		$Menu/DefendButton/Sprite.scale = Vector2(0.63, 0.63)
+		$Menu/DefendButton/Sprite.scale = Vector2(1, 1)
 	
 func _on_SkillButtonHitBox_input_event(viewport, event, shape_idx):
 	if able_skill:
@@ -384,11 +384,11 @@ func _on_SkillButtonHitBox_input_event(viewport, event, shape_idx):
 
 func _on_SkillButtonHitBox_mouse_entered():
 	if able_skill:
-		$Menu/SkillButton/Sprite.scale = Vector2(0.67, 0.67)
+		$Menu/SkillButton/Sprite.scale = Vector2(1.07, 1.07)
 
 func _on_SkillButtonHitBox_mouse_exited():
 	if able_skill:
-		$Menu/SkillButton/Sprite.scale = Vector2(0.63, 0.63)
+		$Menu/SkillButton/Sprite.scale = Vector2(1, 1)
 
 # Menu de técnicas
 func show_skill_menu():

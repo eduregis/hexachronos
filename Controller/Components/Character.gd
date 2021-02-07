@@ -108,11 +108,11 @@ func _on_Skill_01ButtonHitBox_input_event(viewport, event, shape_idx):
 		emit_signal("skill", index, character_info["skills"][0])
 		
 func _on_Skill_01ButtonHitBox_mouse_entered():
-	$SkillMenu/Skill_01Button/Sprite.scale = Vector2(0.67, 0.67)
+	$SkillMenu/Skill_01Button/Sprite.scale = Vector2(1.07, 1.07)
 	emit_signal("skill_range_on", index, character_info["skills"][0]["range"])
 
 func _on_Skill_01ButtonHitBox_mouse_exited():
-	$SkillMenu/Skill_01Button/Sprite.scale = Vector2(0.63, 0.63)
+	$SkillMenu/Skill_01Button/Sprite.scale = Vector2(1, 1)
 	emit_signal("skill_range_off", index, character_info["skills"][0]["range"])
 
 func _on_SkillMenuTween_tween_all_completed():

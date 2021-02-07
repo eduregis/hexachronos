@@ -44,7 +44,7 @@ func use_skill(char_position, skill_info):
 			paths = pathfinder(char_position, skill_info["range"], false)
 			var path_index = 0
 			for path in paths:
-				tile_map[path.y][path.x].path_tile(path_index)
+				tile_map[path.y][path.x].skill_tile(path_index)
 				path_index += 1
 			actual_target_skill = skill_info
 
@@ -64,7 +64,7 @@ func target_skill_character_to(tile_index, tile_position):
 			for character in characters:
 				if character.index == tile_index && character.team != characters[turn_order_index].team:
 					character.take_tecnical_damage(characters[turn_order_index])
-					yield(get_tree().create_timer(1.0), "timeout")
 					clean_paths()
+					yield(get_tree().create_timer(1.0), "timeout")
 					next_turn_stage()
 					actual_target_skill = {}

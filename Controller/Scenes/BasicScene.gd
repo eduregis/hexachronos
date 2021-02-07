@@ -78,7 +78,7 @@ func next_turn_stage():
 			paths = pathfinder(characters[turn_order_index].index, characters[turn_order_index].character_info["range"], false)
 			var path_index = 0
 			for path in paths:
-				tile_map[path.y][path.x].path_tile(path_index)
+				tile_map[path.y][path.x].attack_tile(path_index)
 				path_index += 1
 			if characters[turn_order_index].team == "foe":
 				attack_foe_IA()
@@ -235,7 +235,7 @@ func instance_tilemap():
 		x = 0
 		var tile_vector_position = []
 		for cell in array:
-			var tile_position = Vector2(window.x/6 + x*127 + (y % 2)*64, window.y/2 + y *21)
+			var tile_position = Vector2(window.x/6 + x*127 + (y % 2)*63, window.y/2 + y *21)
 			var tile = Tile.instance()
 			tile.set_position(tile_position)
 			tile.tile_index = Vector2(x, y)
@@ -300,7 +300,7 @@ func skill_range_on(char_position, skill_range):
 	var skill_paths = pathfinder(char_position, skill_range, false)
 	print(skill_paths.size())
 	for path in skill_paths:
-		tile_map[path.y][path.x].path_tile(-1)
+		tile_map[path.y][path.x].skill_tile(-1)
 	
 func skill_range_off(char_position, skill_range):
 	var skill_paths = pathfinder(char_position, skill_range, false)
