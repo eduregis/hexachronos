@@ -12,9 +12,11 @@ func _ready():
 
 #	GERAR TILEMAP
 	load_tilemap("0001")
-	set_ally("Tanker", 0, 2)
-	set_ally("Mechanic", 2, 6)
-	set_foe("Foe", 6, 2)
+	set_ally("Sniper", 0, 2)
+	set_ally("Mechanic", 0, 1)
+	characters[1].defeated = true
+	characters[1].hp = 0
+	set_foe("Foe", 2, 2)
 	set_foe("Foe", 5, 5)
 	start_combat()
 

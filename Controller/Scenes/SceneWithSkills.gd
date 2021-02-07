@@ -49,14 +49,21 @@ func use_skill(char_position, skill_info):
 			actual_target_skill = skill_info
 
 func target_skill_character_to(tile_index, tile_position):
-	
 	match actual_target_skill["name"]:
 		"resurrect":
 			for character in characters:
-				if character.index == tile_index && character.team == "ally" && character.defeated == true:
+				if character.index == tile_index && character.team == characters[turn_order_index].team && character.defeated == true:
 					character.defeated = false
 					character.hp = int(character.hp_max/2)
 					print("funcionou")
+					yield(get_tree().create_timer(1.0), "timeout")
+					clean_paths()
+					next_turn_stage()
+					actual_target_skill = {}
+		"longshot":
+			for character in characters:
+				if character.index == tile_index && character.team != characters[turn_order_index].team:
+					character.take_tecnical_damage(characters[turn_order_index])
 					yield(get_tree().create_timer(1.0), "timeout")
 					clean_paths()
 					next_turn_stage()

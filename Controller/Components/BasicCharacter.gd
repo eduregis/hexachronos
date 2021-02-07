@@ -27,7 +27,7 @@ var buffs = []
 # basic stats
 export var strength = 0
 export var dexterity = 0
-export var intelligence = 0
+export var tecnical = 0
 export var vitality = 0
 export var agility = 0
 export var luck = 0
@@ -88,7 +88,7 @@ func _ready():
 func set_stats():
 	strength = character_info["strength"]
 	dexterity = character_info["dexterity"]
-	intelligence = character_info["intelligence"]
+	tecnical = character_info["tecnical"]
 	vitality = character_info["vitality"]
 	agility = character_info["agility"]
 	luck = character_info["luck"]
@@ -231,8 +231,35 @@ func take_damage(char_attack):
 	var hit_rate_final = ((85 * char_attack.hit_rate) / evasion)
 	var hit_rate_random = (randi() % 100)
 	if hit_rate_final >= hit_rate_random:
-		var damage_oscilation = 80 + (randi() % 30)
-		var damage = ((damage_oscilation * char_attack.attack * char_attack.attack) / (defense * 100))
+		var damage_oscilation = 80 + int(randi() % 30)
+		var damage = int((damage_oscilation * char_attack.attack * char_attack.attack) / (defense * 100))
+		var crit_rate_random = (randi() % 40)
+		if luck >= crit_rate_random:
+			print("CRITICAL")
+			damage = int(damage * 1.5)
+		if hp - damage < 0:
+			hp = 0
+		else:
+			hp -= damage
+		$RichTextLabel.bbcode_text = "[center]" + String(damage) + "[/center]"
+	else:
+		$RichTextLabel.bbcode_text = "[center]MISS[/center]"
+	$Tween.interpolate_property(
+		$RichTextLabel, "modulate", Color(1,1,1,1), Color(1,1,1,0), 1, 
+		Tween.TRANS_SINE, Tween.EASE_IN_OUT
+	)
+	$Tween.interpolate_property(
+		$RichTextLabel, "rect_position:y", damage_text_position.y, damage_text_position.y - 30, 1, 
+		Tween.TRANS_SINE, Tween.EASE_IN_OUT
+	)
+	$Tween.start()
+
+func take_tecnical_damage(char_attack):
+	var hit_rate_final = ((85 * char_attack.hit_rate) / evasion)
+	var hit_rate_random = (randi() % 100)
+	if hit_rate_final >= hit_rate_random:
+		var damage_oscilation = 90 + int(randi() % 30)
+		var damage = int((damage_oscilation * char_attack.tecnical * char_attack.tecnical) / (defense * 60))
 		var crit_rate_random = (randi() % 40)
 		if luck >= crit_rate_random:
 			print("CRITICAL")

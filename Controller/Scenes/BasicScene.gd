@@ -185,23 +185,33 @@ func character_defeated(team):
 			foes -= 1
 
 func move_character_to(tile_index, tile_position):
-	if tile_map[tile_index.y][tile_index.x].path:
-		tile_map[tile_index.y][tile_index.x].char_tile()
-		tile_map[characters[turn_order_index].index.y][characters[turn_order_index].index.x].occupied = false
-		
-		characters[turn_order_index].index = tile_index
-		characters[turn_order_index].move_to(tile_position)
-		
-		next_turn_stage()
+	if tile_index == characters[turn_order_index].index:
+		turn_stage = "menu"
+		clean_paths()
+		characters[turn_order_index].show_menu(true, true, true, true)
+	else:
+		if tile_map[tile_index.y][tile_index.x].path:
+			tile_map[tile_index.y][tile_index.x].char_tile()
+			tile_map[characters[turn_order_index].index.y][characters[turn_order_index].index.x].occupied = false
+			
+			characters[turn_order_index].index = tile_index
+			characters[turn_order_index].move_to(tile_position)
+			
+			next_turn_stage()
 
 func attack_character_to(tile_index, tile_position):
-	if tile_map[tile_index.y][tile_index.x].occupied:
-		if paths.find(tile_index, 0) != -1:
-			for character in characters:
-				if character.index == tile_index:
-					if (character.team != characters[turn_order_index].team) && (character.defeated == false):
-						character.take_damage(characters[turn_order_index])
-						next_turn_stage()
+	if tile_index == characters[turn_order_index].index:
+		turn_stage = "menu"
+		clean_paths()
+		characters[turn_order_index].show_menu(true, true, true, true)
+	else:
+		if tile_map[tile_index.y][tile_index.x].occupied:
+			if paths.find(tile_index, 0) != -1:
+				for character in characters:
+					if character.index == tile_index:
+						if (character.team != characters[turn_order_index].team) && (character.defeated == false):
+							character.take_damage(characters[turn_order_index])
+							next_turn_stage()
 
 func load_tilemap(text_code):
 	
@@ -287,16 +297,17 @@ func use_skill(char_position, char_info):
 	pass
 	
 func skill_range_on(char_position, skill_range):
-	var paths = pathfinder(char_position, skill_range, false)
-	for path in paths:
+	var skill_paths = pathfinder(char_position, skill_range, false)
+	print(skill_paths.size())
+	for path in skill_paths:
 		tile_map[path.y][path.x].path_tile(-1)
 	
 func skill_range_off(char_position, skill_range):
-	var paths = pathfinder(char_position, skill_range, false)
-	for path in paths:
+	var skill_paths = pathfinder(char_position, skill_range, false)
+	print(skill_paths.size())
+	for path in skill_paths:
 		tile_map[path.y][path.x].remove_path()
 		
-
 func pathfinder(tile_index, char_range, ignore_occupied_path):
 	var paths = []
 	var incoming_paths = []

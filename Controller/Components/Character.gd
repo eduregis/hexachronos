@@ -113,7 +113,7 @@ func _on_Skill_01ButtonHitBox_mouse_entered():
 
 func _on_Skill_01ButtonHitBox_mouse_exited():
 	$SkillMenu/Skill_01Button/Sprite.scale = Vector2(0.63, 0.63)
-	emit_signal("skill_range_off", index, 2)
+	emit_signal("skill_range_off", index, character_info["skills"][0]["range"])
 
 func _on_SkillMenuTween_tween_all_completed():
 	$SkillMenu/Skill_01Button.position = skill01_btn_position
