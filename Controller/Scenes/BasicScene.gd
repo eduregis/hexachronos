@@ -23,13 +23,14 @@ var foes = 0
 
 var answer_index = 0
 var paths = []
+var actual_target_skill = {}
 
 signal end_of_dialogue
 signal answer_index
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_right") && characters.size() > 0:
-		print(characters[0].attack, " , ",characters[1].attack , " , ", characters[2].attack , " , ",characters[3].attack)
+		print(characters[0].hp, " , ",characters[1].hp , " , ", characters[2].hp , " , ",characters[3].hp)
 		
 	if is_combat:
 		if allies == 0 || foes == 0:
@@ -111,7 +112,6 @@ func check_if_has_targets():
 	for ally_path in ally_paths:
 		for character in characters:
 			if (character.index == ally_path) && (character.team == "foe") && (character.defeated == false) && !find_target:
-				print(character.character_info["name"])
 				find_target = true
 	if !find_target:
 		next_turn_stage()
@@ -130,12 +130,14 @@ func next_turn():
 		characters[turn_order_index].show_menu(true, true, true, true)
 
 func command_character_to(tile_index, tile_position):
-	print(tile_index)
+	print(tile_index, " , ", turn_stage)
 	if characters[turn_order_index].team == "ally":
 		if turn_stage == "move":
 			move_character_to(tile_index, tile_position)
 		elif turn_stage == "attack":
 			attack_character_to(tile_index, tile_position)
+		elif turn_stage == "skill":
+			target_skill_character_to(tile_index, tile_position)
 
 func move_foe_IA():
 	yield(get_tree().create_timer(1.0), "timeout")
@@ -171,6 +173,9 @@ func attack_foe_IA():
 				attack_character_to(foe_path, tile_map[foe_path.y][foe_path.x].position)
 	if !find_target:
 		next_turn_stage()
+
+func target_skill_character_to(tile_index, tile_position):
+	pass
 
 func character_defeated(team):
 	match team:

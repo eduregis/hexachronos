@@ -37,6 +37,74 @@
             ]
         },
         {
+            "name": "Hammer",
+            "strength": 14,
+            "dexterity": 12,
+            "intelligence": 10,
+            "vitality": 13,
+            "agility": 9,
+            "luck": 7,
+            "range": 1,
+            "skills": [
+                {
+                    "name": "maelstrom",
+                    "type": "area",
+                    "range": 1
+                }
+            ]
+        },
+        {
+            "name": "Berserk",
+            "strength": 16,
+            "dexterity": 13,
+            "intelligence": 9,
+            "vitality": 10,
+            "agility": 12,
+            "luck": 12,
+            "range": 1,
+            "skills": [
+                {
+                    "name": "berserkmode",
+                    "type": "self",
+                    "range": 1
+                }
+            ]
+        },
+        {
+            "name": "Captain",
+            "strength": 12,
+            "dexterity": 11,
+            "intelligence": 10,
+            "vitality": 12,
+            "agility": 10,
+            "luck": 16,
+            "range": 1,
+            "skills": [
+                {
+                    "name": "resurrect",
+                    "type": "target",
+                    "range": 1
+                }
+            ]
+        },
+        {
+            "name": "Sniper",
+            "strength": 12,
+            "dexterity": 8,
+            "intelligence": 8,
+            "vitality": 13,
+            "agility": 12,
+            "luck": 10,
+            "range": 4,
+            "skills": [
+                {
+                    "name": "longshot",
+                    "type": "target",
+                    "range": 10
+                }
+            ]
+        },
+        {
             "name": "Foe",
             "strength": 11,
             "dexterity": 11,
