@@ -1,5 +1,11 @@
 extends Node2D
 
+var default_floor = preload("res://Assets/Floors/State=Default, Action=None.png")
+var occupied_floor = preload("res://Assets/Floors/State=Ocupado, Action=None.png")
+var path_floor = preload("res://Assets/Floors/State=Available, Action=Move.png")
+var attack_floor = preload("res://Assets/Floors/State=Available, Action=Attack.png")
+var skill_floor = preload("res://Assets/Floors/State=Available, Action=Hability.png")
+
 export var tile_index = Vector2.ZERO
 var occupied = false
 var path = false
@@ -7,8 +13,10 @@ var path = false
 signal path_move_to
 
 func _ready():
-	scale = Vector2(0.7, 0.7)
+	scale = Vector2(0.58, 0.7)
 	$Sprite.scale = Vector2.ZERO
+	$Sprite.texture = default_floor
+	
 	$TileHitBox/HitBox.tile_index = tile_index
 	$TileHitBox/HitBox.tile_position = position
 	$TileHitBox/HitBox.connect("path_move", self, "path_move_to")
@@ -25,25 +33,39 @@ func path_move_to():
 func remove_path():
 	path = false
 	if !occupied:
+		$Sprite.texture = default_floor
 		$Sprite.modulate = Color(1, 1, 1)
 
 func char_tile():
 	yield(get_tree().create_timer((tile_index.x + tile_index.y) * 0.1), "timeout")
-	$Tween.interpolate_property(
-			$Sprite, "modulate", Color(1, 1, 1) , Color(0.3, 0.3, 0.3), 0.4, 
-			Tween.TRANS_SINE, Tween.TRANS_LINEAR
-		)
-	$Tween.start()
+	$Sprite.texture = occupied_floor
 	occupied = true
 
 func path_tile(path_index):
 	if !occupied:
-		yield(get_tree().create_timer(path_index * 0.02), "timeout")
-		$Tween.interpolate_property(
-			$Sprite, "modulate", Color(1, 1, 1) , Color(0.7, 0.7, 0.7), 0.4, 
-			Tween.TRANS_SINE, Tween.TRANS_LINEAR
-		)
-		$Tween.start()
+		if path_index != -1:
+			yield(get_tree().create_timer(path_index * 0.02), "timeout")
+			$Sprite.texture = path_floor
+		else:
+			$Sprite.texture = path_floor
+	path = true
+	
+func attack_tile(path_index):
+	if !occupied:
+		if path_index != -1:
+			yield(get_tree().create_timer(path_index * 0.02), "timeout")
+			$Sprite.texture = attack_floor
+		else:
+			$Sprite.texture = attack_floor
+	path = true
+	
+func skill_tile(path_index):
+	if !occupied:
+		if path_index != -1:
+			yield(get_tree().create_timer(path_index * 0.02), "timeout")
+			$Sprite.texture = skill_floor
+		else:
+			$Sprite.texture = skill_floor
 	path = true
 
 func _on_TileHitBox_mouse_entered():
@@ -54,5 +76,3 @@ func _on_TileHitBox_mouse_entered():
 func _on_TileHitBox_mouse_exited():
 	if !occupied:
 		$Sprite.modulate = Color(1, 1, 1)
-		if path:
-			$Sprite.modulate = Color(0.7, 0.7, 0.7)

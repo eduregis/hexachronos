@@ -1,4 +1,4 @@
-extends "res://Controller/Scenes/BasicScene.gd"
+extends "res://Controller/Scenes/SceneWithSkills.gd"
 
 func _ready():
 	randomize()
@@ -12,10 +12,10 @@ func _ready():
 
 #	GERAR TILEMAP
 	load_tilemap("0001")
-	set_ally("Tanker", 1, 1)
-	set_ally("Mechanic", 1, 5)
-	set_foe("Foe", 6, 2)
-	set_foe("Foe", 5, 5)
+	set_ally("Hammer", 1, 3)
+#	set_ally("Sniper", 0, 2)
+	set_foe("Foe", 2, 4)
+	set_foe("Foe", 1, 5)
 	start_combat()
 
 #	SEQUENCIA DE DIALOGOS

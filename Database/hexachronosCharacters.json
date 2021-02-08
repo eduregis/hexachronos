@@ -5,31 +5,126 @@
             "name": "Tanker",
             "strength": 15,
             "dexterity": 9,
-            "intelligence": 8,
+            "tecnical": 8,
             "vitality": 16,
             "agility": 6,
             "luck": 10,
-            "range": 1
+            "range": 1,
+            "skills": [
+                {
+                    "name": "battle_cry",
+                    "type": "area",
+                    "range": 2
+                }
+            ]
+            
         },
         {
             "name": "Mechanic",
             "strength": 9,
             "dexterity": 13,
-            "intelligence": 14,
+            "tecnical": 14,
             "vitality": 10,
             "agility": 13,
             "luck": 8,
-            "range": 2
+            "range": 2,
+            "skills": [
+                {
+                    "name": "bizarre_construct",
+                    "type": "target",
+                    "range": 1
+                }
+            ]
+        },
+        {
+            "name": "Hammer",
+            "strength": 14,
+            "dexterity": 12,
+            "tecnical": 10,
+            "vitality": 13,
+            "agility": 9,
+            "luck": 7,
+            "range": 1,
+            "skills": [
+                {
+                    "name": "maelstrom",
+                    "type": "area",
+                    "range": 1
+                }
+            ]
+        },
+        {
+            "name": "Berserk",
+            "strength": 16,
+            "dexterity": 13,
+            "tecnical": 9,
+            "vitality": 10,
+            "agility": 12,
+            "luck": 12,
+            "range": 1,
+            "skills": [
+                {
+                    "name": "berserk_mode",
+                    "type": "self",
+                    "range": 0
+                }
+            ]
+        },
+        {
+            "name": "Captain",
+            "strength": 12,
+            "dexterity": 11,
+            "tecnical": 10,
+            "vitality": 12,
+            "agility": 10,
+            "luck": 16,
+            "range": 1,
+            "skills": [
+                {
+                    "name": "resurrect",
+                    "type": "target",
+                    "range": 1
+                }
+            ]
+        },
+        {
+            "name": "Sniper",
+            "strength": 10,
+            "dexterity": 8,
+            "tecnical": 16,
+            "vitality": 13,
+            "agility": 12,
+            "luck": 10,
+            "range": 4,
+            "skills": [
+                {
+                    "name": "longshot",
+                    "type": "target",
+                    "range": 6
+                }
+            ]
         },
         {
             "name": "Foe",
             "strength": 11,
             "dexterity": 11,
-            "intelligence": 11,
+            "tecnical": 11,
             "vitality": 11,
             "agility": 11,
             "luck": 11,
-            "range": 1
+            "range": 1,
+            "skills": []
+        },
+        {
+            "name": "Bizarre Construct",
+            "strength": 10,
+            "dexterity": 10,
+            "tecnical": 10,
+            "vitality": 10,
+            "agility": 10,
+            "luck": 10,
+            "range": 0,
+            "skills": []
         }
     ]
 }

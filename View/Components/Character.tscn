@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/char.png" type="Texture" id=1]
 [ext_resource path="res://Controller/Components/Character.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/MenuButtons/attack_btn.png" type="Texture" id=4]
 [ext_resource path="res://Assets/MenuButtons/move_btn.png" type="Texture" id=5]
 [ext_resource path="res://Assets/MenuButtons/defend_btn.png" type="Texture" id=6]
+[ext_resource path="res://Assets/MenuButtons/skill_btn.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 28
@@ -17,9 +18,9 @@ script = ExtResource( 2 )
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchor_top = 0.00130627
 anchor_bottom = 0.00130627
-margin_left = -47.0
+margin_left = -101.0
 margin_top = -167.0
-margin_right = 46.0
+margin_right = 101.0
 margin_bottom = -143.0
 custom_fonts/normal_font = SubResource( 1 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
@@ -31,6 +32,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextTween" type="Tween" parent="."]
+
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -51 )
 texture = ExtResource( 1 )
@@ -41,12 +44,10 @@ texture = ExtResource( 1 )
 z_index = 99
 
 [node name="MoveButton" type="Node2D" parent="Menu"]
-position = Vector2( 112.21, -142.578 )
+position = Vector2( 128.21, -94.578 )
 
 [node name="Sprite" type="Sprite" parent="Menu/MoveButton"]
 position = Vector2( 13.7944, -13.6443 )
-rotation = -0.523599
-scale = Vector2( 0.630244, 0.630244 )
 texture = ExtResource( 5 )
 
 [node name="MoveButtonHitBox" type="StaticBody2D" parent="Menu/MoveButton"]
@@ -55,36 +56,66 @@ input_pickable = true
 
 [node name="HitBox" type="CollisionPolygon2D" parent="Menu/MoveButton/MoveButtonHitBox"]
 position = Vector2( -1.00113, 0.33371 )
-polygon = PoolVector2Array( 68.3881, -72.741, 92.7558, -59.4977, 91.6963, -31.157, -44.9744, 40.0919, -63.515, 32.1459, -61.6609, 10.9566 )
+polygon = PoolVector2Array( 100.331, -39.1857, 113.472, -15.3542, 100.331, 8.7001, -67.8258, 8.92282, -82.7484, -15.1314, -68.7167, -38.2948 )
 
 [node name="AttackButton" type="Node2D" parent="Menu"]
 position = Vector2( 141.128, -40.694 )
 
 [node name="Sprite" type="Sprite" parent="Menu/AttackButton"]
 position = Vector2( 0.276886, -0.3778 )
-scale = Vector2( 0.63, 0.63 )
 texture = ExtResource( 4 )
 
 [node name="AttackButtonHitBox" type="StaticBody2D" parent="Menu/AttackButton"]
 input_pickable = true
 
 [node name="HitBox" type="CollisionPolygon2D" parent="Menu/AttackButton/AttackButtonHitBox"]
-polygon = PoolVector2Array( 75.4473, -23.9707, 90.2797, -0.530045, 75.7121, 22.6457, -77.6979, 16.2228, -89.8955, -0.394218, -77.3444, -17.0112 )
+polygon = PoolVector2Array( 85.6832, -25.7401, 99.5423, -1.64415, 85.9982, 21.1919, -83.5308, 20.8597, -98.0984, -1.52141, -83.6632, -25.3593 )
 
 [node name="DefendButton" type="Node2D" parent="Menu"]
 position = Vector2( -141.128, -40.694 )
 
 [node name="Sprite" type="Sprite" parent="Menu/DefendButton"]
-scale = Vector2( 0.63, 0.63 )
 texture = ExtResource( 6 )
 
 [node name="DefendButtonHitBox" type="StaticBody2D" parent="Menu/DefendButton"]
 input_pickable = true
 
 [node name="HitBox" type="CollisionPolygon2D" parent="Menu/DefendButton/DefendButtonHitBox"]
-polygon = PoolVector2Array( 78.1831, -16.9344, 90.287, -0.465065, 78.9768, 16.5995, -75.9932, 23.1475, -90.6767, -0.861916, -75.5964, -24.2761 )
+polygon = PoolVector2Array( 84.0005, -24.4367, 98.3195, -1.10219, 84.5309, 22.2323, -85.8819, 21.5252, -98.9633, -0.748634, -85.1748, -24.6135 )
+
+[node name="SkillButton" type="Node2D" parent="Menu"]
+position = Vector2( -126.248, -94.6373 )
+
+[node name="Sprite" type="Sprite" parent="Menu/SkillButton"]
+position = Vector2( -13.8421, -13.5324 )
+texture = ExtResource( 7 )
+
+[node name="SkillButtonHitBox" type="StaticBody2D" parent="Menu/SkillButton"]
+input_pickable = true
+
+[node name="HitBox" type="CollisionPolygon2D" parent="Menu/SkillButton/SkillButtonHitBox"]
+polygon = PoolVector2Array( 70.0584, -38.1892, 84.0892, -15.4594, 70.76, 7.83174, -99.5703, 8.11236, -112.9, -15.74, -98.1672, -38.0489 )
 
 [node name="MenuTween" type="Tween" parent="."]
+
+[node name="SkillMenu" type="Node2D" parent="."]
+z_index = 98
+
+[node name="Skill_01Button" type="Node2D" parent="SkillMenu"]
+position = Vector2( -112.21, -142.578 )
+
+[node name="Sprite" type="Sprite" parent="SkillMenu/Skill_01Button"]
+position = Vector2( -13.8421, -13.5324 )
+rotation = 0.523599
+texture = ExtResource( 7 )
+
+[node name="Skill_01ButtonHitBox" type="StaticBody2D" parent="SkillMenu/Skill_01Button"]
+input_pickable = true
+
+[node name="HitBox" type="CollisionPolygon2D" parent="SkillMenu/Skill_01Button/Skill_01ButtonHitBox"]
+polygon = PoolVector2Array( 71.6987, 7.07072, 72.3661, 34.2681, 48.0053, 46.4485, -98.5237, -38.293, -98.2261, -64.5843, -74.9111, -77.4819 )
+
+[node name="SkillMenuTween" type="Tween" parent="."]
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
 [connection signal="input_event" from="Menu/MoveButton/MoveButtonHitBox" to="." method="_on_MoveButtonHitBox_input_event"]
 [connection signal="mouse_entered" from="Menu/MoveButton/MoveButtonHitBox" to="." method="_on_MoveButtonHitBox_mouse_entered"]
@@ -95,4 +126,11 @@ polygon = PoolVector2Array( 78.1831, -16.9344, 90.287, -0.465065, 78.9768, 16.59
 [connection signal="input_event" from="Menu/DefendButton/DefendButtonHitBox" to="." method="_on_DefendButtonHitBox_input_event"]
 [connection signal="mouse_entered" from="Menu/DefendButton/DefendButtonHitBox" to="." method="_on_DefendButtonHitBox_mouse_entered"]
 [connection signal="mouse_exited" from="Menu/DefendButton/DefendButtonHitBox" to="." method="_on_DefendButtonHitBox_mouse_exited"]
+[connection signal="input_event" from="Menu/SkillButton/SkillButtonHitBox" to="." method="_on_SkillButtonHitBox_input_event"]
+[connection signal="mouse_entered" from="Menu/SkillButton/SkillButtonHitBox" to="." method="_on_SkillButtonHitBox_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/SkillButton/SkillButtonHitBox" to="." method="_on_SkillButtonHitBox_mouse_exited"]
 [connection signal="tween_all_completed" from="MenuTween" to="." method="_on_MenuTween_tween_all_completed"]
+[connection signal="input_event" from="SkillMenu/Skill_01Button/Skill_01ButtonHitBox" to="." method="_on_Skill_01ButtonHitBox_input_event"]
+[connection signal="mouse_entered" from="SkillMenu/Skill_01Button/Skill_01ButtonHitBox" to="." method="_on_Skill_01ButtonHitBox_mouse_entered"]
+[connection signal="mouse_exited" from="SkillMenu/Skill_01Button/Skill_01ButtonHitBox" to="." method="_on_Skill_01ButtonHitBox_mouse_exited"]
+[connection signal="tween_all_completed" from="SkillMenuTween" to="." method="_on_SkillMenuTween_tween_all_completed"]
