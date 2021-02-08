@@ -12,7 +12,7 @@ func use_skill(char_position, skill_info):
 					for path in effect_zone:
 						for character in characters:
 							if character.index == path && character.team == "ally":
-								var buff = Buff.new(3, "attack", 1.2)
+								var buff = Buff.new(3, "attack", characters[turn_order_index].tecnical/6)
 								character.buff_active(buff)
 								character.buffs.append(buff)
 					var tauntUp = Buff.new(3, "taunt", 2)
@@ -25,13 +25,14 @@ func use_skill(char_position, skill_info):
 					for path in effect_zone:
 						for character in characters:
 							if character.index == path && (character.team != characters[turn_order_index].team) && (character.defeated == false):
-								character.take_damage(characters[turn_order_index])
+								character.take_tecnical_damage(characters[turn_order_index])
+					characters[turn_order_index].dismiss_skill_menu()
 					next_turn()
 			pass
 		"self":
 			match skill_info["name"]:
 				"berserk_mode":
-					var berserkMode = Buff.new(3, "berserk", 1.5)
+					var berserkMode = Buff.new(3, "berserk", 2*characters[turn_order_index].tecnical/6)
 					characters[turn_order_index].buff_active(berserkMode)
 					characters[turn_order_index].buffs.append(berserkMode)
 					characters[turn_order_index].dismiss_skill_menu()
@@ -54,8 +55,7 @@ func target_skill_character_to(tile_index, tile_position):
 			for character in characters:
 				if character.index == tile_index && character.team == characters[turn_order_index].team && character.defeated == true:
 					character.defeated = false
-					character.hp = int(character.hp_max/2)
-					print("funcionou")
+					character.hp = int(character.tecnical)
 					yield(get_tree().create_timer(1.0), "timeout")
 					clean_paths()
 					next_turn_stage()

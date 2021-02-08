@@ -31,7 +31,7 @@ signal answer_index
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_right") && characters.size() > 0:
-		print(characters[0].hp, " , ",characters[1].hp , " , ", characters[2].hp , " , ",characters[3].hp)
+		print(characters[0].attack, " , ",characters[0].defense)
 		
 	if is_combat:
 		if allies == 0 || foes == 0:
@@ -333,15 +333,15 @@ func use_skill(char_position, char_info):
 	
 func skill_range_on(char_position, skill_range):
 	var skill_paths = pathfinder(char_position, skill_range, false)
-	print(skill_paths.size())
-	for path in skill_paths:
-		tile_map[path.y][path.x].skill_tile(-1)
+	if(skill_range > 0):
+		for path in skill_paths:
+			tile_map[path.y][path.x].skill_tile(-1)
 	
 func skill_range_off(char_position, skill_range):
 	var skill_paths = pathfinder(char_position, skill_range, false)
-	print(skill_paths.size())
-	for path in skill_paths:
-		tile_map[path.y][path.x].remove_path()
+	if(skill_range > 0):
+		for path in skill_paths:
+			tile_map[path.y][path.x].remove_path()
 		
 func pathfinder(tile_index, char_range, ignore_occupied_path):
 	var paths = []
