@@ -309,7 +309,7 @@ func move_to(tile_position):
 	tween2.start()
 
 func _on_Tween_tween_completed(object, key):
-	if hp <= 0 && defeated == false:
+	if hp <= 0 && defeated == false && !inanimated:
 		emit_signal("defeated", team)
 		defeated = true
 	$RichTextLabel.rect_position = damage_text_position
