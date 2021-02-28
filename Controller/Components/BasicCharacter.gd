@@ -4,12 +4,16 @@ var Buff = preload("res://Controller/Components/Buff.gd")
 
 var move_btn = preload("res://Assets/MenuButtons/move_btn.png")
 var move_btn_clicked = preload("res://Assets/MenuButtons/move_btn_clicked.png")
+var move_btn_disabled = preload("res://Assets/MenuButtons/move_btn_disabled.png")
 var attack_btn = preload("res://Assets/MenuButtons/attack_btn.png")
 var attack_btn_clicked = preload("res://Assets/MenuButtons/attack_btn_clicked.png")
+var attack_btn_disabled = preload("res://Assets/MenuButtons/attack_btn_disabled.png")
 var defend_btn = preload("res://Assets/MenuButtons/defend_btn.png")
 var defend_btn_clicked = preload("res://Assets/MenuButtons/defend_btn_clicked.png")
+var defend_btn_disabled = preload("res://Assets/MenuButtons/defend_btn_disabled.png")
 var skill_btn = preload("res://Assets/MenuButtons/skill_btn.png")
 var skill_btn_clicked = preload("res://Assets/MenuButtons/skill_btn_clicked.png")
+var skill_btn_disabled = preload("res://Assets/MenuButtons/skill_btn_disabled.png")
 
 # control variables
 export var index = Vector2.ZERO
@@ -225,9 +229,25 @@ func dismiss_menu():
 	
 func able_submenus(move, attack, block, skill):
 	able_move = move
+	if move:
+		$Menu/MoveButton/Sprite.texture = move_btn
+	else:
+		$Menu/MoveButton/Sprite.texture = move_btn_disabled
 	able_attack = attack
+	if attack:
+		$Menu/AttackButton/Sprite.texture = attack_btn
+	else:
+		$Menu/AttackButton/Sprite.texture = attack_btn_disabled
 	able_block = block
+	if block:
+		$Menu/DefendButton/Sprite.texture = defend_btn
+	else:
+		$Menu/DefendButton/Sprite.texture = defend_btn_disabled
 	able_skill = skill
+	if skill:
+		$Menu/SkillButton/Sprite.texture = skill_btn
+	else:
+		$Menu/SkillButton/Sprite.texture = skill_btn_disabled
 	
 func take_damage(char_attack):
 	var hit_rate_final = ((85 * char_attack.hit_rate) / evasion)
