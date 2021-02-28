@@ -4,19 +4,1329 @@
         {
             "id": "0001",
             "sequence": [
-                {"name": "Ryuji", "expression": "happy", "text": "Encontramos o cofre! Finalmente!", "sound": ""},
-                {"name": "Makoto", "expression": "surprised", "text": "Eu já tinha perdido as esperanças...", "sound": "robot"},
-                {"name": "Makoto", "expression": "neutral", "text": "Agora precisamos encontrar um jeito de abrir.", "sound": ""},
-                {"name": "Ryuji", "expression": "surprised", "text": "Ué, achei que tinhamos os explosivos..", "sound": ""},
-                {"name": "Makoto", "expression": "angry", "text": "Usamos o último pra abrir aquela passagem. \nQue droga! vamos ter que achar outra maneira!", "sound": ""},
-                {"name": "Ryuji", "expression": "sad", "text": "De volta a estaca zero...", "sound": ""}
+                {"name": "", "expression": "", "text": "Hexônia, A Grande Cidade Central. Aqui é onde os maiores avanços tecnológicos são criados.", "sound": ""},
+                {"name": "", "expression": "", "text": "Com mais de 18 milhões de habitantes, a megalópole caminha em direção ao futuro com grande expectativa.", "sound": ""},
+                {"name": "", "expression": "", "text": "Esse crescimento econômico absurdo da cidade é devido a HexaCorp, uma corporação cuja influência já superou o próprio governo, e ela se aproveita disso para controlar a vida das pessoas de forma tirana.", "sound": ""},
+                {"name": "", "expression": "", "text": "Apesar da exploração dos cidadãos e o nível absurdo de poluição na cidade, as coisas ainda iriam piorar muito mais.", "sound": ""},
+                {"name": "", "expression": "", "text": "Dia 14 de Novembro de 2168. Foi anunciada a invenção que mudaria o mundo. O protótipo foi apelidado de DVT, Dispositivo de Viagem Temporal.", "sound": ""},
+                {"name": "", "expression": "", "text": "O anúncio público feito pela HexaCorp foi o início do fim. ", "sound": ""},
+                {"name": "", "expression": "", "text": "Assim que a notícia se espalhou para cidades próximas, todas as relações financeiras com Hexagonia foram cortadas. E poucos dias depois, iniciaram os ataques.", "sound": ""},
+                {"name": "", "expression": "", "text": "A cidade, antes próspera e aclamada, agora é um campo de batalha.", "sound": ""},
+                {"name": "", "expression": "", "text": "Com medo do que esta descoberta iria causar, cidades que antes eram aliadas enviaram tropas de choque e batalhões para garantir que ninguém sobraria para contar a história deste ocorrido.", "sound": ""},
+                {"name": "", "expression": "", "text": "Os poucos que sobreviveram aos ataques, lutam para conseguir abrigo e comida para sobreviver o dia, entre as ruínas do que um dia foi a Grande Cidade Central.", "sound": ""},
+                {"name": "", "expression": "", "text": "Falando nisso, eu já devia ter saído. A caminhada até o centro é longa.", "sound": "footsteps_luka_ruins.wav"}
+                
             ]
         },
         {
+            "id": "0006",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "|Estou novamente em Grande cidade central.|", "sound": "ambient_music_ruins_1.wav"},
+                {"name": "Luka", "expression": "", "text": "|Ver essa cidade assim ainda é difícil. A vida aqui nunca foi fácil, graças a HexaCorp, mas ainda sim... Aqui era meu lar, onde eu cresci, onde todos os meus amigos morreram...|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|...|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Foco. Eu preciso achar comida. As pessoas dependem de mim. Eu sou a pessoa mais apta do meu acampamento.|", "sound": "luka_deep_breath.wav"},
+                {"name": "Luka", "expression": "", "text": "", "sound": "footsteps_luka_ruins.wav"},
+                {"name": "Luka", "expression": "", "text": "|Esse cheiro...|", "sound": "sniffing_sound_luka.wav"},
+                {"name": "Luka", "expression": "", "text": "|Droga! isso é sangue!|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "", "sound": "footsteps_run_luka_ruins.wav"}
+    
+            ]
+        },
+        {
+            "id": "0007",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "|Droga, isso foi bem recente... Eles estão mesmo todos mortos?|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Soldados do Batalhão da HexaCorp?! Por que eles estavam aqui ao ar livre?|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Bom... Melhor ver logo o que eles tinham e dar o fora daqui.|", "sound": "loot_body_sounds.wav"},
+                {"name": "Luka", "expression": "", "text": "|Espera... O que é isso?|", "sound": "pick_up_DVT.wav"}
+            ]
+        },
+        {
+            "id": "0008",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "|Isso... não pode ser!|", "sound": "ambient_music_ruins_2.wav"},
+                {"name": "Luka", "expression": "", "text": "|Eu me lembro de ter visto essa máquina antes...|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Mas não pode ser... Isso é realmente o DVT? Da HexaCorp?|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Quer dizer que... eu posso voltar?|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Que posso impedir isso de acontecer?|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|... Eu posso salvar todo mundo?|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|...|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Eu tenho que voltar!|", "sound": "activate.wav"}
+   
+
+            ]
+        },
+                {
             "id": "0002",
             "sequence": [
-                {"name": "Zikko", "expression": "neutral", "text": "Vapo Vapo", "sound": ""},
-                {"name": "Titta", "expression": "happy", "text": "Executamo os cara", "sound": ""}
+                {"name": "Luka", "expression": "", "text": "|Assim que eu ativei o DVT, tudo começou a girar.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Eu senti frio, calor, dor e alegria. Tudo ao mesmo tempo, como se tudo que eu senti nos últimos 6 anos estivesse passando pelo meu corpo na velocidade da luz.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|E então, tudo ficou escuro.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|E quando abri os olhos, mal pude acreditar.|", "sound": ""}   
+
+            ]
+        },
+        {
+            "id": "0009",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "|...|", "sound": "city_ambience_1.wav"},  
+                {"name": "Luka", "expression": "", "text": "|... Deu certo? Eu realmente voltei no tempo??|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|...|", "sound": ""},  
+                {"name": "Luka", "expression": "", "text": "|Sem palavras, eu olhei ao meu redor. Ruas lotadas, pessoas conversando sob grandes telões de propaganda.|", "sound": ""},  
+                {"name": "Luka", "expression": "", "text": "|Eu pensei que nunca mais iria ver esta cidade viva.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Fechei os meus olhos e respirei fundo, como não fazia há anos.|", "sound": "luka_deep_breath.wav"},  
+                {"name": "Soldado", "expression": "Soldado.png", "text": "Ei, parado aí! Você é um daqueles terroristas não é?", "sound": "soldier_steps.wav"},
+                {"name": "Luka", "expression": "", "text": "|Terrorista?!|", "sound": ""},  
+                {"name": "Soldado", "expression": "Soldado.png", "text": "Você vai se arrepender de dar as caras por aqui.", "sound": ""},
+                {"name": "Soldado", "expression": "Soldado.png", "text": "ESTAMOS SENDO ATACADOS, SOEM O ALARME!", "sound": "Alarm"},
+                {"name": "Luka", "expression": "", "text": "|HexaCorp... Acho que agora eu não tenho escolha, tenho que lutar.|", "sound": "alarm_1.wav"}
+    
+            ]
+        },
+        {
+            "id": "00010",
+            "sequence": [
+                {"name": "Börell", "expression": "Thunder_Happy.png", "text": "Caramba, você é bom de briga, um aliado como você seria...", "sound": ""},
+                {"name": "Börell", "expression": "Thunder_Happy.png", "text": "Bom, uma coisa de cada vez. Primeiro vamos sair daqui, depois a gente conversa direito.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Focused.png", "text": "Consegui desativar os alarmes e os dispositivos de segurança, Börell. A hora de sair é agora.", "sound": ""},
+                {"name": "Börell", "expression": "Thunder_Happy.png", "text": "Mandou bem Sam! Você é muito boa nisso.", "sound": ""},
+                {"name": "Sam", "expression": "Cheeky_Sam.png", "text": "Hehe, eu deixo você me elogiar mais depois. Por enquanto, vamos focar em sair daqui inteiros.", "sound": "Sam_giggle.wav"},
+                {"name": "Sam", "expression": "Cheeky_Sam.png", "text": "...", "sound": "Group_Run_1.wav"}
+    
+            ]
+        },
+        {
+            "id": "00069a",
+            "sequence": [ 
+                {"name": "Luka", "expression": "", "text": "|Eu só estou com essa arma corpo a corpo, eu preciso me aproximar.|", "sound": ""}
+            ]
+        },
+        {
+            "id": "00069b",
+            "sequence": [ 
+                {"name": "Luka", "expression": "", "text": "|Agora eu posso bater, parece que eu consigo derrubá-lo em um único ataque.|", "sound": ""}
+            ]
+        },
+        {
+            "id": "00069c",
+            "sequence": [ 
+                {"name": "Luka", "expression": "", "text": "|Mais fácil do que eu esperava, parece que todo o meu treino valeu a pena.|", "sound": ""}
+            ]
+        },
+        {
+            "id": "00069d",
+            "sequence": [ 
+                {"name": "Soldado", "expression": "Soldado.png", "text": "Desista logo, você não tem a menor chance.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Preciso tomar cuidado, se eu tomar mais uns acertos desses eu vou ter desperdiçado a chance de mudar o passado.|", "sound": ""},
+                {"name": "Soldado", "expression": "Soldado.png", "text": "Você está cercado, se renda logo se não quiser-", "sound": ""},
+                {"name": "Soldado", "expression": "Soldado.png", "text": "", "sound": "Punch_1.wav"},
+                {"name": "Börell", "expression": "Thunder_Happy.png", "text": "Eles falam demais, não acha?", "sound": ""},
+                {"name": "Börell", "expression": "Thunder_Angry.png", "text": "Vamos acabar com a raça deles!", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Serious.png", "text": "Viemos aqui te ajudar, aguenta mais um pouquinho aí.", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "00011",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "|Nós corremos por ruas estreitas até uma área mais afastada do centro da cidade.|", "sound": "Group_Run_1.wav"},
+                {"name": "Luka", "expression": "", "text": "|Depois de uns bons minutos de caminhada, chegamos a uma rua sem saída. Börell nos guiou até um beco escuro com uma grande porta de metal enferrujada.|", "sound": "Group_Walk.wav"},
+                {"name": "Börell", "expression": "Thunder_Serious.png", "text": "", "sound": "Gate_knock.wav"},
+                {"name": "Börell", "expression": "Thunder_Serious.png", "text": "...", "sound": "Gate_open.wav"},
+                {"name": "Börell", "expression": "Thunder_Sweet.png", "text": "Adiante!", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "A-Ah… Certo.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|A Porta se abriu, mostrando uma escadaria escura que somente ia para baixo.|", "sound": "Group_Walk.wav"},
+                {"name": "Luka", "expression": "Serious", "text": "|Quando finalmente chegamos ao fim da escada...|", "sound": "Wood_Door_open.wav"}
+
+            ]
+        },
+        {
+            "id": "00012",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "|Chegamos a uma enorme sala subterrânea. Algumas pessoas organizavam armas e munições.|", "sound": "ambient_music_base.wav"},
+                {"name": "Luka", "expression": "", "text": "|Outras se juntavam ao redor de mapas e debatiam planos.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Já outros grupos conversavam e comiam tranquilos.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Apesar da cena familiar, havia uma grande diferença entre esse grupo e o nosso do futuro.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Todos aqui ainda estavam cheios de esperança.|", "sound": ""},
+                {"name": "Börell", "expression": "Thunder_Sweet.png", "text": "Bem vindo ao nosso pequeno grupo de revolucionários, Amigo! Podemos não ser muitos, mas somos uma família.", "sound": ""},
+                {"name": "Börell", "expression": "Thunder_Sweet.png", "text": "Você está seguro aqui com a gente.", "sound": ""},
+                {"name": "Börell", "expression": "Thunder_Happy.png", "text": "Pode ficar quanto tempo quiser... Só por favor não mexa em nada. Todos os recursos aqui são valiosos para o grupo.", "sound": ""},
+                {"name": "Börell", "expression": "Thunder_Happy.png", "text": "Como você já deve saber, meu nome é Börell, mas pode me chamar de Thunder. Eu sou o líder desta base de operações da resistência. Esquadrão G6.", "sound": ""},
+                {"name": "Börell", "expression": "Thunder_Sweet.png", "text": "E essa coisinha aqui é a Sam. Ela é a mais nova integrante da família, apesar de termos nos conhecido há pouco tempo devido a... circunstâncias estranhas.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Defy.png", "text": "Estranhas” é pouco, né?  Hahahahaha”", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Happy.png", "text": "De qualquer forma, é muito bom te conhecer. Ainda bem que chegamos a tempo de te ajudar, Viajante!", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Happy.png", "text": "Se precisar de algo pode falar comigo.", "sound": ""},
+                {"name": "Börell", "expression": "Thunder_Sigh.png", "text": "Sim, foi por pouco!  Graças ao nosso grupo, a HexaCorp está em estado de alerta pesado.", "sound": ""},
+                {"name": "Börell", "expression": "Thunder_Serious.png", "text": "Então nós estamos de olho nas comunicações deles, para ajudar as pessoas em necessidade.", "sound": ""},
+                {"name": "Börell", "expression": "Thunder_Sigh.png", "text": "Muitas vezes, cidadãos comuns são atacados por aqueles porcos da HexaCorp por “suspeita de atividade terrorista”. Para eles, as pessoas não passam de iscas para caçar nossa organização.", "sound": "Thunder_Sigh.wav"},
+                {"name": "Börell", "expression": "Thunder_Angry.png", "text": "Como se já não bastasse as atrocidades que eles cometem por baixo dos panos...", "sound": ""},
+                {"name": "Börell", "expression": "Thunder_Sigh.png", "text": "... Mas enfim! Já falei demais não é? Haha. Agora é sua vez!", "sound": ""},
+                {"name": "Börell", "expression": "Thunder_Happy.png", "text": "Quem é você? E o que estava fazendo no pátio central durante a Patrulha da HexaCorp?", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "00013",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "...Bem, é complicado, mas vocês precisam saber de uma coisa sobre mim.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Então eu expliquei toda a situação para eles|.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Surprised.png", "text": "Então você é que nem eu, um Viajante!", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Happy.png", "text": "Ah, é assim que nós estamos chamando quem voltou no tempo.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Serious.png", "text": "É estranho, mas nós não somos os únicos aqui, apesar da máquina do tempo ter somente um uso.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Serious.png", "text": "Nossa teoria é que pessoas de diversas timelines voltaram para o passado para impedir a HexaCorp. E parece que toda timeline tem uma tragédia diferente, como consequência do anúncio do DVT.", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "00014",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Eu estou aqui para derrotar a HexaCorp, e nós temos que ser rápidos, em poucos dias a HexaCorp vai cometer um erro terrível.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Hmmmm... Isso vai soar estranho, mas por acaso você veio de um futuro onde a HexaCorp acabou destruindo a cidade?", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Como é que você-", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Surprised.png", "text": "Então você é que nem eu, um Viajante!", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Surprised.png", "text": "Ah, é assim que nós estamos chamando quem voltou no tempo.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Serious.png", "text": "É estranho, mas nós não somos os únicos aqui, apesar da máquina do tempo ter somente um uso.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Serious.png", "text": "Nossa teoria é que pessoas de diversas timelines voltaram para o passado para impedir a HexaCorp. E parece que toda timeline tem uma tragédia diferente, como consequência do anúncio do DVT.", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "00015",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Vocês não vão acreditar em mim. Isso tudo é absurdo demais.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Hmmmm... Isso vai soar estranho, mas por acaso você veio de um futuro onde a HexaCorp acabou destruindo a cidade?", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Como é que você-", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Surprised.png", "text": "Então você é que nem eu, um Viajante!", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Surprised.png", "text": "Ah, é assim que nós estamos chamando quem voltou no tempo.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Serious.png", "text": "É estranho, mas nós não somos os únicos aqui, apesar da máquina do tempo ter somente um uso.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Serious.png", "text": "Nossa teoria é que pessoas de diversas timelines voltaram para o passado para impedir a HexaCorp. E parece que toda timeline tem uma tragédia diferente, como consequência do anúncio do DVT.", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "00016",
+            "sequence": [
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Apesar de eu não ser um Viajante como vocês, nosso grupo de resistência existe há anos. Todos estão lutando pelo fim da HexaCorp.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Happy.png", "text": "Então, se nos unirmos, vamos conseguir com certeza!", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sweet.png", "text": "Pelo o que vi você sabe se virar muito bem numa luta, e eu sei que você tem motivação para lutar.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Happy.png", "text": "E então, o que me diz?", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "00017",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Pode ter certeza, precisamos salvar todos.", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "00018",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Temos que impedir a HexaCorp a qualquer custo. Esse foi o motivo de eu ter voltado.", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "00019",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Vou me vingar por tudo que eles fizeram.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Por todos os crimes e injustiças que eles cometeram.", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "00020",
+            "sequence": [
+                {"name": "Thunder", "expression": "Thunder_Happy.png", "text": "Esse é o espírito! Temos uma missão muito importante. Ela será o primeiro passo para conseguirmos roubar o Dispositivo de viagem temporal.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "", "sound": "Bom, por hoje você deveria descansar. Amanhã cedo eu quero você na minha equipe. Se precisar de algo, é só dizer!"}
+
+            ]
+        },
+        {
+            "id": "00021",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Então, me sinto meio mal de pedir isso logo de cara...", "sound": "hungry_sound.wav"},
+                {"name": "Luka", "expression": "", "text": "Mas… vocês teriam algo para comer?", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sweet.png", "text": "Ah!! Foi mal amigo, onde estão os meus modos?", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sigh.png", "text": "Infelizmente eu não posso me juntar a vocês, mas a Sam pode te mostrar onde fica o refeitório.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Happy,png", "text": "Com prazer, tô morrendo de fome!", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sweet.png", "text": "Ótimo! Boa noite pra vocês então, nos vemos amanhã cedo!", "sound": "single_walk.wav"},
+                {"name": "Luka", "expression": "", "text": "|Nós andamos até o refeitório e nos servimos. Quase chorei quando vi que o prato do dia era pastel de queijo.|", "sound": "Cafeteria_ambient.wav"},
+                {"name": "Sam", "expression": "Sam_Happy.png", "text": "Aqui é incrível não é? Nem me lembro da última vez que comi fritura.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Euh athé tenh meso di-", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Surprised.png", "text": "Calma, Viajante! Termina de mastigar, não vai se engasgar no primeiro dia, né? Isso seria muuuito vergonhoso...haha...", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "0022",
+            "sequence": [
+                {"name": "Sam", "expression": "Sam_Shy.png", "text": "O que? Pfffft. Claro que não!...", "sound": "Sam_giggle.wav"},
+                {"name": "Sam", "expression": "Sam_Shy.png", "text": "...", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Defy.png", "text": "Ok, talvez sim. Mas eles tinham pipoca!!! Como eu poderia comer devagar?!", "sound": ""},
+                {"name": "Sam", "expression": "Sam_shy", "text": "E-Enfim! O que você tinha dito?", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "0023",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Ah, eu só ia dizer que tenho até um pouco de medo de isso ser um sonho. De acordar e ainda estar... lá.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Sad.png", "text": "Eu entendo… Mas ei, nós viemos aqui pra mudar aquele pesadelo, não foi?", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Sad.png", "text": "E pode ter certeza que é isso que nós vamos fazer.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Por algum motivo, as palavras da Sam realmente conseguiram me acalmar um pouco.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Obrigado, você está certa.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Happy.png", "text": "Eu geralmente estou ~", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Surprised.png", "text": "Ah, já está ficando tarde. Vou te mostrar onde você vai ficar, vem!", "sound": ""},
+                {"name": "Sam", "expression": "", "text": " ", "sound": "Group_Walk.wav"}
+
+            ]
+        },
+        {
+            "id": "0024",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Eu estou bem cansado, para falar a verdade...", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Tudo ainda me parece muito confuso, eu preciso parar para descansar um pouco.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Happy.png", "text": "Entendo total, vem comigo, vou te levar para o seu quarto.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Obrigado", "sound": "Group_Walk.wav"}
+
+            ]
+        },
+        {
+            "id": "0025",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "|Faz tanto tempo que eu não durmo em um lugar tão confortável e seguro...|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Que sorte eu tive, agora eu tenho uma chance de realmente mudar as coisas... não só manter as pessoas do meu acampamentos vivas.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Eu vou lutar por um futuro melhor.|", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "0003",
+            "sequence": [ 
+                {"name": "Luka", "expression": "", "text": "...", "sound": ""}
+
+            ]
+        },        
+        {
+            "id": "0026",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "...", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Happy.png", "text": "Ei viajante, hora de acordar. Thunder já está reunindo gente para a próxima missão.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Já? Desculpe, eu perdi completamente a noção de tempo.", "sound": "bed_rustle.wav"},
+                {"name": "Sam", "expression": "Sam_Sad.png", "text": "“Hmm... Faz tempo que você não dorme em uma cama assim não é mesmo?", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Sad.png", "text": "Eu entendo. Apesar de eu não saber o que houve no seu mundo, se você voltou para esse tempo, as coisas não deviam estar boas por lá.", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "0027",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Vamos encontrar o Thunder, já fiz a gente perder tempo demais.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Happy.png", "text": "Gosto desse seu entusiasmo! Vem comigo então.", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "0028",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Sam, desculpe se isso parecer insensível, mas o que aconteceu na sua realidade?", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Serious.png", "text": "Eu não me lembro direito, eu era bem nova quando tudo aconteceu. Meus pais tentaram ao máximo me proteger quando as revoltas começaram.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Sad.png", "text": "Depois disso, se iniciou uma guerra civil e… Enfim", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Serious.png", "text": "Mas não se preocupe, nós estamos aqui agora e vamos fazer tudo que é possível para impedir a HexaCorp. Já temos até um plano!", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Serious.png", "text": "O Thunder já vai explicar qual é, vem comigo", "sound": "Group_Walk.wav"}
+
+            ]
+        },
+        {
+            "id": "0029",
+            "sequence": [
+                {"name": "Sam", "expression": "Sam_Happy.png", "text": "E aí Thunder, eu trouxe o dorminhoco!", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Happy.png", "text": "Como está o braço Capitão? Espero que ele esteja funcionando bem! Acho que foi um dos meus melhores trabalhos!", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Happy.png", "text": "Sim, está ótimo. Obrigado mais uma vez, Senhorita.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Happy.png", "text": "Ótimo, então podemos começar, nós não temos tempo a perder.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Happy.png", "text": "Viajante, eu gostaria que você conhecesse o Capitão Salvato. Ele é simplesmente incrível e está sendo de grande ajuda ao nosso grupo!", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Sad.png", "text": "Ora… Agradeço as palavras, meu garoto. Mas não sou digno de recebê-las ainda.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Ahem… Bom dia viajante, prazer em conhecê-lo.", "sound": "Cap_ahem.wav"},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Espero que tenha descansado bem, vamos precisar de toda sua energia hoje.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Pois bem, eu adoraria conversar mais, mas por enquanto vamos focar na missão.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Você chegou bem em cima da hora, Viajante. A HexaCorp vai anunciar o Dispositivo de Viagem Temporal, DVT, em alguns dias.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "E como vocês três sabem, as consequências serão trágicas. Então temos pouco tempo para agir.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "O dispositivo está sendo finalizado na torre principal da HexaCorp, onde ele também será anunciado.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Essas informações também batem com o que você viu no seu futuro, Viajante?", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Eu só sei que o DVT foi anunciado nas televisões e por transmissões na internet.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Os membros do comitê estavam tão orgulhosos, mostrando o dispositivo e se gabando da sua equipe de cientistas...", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "E sim, o dispositivo realmente foi anunciado no prédio principal da HexaCorp, dizendo que a invenção deles iria mudar o mundo.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Bom, realmente mudou.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Eu sinto muito que você tenha passado por isso.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Angry.png", "text": "Mas pode ter certeza, nós vamos fazer esses desgraçados pagarem por tudo que eles fizeram.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Sad.png", "text": "Börell...", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sigh.png", "text": "Desculpa, eu estou bem", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Devemos focar na missão. Como vocês sabem o nosso objetivo final é invadir a torre principal da HexaCorp e destruir o DVT, mas obviamente isso não será fácil.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Só entrar na torre já será um grande desafio, por isso nós devemos observa-los atentamente para atacar no momento certo.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Então nosso primeiro passo é invadir a rede de comunicações da HexaCorp. O centro de comunicações deles fica em uma base mais afastada do centro.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Angry", "text": "Infelizmente para nós, esta base estará cheia de guardas, e entre eles, estará a chefe de segurança da HexaCorp... Morya.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sigh", "text": "Esta missão não será fácil... Mas vamos conseguir. O resto da revolução vai comprar briga em vários postos menores da Corporação para dispersar a segurança.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Happy", "text": "E é nesse momento que nós atacaremos. Viajante, eu quero que você, Capitão e a Sam venham comigo.", "sound": ""}
+
+            ]
+        },
+       
+        {
+            "id": "0030",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Eu não entendi direito o plano, pode repetir ele mais uma vez?", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Happy.png", "text": "Sem problema viajante, é importante que todos saibam exatamente qual é o plano.", "sound": ""},             
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Como vocês sabem o nosso objetivo final é invadir a torre principal da HexaCorp e destruir o DVT, mas obviamente isso não será fácil.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Só entrar na torre já será um grande desafio, por isso nós devemos observa-los atentamente para atacar no momento certo", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Então nosso primeiro passo é invadir a rede de comunicações da HexaCorp. O centro de comunicações deles fica em uma base mais afastada do centro.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Angry.png", "text": "Infelizmente para nós, esta base estará cheia de guardas, e entre eles, estará a chefe de segurança da HexaCorp... Morya.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sigh.png", "text": "Esta missão não será fácil... Mas vamos conseguir. O resto da revolução vai comprar briga em vários postos menores da Corporação para dispersar a segurança.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Happy.png", "text": "E é nesse momento que nós atacaremos. Viajante, eu quero que você, Capitão e a Sam venham comigo.", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "0031",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "|Nossa equipe se reuniu em frente a um grande carro na garagem.|", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sweet.png", "text": "Todos prontos? Eu dirijo!", "sound": "car_turning_on.wav"},             
+                {"name": "Luka", "expression": "", "text": "|Agora sim, vamos começar nossa missão.|", "sound": "ambient_city.wav"}
+
+            ]
+        },
+        {
+            "id": "0004",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "|...|", "sound": "ambient_city.wav"},
+                {"name": "Luka", "expression": "", "text": "|A cidade está tão movimentada, como não via há anos. Pessoas falando no celular, fazendo compras sob as luzes neon que preenchem a cidade.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Tudo isso parece tão... normal.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|... como se esse mundo não fosse acabar em apenas 6 dias...|", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Happy.png", "text": "É estranho ver tudo como era né?", "sound": "Sam_yawn.wav"},
+                {"name": "Luka", "expression": "", "text": "Sim... Quase parece que todos aqueles anos que passamos no futuro foram só um sonho ruim.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Mas infelizmente não foram...", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "E nós temos que lutar para que ninguém passe por aquele pesadelo.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Sad.png", "text": "Nós vamos salvar todos aqueles que lutaram... Todos que se foram...", "sound": "Cap_sigh.wav"},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Custe o que custar.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Sad.png", "text": "...", "sound": ""}
+
+            ]
+        },        
+        {
+            "id": "0032",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Ei... Não se preocupe, Capitão. Nós vamos conseguir, tenho certeza disso.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Happy.png", "text": "Hah… Obrigado, jovem. É bom ver que ainda há esperança na Juventude.", "sound": ""}, 
+                {"name": "Cpt. Salvato", "expression": "Cap_Happy.png", "text": "Parece que eu ainda tenho o que aprender com vocês... Tem razão, vamos manter a esperança.", "sound": ""}, 
+                {"name": "Cpt. Salvato", "expression": "Cap_Happy.png", "text": "Precisamos dela mais do que nunca.", "sound": "Cap_happy_sigh.wav"}           
+
+            ]
+        },
+        {
+            "id": "0033",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Se concentre, Capitão. Não podemos cometer erros.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Surprised.png", "text": "...", "sound": ""},      
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Tem razão. Desculpe, eu já falei demais.", "sound": "Cap_sigh.wav"},   
+                {"name": "Sam", "expression": "Sam_Sad.png", "text": "...", "sound": ""}            
+
+            ]
+        },
+        {
+            "id": "0070",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "|Senti um frio na barriga assim que o carro parou. Já é hora de agir.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Só temos uma chance de consertar isso...|", "sound": ""}, 
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "“...Está tudo bem Viajante?", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Você parece bem preocupado...", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Eu imagino que seja muito para assimilar...", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "0034",
+            "sequence": [
+                {"name": "Cpt. Salvato", "expression": "Cap_Happy.png", "text": "Bom... Isso é um alívio. Admiro a sua coragem viajante", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Mas fique atento, tenha cuidado, e, qualquer coisa, fique perto de mim.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Happy.png", "text": "Vamos conseguir, soldado.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Atenção, pessoal.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Teremos que agir rápido. Vamos aproveitar a distração que as outras equipes da revolução estão fazendo para entrar na Base de Comunicações da HexaCorp.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Vamos entrar, danificar a comunicação, e sair. Entendido?", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Vamos evitar qualquer risco desnecessário. Não percam o foco. Não morram.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Serious.png", "text": "Pode deixar. Todos prontos?", "sound": ""} 
+            ]
+        },
+        {
+            "id": "0071",
+            "sequence": [
+                {"name": "Cpt. Salvato", "expression": "Cap_Sad.png", "text": "Não era bem essa a minha preocupação...", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Mas de qualquer modo, fique atento, tenha cuidado, e, qualquer coisa, fique perto de mim.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Happy.png", "text": "Vamos conseguir, soldado.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Atenção, pessoal.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Teremos que agir rápido. Vamos aproveitar a distração que as outras equipes da revolução estão fazendo para entrar na Base de Comunicações da HexaCorp.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Vamos para a entrada dos fundos, derrubar os guardas de lá, entrar na base, danificar a comunicação, e sair. Entendido?", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Vamos evitar qualquer risco desnecessário. Não percam o foco. Não morram.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Serious.png", "text": "Pode deixar. Todos prontos?", "sound": ""}        
+
+            ]
+        },
+        {
+            "id": "0035",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Eu não entendi muito bem, poderia repetir?", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Sem problemas, é o seguinte:", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Teremos que agir rápido. Vamos aproveitar a distração que as outras equipes da revolução estão fazendo para entrar na Base de Comunicações da HexaCorp.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Vamos para a entrada dos fundos, derrubar os guardas de lá, entrar na base, danificar a comunicação, e sair. Entendido?", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Vamos evitar qualquer risco desnecessário. Não percam o foco. Não morram.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Serious.png", "text": "Sim sim, eu já ouvi. Prontos agora?", "sound": ""} 
+
+            ]
+        },
+        {
+            "id": "0036",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Sim, vamos lá.", "sound": ""}         
+
+            ]
+        },
+        {
+            "id": "0037",
+            "sequence": [
+                {"name": "Cpt. Salvato", "expression": "Cap_Surprised.png", "text": "Estão todos bem? Alguém está ferido?", "sound": ""}, 
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Acho que estamos todos bem Capitão. Mas precisamos avançar antes que os reforços cheguem!", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Serious.png", "text": "", "sound": "Snipeshot1.wav"},
+                {"name": "Rampage", "expression": "Morya_Surprised.png", "text": "Eu não acredito...", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Sad.png", "text": "...", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Serious.png", "text": "Eu… Sinto muito, mas não importa o que vocês vieram fazer aqui, vocês não vão conseguir. Esta é a última chance para vocês saírem daqui com vida. ", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Angry.png", "text": "Ah, agora temos o direito de um aviso? Que generosidade.", "sound": "Thunder_scoff.wav"},
+                {"name": "Thunder", "expression": "Thunder_Angry.png", "text": "TIME! Ela é a chefe de segurança da HexaCorp! Atrás dela, AGORA!", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Angry.png", "text": "THUNDER! Não seja imprudente Garoto!", "sound": ""}, 
+                {"name": "Soldado", "expression": "Soldado.png", "text": "", "sound": "gunshot1.wav"},
+                {"name": "Thunder", "expression": "Thunder_Angry.ong", "text": "Hhnghh-!", "sound": ""},
+                {"name": "Soldado", "expression": "Soldado.png", "text": "Agora é o seu fim, Terrorista!", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Surprised.png", "text": "NÃO!", "sound": ""},
+                {"name": "Soldado", "expression": "Soldado.png", "text": "Hã?", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Serious.png", "text": "", "sound": "hammer_sound1.wav"},
+                {"name": "Hammer", "expression": "Hammer_Angry.png", "text": "Acorda homem! Não adianta ficar todo esquentadinho e ir pra cima!! Tá querendo morrer?!", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Surprised.png", "text": "BÖRELL!", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Serious.png", "text": "Você está bem?!", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Angry.png", "text": "“Cuidado vocês dois! A luta não acabou ainda!", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Angry.png", "text": "", "sound": "gunshot2.wav"},
+                {"name": "Cpt. Salvato", "expression": "Cap_Angry.png", "text": "Se protejam, eu cubro vocês!", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Surprised.png", "text": "...", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Serious.png", "text": "Soldado! RECUAR! Vamos nos reagrupar dentro da base!", "sound": "enemy_group_walk.wav"},
+                {"name": "Luka", "expression": "", "text": "...", "sound": ""},    
+                {"name": "Luka", "expression": "", "text": "Parece que as coisas se acalmaram...", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Serious.png", "text": "...", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Angry.png", "text": "O que você pensa que está fazendo?!", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Angry.png", "text": "Você sabe muito bem o que poderia ter acontecido... Onde estava com a cabeça?!", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Angry.png", "text": "...Eu sei que não é fácil vê-la, mas você precisa se controlar!!", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Sad.png", "text": "Eu não...", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sigh.png", "text": "...", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sad.png", "text": "...Me Desculpa.", "sound": "hug.wav"},
+                {"name": "Thunder", "expression": "Thunder_Sad.png", "text": "...Você tem razão. Que droga, Börell! Um líder não pode agir assim!", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sigh.png", "text": "Sam, obrigado.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sweet.png", "text": "Eu já estou mais calmo.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Thunder, não podemos ficar muito tempo aqui.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious", "text": "Sim, eu concordo.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sigh.png", "text": "...", "sound": "SUSPIRO"},
+                {"name": "Thunder", "expression": "Thunder_Happy.png", "text": "Ah, não posso esquecer. Eu te devo a minha vida, Senhorita...?", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "Ah, que nada cara! Eu arrebento a cara deles até de graça.", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Sweet.png", "text": "E meu nome é Dandara, mas eu prefiro ser chamada de Hammer.", "sound": ""}
+            ]
+        },
+        {
+            "id": "0038",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Hammer...? Tipo “Martelo”?", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "Ahá! Cê entendeu! Genial né? Avisa pros inimigos e aliados que o pau vai comer assim que eu chego.", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "0039",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Hammer...? Não querendo soar mal agradecido... Mas o que você está fazendo em uma base da HexaCorp?", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "Bem simples na verdade: Eu odeio esses caras. Ouvi o som de briga e vim dar uma olhada.", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Sweet.png", "text": "Tô muito feliz por ter encontrado vocês, na verdade! Vocês lutam bem!", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "0040",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Bom, você salvou nossa pele. Bem vinda ao time, Dandara!", "sound": ""}        
+
+            ]
+        },
+        {
+            "id": "0041",
+            "sequence": [
+                {"name": "Cpt. Salvato", "expression": "Cap_Surprised.png", "text": "Espera... Você também é uma Viajante?", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Surprised.png", "text": "Viajante? Assim, eu meio que viajei no tempo, então... sim?", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Surprised.png", "text": "Pela roupa, imagino que vocês também,né?", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "É, isso mesmo. E nós vamos derrubar a HexaCorp antes do anúncio do DVT.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Happy.png", "text": "E ter alguém forte como você na equipe seria muito útil. O que me diz?", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Sweet.png", "text": "Heh, eu não entendi direito o plano de vocês mas, se envolve descer os caras da HexaCorp na porrada, vocês podem contar comigo.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sweet.png", "text": "Haha, A gente vai se dar muito bem, Hammer.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Mas o plano, em resumo, é entrar na base, ir até a Central, invadir a rede de comunicações e dar o fora daqui.", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "É só mostrar o caminho, grandão!", "sound": ""},
+                {"name": "Cpt. Salvado", "expression": "Cap_Serious.png", "text": "Desculpe interromper o momento, mas já perdemos muito tempo.", "sound": ""},
+                {"name": "Cpt. Salvado", "expression": "Cap_Serious.png", "text": "Fiquem atrás de mim.", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "0042",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "...", "sound": "Group_Run_2.wav"},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "SShhhh… Esperem.", "sound": "cap_shh.wav"},
+                {"name": "Soldado", "expression": "", "text": "", "sound": "base_enemy_walk.wav"},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Estou ouvindo guardas se movimentando mais a frente.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Thunder, acho que nós deveríamos procurar outra rota.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Nós não temos tempo a perder, e não conhecemos bem esse lugar. Se nos afastarmos dos corredores principais podemos acabar encurralados.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Mas se ficarmos expostos eles vão nos ver!", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Eu já vi muitos prédios da HexaCorp, e eles seguem um certo padrão.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Eu devo conseguir nos guiar até o centro de comunicações...", "sound": ""},
+                {"name": "Cpt. Salvado", "expression": "Cap_Sad.png", "text": "... Provavelmente.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "...", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "O que vocês acham?", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "0043",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Nós damos conta. Além disso, nossa prioridade é sermos rápidos não é?", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Todos de acordo?", "sound": ""},
+                {"name": "Dandara", "expression": "Hammer_Smile.png", "text": "Na hora.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Focused.png", "text": "Ok.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Garoto... Isso não é uma boa idéia...", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sigh.png", "text": "Sinto muito, Capitão.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Vamos atacar ao meu sinal!", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "...", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "AGORA!", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "0044",
+            "sequence": [
+                {"name": "Hammer", "expression": "Hammer_Angry.png", "text": "Já acabou?", "sound": ""},
+                {"name": "Soldado", "expression": "Soldado.png", "text": "Tem mais deles por aqui!", "sound": ""},
+                {"name": "Soldado", "expression": "Soldado.png", "text": "Precisaremos de mais reforços se-", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Blank.png", "text": "", "sound": "Billy_bat1.wav"},
+                {"name": "Billy", "expression": "Billy_Tired.png", "text": "huff… huff..", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Tired.png", "text": "Então... foram vocês que causaram a confusão", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Happy.png", "text": "huuff…. A-Agradeço! Consegui fugir da minha cela com toda essa comoção!", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Happy.png", "text": "Prazer, me chamo Billy!", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Surprised.png", "text": "Cara, mandou bem!", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Espera, fugir da sua cela?!", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Surprised.png", "text": "Isso! Sabia que eles tem uma prisão aqui?", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Happy.png", "text": "Vocês são membros da revolução não é mesmo?", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "... Como sabe disso?", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Happy.png", "text": "Ufa! Eu estava procurando por vocês! Depois eu explico melhor, mas algo horrível vai acontecer em 3 dias e eu preciso-", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Espera você também é um viajante?!", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Quero dizer, você veio do futuro?", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Surprised.png", "text": "Também??” Eu não sou o único?", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Sad.png", "text": "Haha, não mesmo. Eu também sou, temos muita coisa para conversar depois.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Vem com a gente, podemos conversar depois. Nós temos um objetivo urgente aqui.”", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "0045",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Eu sei que temos que ser rápidos, mas precisamos chegar lá inteiros. Vamos evitar lutas desnecessárias.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Todos de acordo?", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Serious.png", "text": "Por mim tudo bem.", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Serious.png", "text": "Certo.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Ótimo, então venham comigo.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Façam silêncio e não se afastem.", "sound": "Group_Walk.mp3"},
+                {"name": "Luka", "expression": "", "text": "|Nós passamos por vários corredores vazios. O lugar era quase um labirinto, mas parecia que estávamos fazendo progresso.|", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Surprised.png", "text": "Ei espera… Aquelas são celas?", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Naquela hora todos nós olhamos na direção que Hammer apontou, e nos deparamos com um corredor com 5 celas.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Você tem razão… Mas não parece ter ninguém ali.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Surprised.png", "text": "Ei! Espera, eu vi uma luz!", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Surprised.png", "text": "Será que devíamos olhar mais de perto? E se for alguém perigoso?", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Bom, o inimigo do meu inimigo é meu amigo...", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "0046",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Vamos olhar com-", "sound": ""},
+                {"name": "Billy", "expression": "", "text": "*Cof cof*", "sound": "billy_cough.wav"},
+                {"name": "Sam", "expression": "Sam_Surprised.png", "text": "...Ok eu estava errada. Que tal sairmos daqui agora?", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "O cara pode precisar de ajuda!", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Angry.png", "text": "Fala baixo, grandão! Se não, quem vai precisar de ajuda é a gente!", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sigh.png", "text": "Calma, pessoal... Eu vou na frente.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "...", "sound": "slow_thunder_steps.wav"},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Você tem razão... Tem uma pessoa aqui... Eu acho?", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Broke.png", "text": "...", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "“Pssst. Ei, amigo. Você está bem?", "sound": "psst.wav"},
+                {"name": "Billy", "expression": "Billy_Broke.png", "text": "...?", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Broke.png", "text": "...!", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Surprised.png", "text": "“A-AAAAH! O QUE VOCÊS QUEREM?!", "sound": "eep_billy.wav"},
+                {"name": "Billy", "expression": "Thunder_Serious.png", "text": "SHHHHHHHHHHHH!", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Confused.png", "text": "Oh… Não são os guardas..?", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Happy.png", "text": "Eu lá tenho cara de guarda?", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Mas agora sério... Por que eles te trancaram aqui?", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Surprised.png", "text": "AHhh...Hahah...", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Happy.png", "text": "B-Bem… Isso não importa!", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Serious.png", "text": "Mas você precisa me tirar daqui!", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Serious.png", "text": "Eu preciso impedir o anúncio daqui a 3 dias!", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "O quê? Mais um viajante?!", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Você veio do futuro?", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Surprised.png", "text": "O que? eu não sou o único?", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sigh.png", "text": "Calma, amigo. Nós vamos te tirar daí!", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sweet.png", "text": "Qual é o seu nome?", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Tired.png", "text": "Meu nome...? Meu nome é Billy.", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Serious.png", "text": "Aiai vocês falam demais-", "sound": ""},
+                {"name": "Hammer", "expression": "Serious", "text": "", "sound": "cell_kick_open.wav"},
+                {"name": "Hammer", "expression": "", "text": "Ei, Billy, né? Os guardas estão vindo. Você vem ou não?", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Angry.png", "text": "HAMMER! Você é maluca?! Eles vão descobrir nossa posição!!", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Serious.png", "text": "Não se nós sairmos daqui rápido.", "sound": ""},
+                {"name": "", "expression": "", "text": "...", "sound": "enemy_group_walk.wav"},
+                {"name": "Soldado", "expression": "Soldado", "text": "AQUI! ELES ESTÃO AQUI!", "sound": "alarm.wav"},
+                {"name": "Luka", "expression": "", "text": "Tarde demais, eles nos encontraram!", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "0047", 
+            "sequence": [
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Você precisa ter mais cuidado Billy, você pode acabar morrendo assim!", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Preserve a sua vida, não seja tão imprudente.", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Tired.png", "text": "Bom, você tem razão, mas... é complicado.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Foco pessoal, temos que nos apressar para chegar no nosso objetivo.", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "0048",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "É melhor não nos metermos nisso, vamos atrás de-", "sound": ""},
+                {"name": "", "expression": "Soldado", "text": "", "sound": "enemy_group_walk.png"},
+                {"name": "Soldado", "expression": "Soldado", "text": "AQUI! ELES ESTÃO AQUI!", "sound": "alarm.wav"},
+                {"name": "Luka", "expression": "Serious", "text": "Tarde demais, eles nos encontraram!", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "0050",
+            "sequence": [
+                {"name": "Sam", "expression": "Sam_Surprised.png", "text": "Então esse é o centro de comunicação deles?", "sound": "wow_whistle.wav"},
+                {"name": "Sam", "expression": "Sam_Surprised.png", "text": "Odeio admitir, mas é realmente impressionante. Ah, o que eu conseguiria fazer com tudo isso...", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sigh.png", "text": "Bom, sorte sua que você vai ter a oportunidade de mexer nesses sistemas agora.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Happy.png", "text": "Se divirta causando o máximo de estrago possível.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Focused", "text": "Pode deixar, vou mostrar para eles como é a tecnologia do futuro.", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Struggle.png", "text": "Huff…V-Vocês andam rápido.", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Tired.png", "text": "...", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Surprised.png", "text": "Uaaau, eu nunca vi nada parecido com esse lugar!", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Surprised.png", "text": "E esse é objetivo de vocês?", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Sweet", "text": "Eu acho que é, apesar de eu não entender nada dessas tralhas.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Angry.png", "text": "Não são tralhas!", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Mas sim, o objetivo é sabotar a comunicação deles", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "É uma boa estratégia, não acha?", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "...", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sigh.png", "text": "Ei Sam, eu sei que eu disse para você aproveitar... Mas se puder apressar aí, seria ótimo.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Defy.png", "text": "Pffft. Como se eu quisesse ficar aqui dando sopa por muito tempo.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Que sensação estranha, eu me sinto observado...|", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Está tudo bem viajante? Está procurando alguma coisa?", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Alí! Estou vendo a Sniper!", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Surprised.png", "text": "Droga...!", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Angry.png", "text": "PROTEJAM-SE!", "sound": "Snipeshot1.png"},
+                {"name": "Thunder", "expression": "Thunder_Angry.png", "text": "Maldita... Dessa vez só um de nós sairá daqui com vida. Você vai pagar caro-", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Angry.png", "text": "Garoto... Pare com isso!", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Angry.png", "text": "Controle-se!", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Angry.png", "text": "Cara, eu já salvei a sua pele uma vez. Se acalma porque eu não posso ficar salvando o seu rabo o tempo todo!", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Angry.png", "text": "Ela está certa, nós estamos em uma missão, Garoto!", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Angry.png", "text": "Matá-la não trará a Helena de volta!", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Susprised.png", "text": "...", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Hurt.png", "text": "...", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Eu não sei o que você passou, mas eu sei que se a gente fracassar nessa missão, milhões de pessoas irão morrer!", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Você precisa focar no que realmente importa.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sigh.png", "text": "...", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Certo! Vamos sair daqui!", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Focused.png", "text": "Uhhhh, pessoal?", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Focused.png", "text": "Odeio interromper, mas eu preciso de mais tempo!", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Angry.png", "text": "Aguente firme, garota!", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Vamos! Temos que dar cobertura para a Sam!", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "Se alguém se meter no caminho, pode deixar que eu e o meu martelo damos um jeito!", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Tired.png", "text": "E lá vamos nós de novo...", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Angry.png", "text": "Se preparem pra lutar!", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "0051",
+            "sequence": [
+                {"name": "Sam", "expression": "Sam_Surprised.png", "text": "Terminei! Vamos embora!", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Estão todos bem? Alguém ferido?", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Confused.png", "text": "Acho que estou bem...", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Espera! A Sniper sumiu!", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Angry.png", "text": "Não importa! Temos que sair daqui AGORA!", "sound": ""},
+                {"name": "", "expression": "", "text": "", "sound": "Group_Run_1.wav"}
+                
+            ]
+        },
+        {
+            "id": "0052",
+            "sequence": [
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Todos para dentro do carro!", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Angry.png", "text": "Afasta aí! Meu martelo não vai caber!", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Angry.png", "text": "DANDARA!", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Serious.png", "text": "Tá bom, tá bom!", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Todos aqui?", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Struggle.png", "text": "E-ESPERA!!! E-EU TÔ CHEGANDO!", "sound": "doors_close.wav"},
+                {"name": "Luka", "expression": "", "text": "|Puxamos o Billy para dentro do carro e conseguimos fugir.|", "sound": "car_start_accelerate.wav"},
+                {"name": "Luka", "expression": "", "text": "|Escutamos os carros da HexaCorp nos seguindo por alguns minutos, mas o Thunder soube despistá-los com facilidade.|", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "0053",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "...", "sound": "car_door_close.wav"},
+                {"name": "Luka", "expression": "", "text": "|Quando chegamos na Base, todos nós relaxamos visivelmente.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Hammer se enturmou em poucos minutos. Mal chegamos e ela já está em uma queda de braço com um dos rebeldes. Rindo e contando histórias.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Billy parece hipnotizado observando as pessoas. Parecia até um cachorrinho.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Apesar de sermos um grupo muito improvável, nós até que trabalhamos bem juntos, não é?|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Estou começando a sentir que realmente vamos conseguir salvar a cidade.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Börell e Sam estão conversando um pouco mais afastados… Apesar de estar curioso, sinto que não devia interromper.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Assim que ia dar o primeiro passo na direção dos dois, senti uma mão metálica no meu ombro.|", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Sad.png", "text": "É melhor deixá-los a sós, soldado.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Eles precisam conversar...", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Ah... Tem razão. Vou esperar a poeira baixar um pouco.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Happy.png", "text": "Fico feliz que entenda. Vou para o refeitório, caso precise de mim.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Ele fez uma curta reverência e foi em frente.|", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "0055",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "|Caminhei até a pequena aglomeração ao redor da mesa principal.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Onde Hammer e um soldado disputavam uma queda de braço intensa. Rebeldes torciam e faziam apostas ao redor da mesa enquanto sorriam.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Apesar de ter chegado ontem, acho que é a primeira vez que vejo os rebeldes tão relaxados. A Hammer realmente tem um talento para isso.|", "sound": ""},
+                {"name": "", "expression": "", "text": "", "sound": "arm_wrestle.wav"},
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "É DISSO QUE EU TÔ FALANDO!", "sound": "rebel_cheer.wav"},
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "QUEM É O PRÓXIMO?", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Surprised.png", "text": "Ei Viajante, você está por aqui!", "sound": ""},
+                {"name": "", "expression": "", "text": "", "sound": "fast_walking.wav"},
+                {"name": "Hammer", "expression": "Hammer_Sweet.png", "text": "Você não tem noção do quão empolgada eu estou por estar aqui.", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Sweet.png", "text": "O pessoal daqui é muito bacana! Senti falta disso...", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "Mas ei! Não quer tentar me desafiar não?", "sound": ""}
+                
+            ]
+        },
+        {
+            "id": "0056", 
+            "sequence": [
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "É DISSO QUE EU TÔ FALANDO! LIBERA A MESA PESSOAL!!", "sound": "rebel_cheer.wav"},
+                {"name": "Luka", "expression": "", "text": "|Eu e Hammer disputamos uma queda de braço|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Eu resisti o quanto pude, mas em menos de 30 segundos, eu já tinha perdido|", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "HAHA! Mais sorte na próxima vez, jovem gafanhoto!", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Nossa, eu perdi feio, hein? Achei que fosse pegar leve comigo! Haha", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Sweet.png", "text": "Eu não te ofenderia desse jeito. Você tem força, e ei… Não conte para os outros, mas você foi um bom oponente! Com um pouco de treino talvez você empate comigo! Quem sabe?", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "Bom, vou voltar lá! Tem um grandão que tá achando que me assusta! Te vejo depois, Viajante!", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Ela se despediu e voltou para a pequena multidão.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Hah... Foi divertido!|", "sound": ""}
+                
+            ]
+        },
+        {
+            "id": "0057",
+            "sequence": [
+                {"name": "Hammer", "expression": "Hammer_Sweet.png", "text": "Eu entendo, realmente não é para todo mundo", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "Então vou voltar para lá! Ah, sinta-se livre para assistir!", "sound": ""}
+                
+            ]
+        },
+        {
+            "id": "0058",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "|Caminhei até um banco, onde Billy estava sentado. Ele parecia distraído observando o movimento na base.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Ah, eu posso sentar aqui?", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Speechless.png", "text": "...", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Billy?", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Surprised.png", "text": "A-Ah! Desculpa, não te vi aí! Quer se sentar?", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Olhei pra ele meio estranho, mas me sentei.|", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Happy.png", "text": "Hahaha... Dá pra acreditar?", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Happy.png", "text": "Todas essas pessoas aqui? Unidas com um só propósito? Sinto que estou em um sonho...", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Happy.png", "text": "...", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Tired.png", "text": "Infelizmente, eu não tive essa opção...", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Sad.png", "text": "...", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Sad.png", "text": "...", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|É a primeira vez que vejo o Billy triste... Ele parece tão... Solitário. |", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|... Solitário. |", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Happy.png", "text": "...Mas bem, agora estou aqui com vocês! E é isso que importa, certo?", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "S-Sim, é isso que importa!", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "E olha, você não está sozinho agora. Nós vamos cuidar uns dos outros, certo?.", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Surprised.png", "text": "...", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Billy?", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Speechless.png", "text": "D-Desculpa, só é muita coisa pra digerir...", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Hahaha, entendo bem.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Qualquer coisa você pode falar comigo, podemos ficar digerindo isso juntos e falar do quão louco toda essa situação é.", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Speechless.png", "text": "Isso seria maravilhoso… Muito obrigado, Luka.”", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Não tem de quê", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Eu vou ver como os outros estão, te vejo por aí!", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Happy.png", "text": "Até mais", "sound": ""}
+                
+            ]
+        },
+         {
+            "id": "0059", 
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "|Fui em direção ao refeitório. Chegando lá, vi algo que eu definitivamente não estava esperando.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|O Capitão Salvato com um avental de cozinha rosa, claramente pequeno demais para ele, dando comandos e instruções para outros cozinheiros.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Assim que me viu, o Capitão trocou algumas palavras com um cozinheiro e veio na minha direção calmamente enquanto tirava o avental.|", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Happy.png", "text": "Boa noite viajante, como está se sentindo?", "sound": ""}
+                
+            ]
+        },
+        {
+                    "id": "0068",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Estou bem! Só um pouco cansado.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Sad.png", "text": "Sinto muito que a sua primeira missão tenha sido tão complicada.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Se bem que você se saiu extremamente bem. E suas ações hoje provam que você não é um novato", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Se me permite, posso perguntar o que você fazia no passado?", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "...", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Shy_Cough.png", "text": ".Digo, no futuro- No seu futuro.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Bom... eu fazia parte de um grupo de sobreviventes da Cidade Central.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "No meu tempo, depois que o Governo se posicionou contra a HexaCorp, a cidade entrou em colapso.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Milhares de civis foram pegos em fogo cruzado durante os ataques entre aquela maldita empresa e o governo.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Depois que eles basicamente se destruíram e acabaram com os recursos, A Grande cidade central se tornou uma terra sem lei.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Os poucos sobreviventes tentaram se unir para conseguir comida e água, mas... Enfim.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Deixei o clima um pouco estranho, né? Haha...", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Surprised.png", "text": "Não, Não se preocupe com isso!", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Sad.png", "text": " Eu entendo. E agora eu consigo ver o motivo por você saber se virar tão bem.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Happy.png", "text": "Obrigado por compartilhar sua história comigo, Viajante.", "sound": ""}
+                
+            ]
+        },
+        {
+                    "id": "0072",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Capitão Salvato.... Cozinha?", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Sad.png", "text": "Claro que sim! .", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Happy.png", "text": "Nada como uma boa refeição caseira para manter uma equipe mais unida e motivada!", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Happy.png", "text": "Quando todos voltam de uma missão difícil, nada melhor que o cheiro de alho e cebola dourando no fogo.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Happy.png", "text": "Com uma pitada de alecrim então? Não tem como não ficar com água na boca. ", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Happy.png", "text": "Você sabia que quando o azeite passa muito tempo-", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Surprised.png", "text": "...", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Shy.png", "text": "...", "sound": "Cap_Shy_Cough.wav"},
+                {"name": "Cpt. Salvato", "expression": "Cap_Shy.png", "text": "Enfim... Uh. Como está se sentindo, Viajante?", "sound": ""}
+                
+            ]
+        },
+         {
+            "id": "0073",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Eu que agradeço por ouvir!", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Bom, vou falar com os outros! Até mais tarde, Capitão!", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Happy.png", "text": "Certo. Até mais, Soldado!", "sound": ""},                
+                {"name": "Luka", "expression": "", "text": "|Com isso, saí do refeitório e voltei para o centro da base.|", "sound": ""}
+                
+            ]
+        },
+        
+        {
+
+                    "id": "0074",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "|Caminhei até a pequena aglomeração ao redor da mesa principal.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Onde Hammer e um soldado disputavam uma queda de braço intensa. Rebeldes torciam e faziam apostas ao redor da mesa enquanto sorriam.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Apesar de ter chegado ontem, acho que é a primeira vez que vejo os rebeldes tão relaxados. A Hammer realmente tem um talento para isso.|", "sound": ""},
+                {"name": "", "expression": "", "text": "", "sound": "arm_wrestle.wav"},
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "É DISSO QUE EU TÔ FALANDO!", "sound": "rebel_cheer.wav"},
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "QUEM É O PRÓXIMO?", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Surprised.png", "text": "Ei Viajante, você está por aqui!", "sound": ""},
+                {"name": "", "expression": "", "text": "", "sound": "fast_walking.wav"},
+                {"name": "Hammer", "expression": "Hammer_Sweet.png", "text": "Você não tem noção do quão empolgada eu estou por estar aqui.", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Sweet.png", "text": "O pessoal daqui é muito bacana! Senti falta disso...", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "Mas ei! Não quer tentar me desafiar não?", "sound": ""}
+                
+            ]
+        },
+        {
+            "id": "0075", 
+            "sequence": [
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "É DISSO QUE EU TÔ FALANDO! LIBERA A MESA PESSOAL!!", "sound": "rebel_cheer.wav"},
+                {"name": "Luka", "expression": "", "text": "|Eu e Hammer disputamos uma queda de braço|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Eu resisti o quanto pude, mas em menos de 30 segundos, eu já tinha perdido|", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "HAHA! Mais sorte na próxima vez, jovem gafanhoto!", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Nossa, eu perdi feio, hein? Achei que fosse pegar leve comigo! Haha", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Sweet.png", "text": "Eu não te ofenderia desse jeito. Você tem força, e ei… Não conte para os outros, mas você foi um bom oponente! Com um pouco de treino talvez você empate comigo! Quem sabe?", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "Bom, vou voltar lá! Tem um grandão que tá achando que me assusta! Te vejo depois, Viajante!", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Ela se despediu e voltou para a pequena multidão.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Hah... Foi divertido!|", "sound": ""}
+                
+            ]
+        },
+        {
+            "id": "0076",
+            "sequence": [
+                {"name": "Hammer", "expression": "Hammer_Sweet.png", "text": "Eu entendo, realmente não é para todo mundo", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "Então vou voltar para lá! Ah, sinta-se livre para assistir!", "sound": ""}
+                
+            ]
+        },
+        {
+            "id": "0077",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "|Caminhei até um banco, onde Billy estava sentado. Ele parecia distraído observando o movimento na base.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Ah, eu posso sentar aqui?", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Speechless.png", "text": "...", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Billy?", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Surprised.png", "text": "A-Ah! Desculpa, não te vi aí! Quer se sentar?", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Olhei pra ele meio estranho, mas me sentei.|", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Happy.png", "text": "Hahaha... Dá pra acreditar?", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Happy.png", "text": "Todas essas pessoas aqui? Unidas com um só propósito? Sinto que estou em um sonho...", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Happy.png", "text": "...", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Tired.png", "text": "Infelizmente, eu não tive essa opção...", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Sad.png", "text": "...", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Sad.png", "text": "...", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|É a primeira vez que vejo o Billy triste... Ele parece tão... Solitário. |", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|... Solitário. |", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Happy.png", "text": "...Mas bem, agora estou aqui com vocês! E é isso que importa, certo?", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "S-Sim, é isso que importa!", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "E olha, você não está sozinho agora. Nós vamos cuidar uns dos outros, certo?.", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Surprised.png", "text": "...", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Billy?", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Speechless.png", "text": "D-Desculpa, só é muita coisa pra digerir...", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Hahaha, entendo bem.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Qualquer coisa você pode falar comigo, podemos ficar digerindo isso juntos e falar do quão louco toda essa situação é.", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Speechless.png", "text": "Isso seria maravilhoso… Muito obrigado, Luka.”", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Não tem de quê", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Eu vou ver como os outros estão, te vejo por aí!", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Happy.png", "text": "Até mais", "sound": ""}
+                
+            ]
+        },
+         {
+            "id": "0078",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "|Fui em direção ao refeitório. Chegando lá, vi algo que eu definitivamente não estava esperando.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|O Capitão Salvato com um avental de cozinha rosa, claramente pequeno demais para ele, dando comandos e instruções para outros cozinheiros.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Assim que me viu, o Capitão trocou algumas palavras com um cozinheiro e veio na minha direção calmamente enquanto tirava o avental.|", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Happy.png", "text": "Boa noite viajante, como está se sentindo?", "sound": ""}
+                
+            ]
+        },
+        {
+            "id": "0079",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Estou bem! Só um pouco cansado.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Sad.png", "text": "Sinto muito que a sua primeira missão tenha sido tão complicada.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Se bem que você se saiu extremamente bem. E suas ações hoje provam que você não é um novato", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Se me permite, posso perguntar o que você fazia no passado?", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "...", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Shy_Cough.png", "text": ".Digo, no futuro- No seu futuro.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Bom... eu fazia parte de um grupo de sobreviventes da Cidade Central.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "No meu tempo, depois que o Governo se posicionou contra a HexaCorp, a cidade entrou em colapso.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Milhares de civis foram pegos em fogo cruzado durante os ataques entre aquela maldita empresa e o governo.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Depois que eles basicamente se destruíram e acabaram com os recursos, A Grande cidade central se tornou uma terra sem lei.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Os poucos sobreviventes tentaram se unir para conseguir comida e água, mas... Enfim.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Deixei o clima um pouco estranho, né? Haha...", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Surprised.png", "text": "Não, Não se preocupe com isso!", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Sad.png", "text": " Eu entendo. E agora eu consigo ver o motivo por você saber se virar tão bem.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Happy.png", "text": "Obrigado por compartilhar sua história comigo, Viajante.", "sound": ""}
+                
+            ]
+        },
+        {
+            "id": "0080",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Capitão Salvato.... Cozinha?", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Sad.png", "text": "Claro que sim! .", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Happy.png", "text": "Nada como uma boa refeição caseira para manter uma equipe mais unida e motivada!", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Happy.png", "text": "Quando todos voltam de uma missão difícil, nada melhor que o cheiro de alho e cebola dourando no fogo.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Happy.png", "text": "Com uma pitada de alecrim então? Não tem como não ficar com água na boca. ", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Happy.png", "text": "Você sabia que quando o azeite passa muito tempo-", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Surprised.png", "text": "...", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Shy.png", "text": "...", "sound": "Cap_Shy_Cough.wav"},
+                {"name": "Cpt. Salvato", "expression": "Cap_Shy.png", "text": "Enfim... Uh. Como está se sentindo, Viajante?", "sound": ""}
+            ]
+        },
+        {
+            "id": "0081",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Eu que agradeço por ouvir!", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Bom, vou falar com os outros! Até mais tarde, Capitão!", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Happy.png", "text": "Certo. Até mais, Soldado!", "sound": ""},                
+                {"name": "Luka", "expression": "", "text": "|Com isso, saí do refeitório e voltei para o centro da base.|", "sound": ""}
+            ]
+        },       
+        {
+            "id": "0082",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "E qual é a sua história, Capitão? Sinto que você fazia parte do exército, acertei?", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Happy.png", "text": "Haha, meu anos no exército ainda são muito evidentes?", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Sim, eu era do exército. Do governo da cidade, não da HexaCorp", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "No meu mundo, diferentes países e cidades-estado declararam guerra contra a Cidade por medo do DVT ser utilizado de forma errada.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Sad.png", "text": "Sem escolha, o governo e a HexaCorp se tornaram uma só. E foram vitoriosos.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Sad.png", "text": "Mas com o governo na mão, ela passou a dominar tudo, e eu comecei o meu próprio grupo de rebeldes contra ela.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Serious", "text": "E enfim... Vamos deixar a história por aqui.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Serious", "text": "Acabamos de voltar de uma missão bem-sucedida. Temos que comemorar e relaxar um pouco!", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Como se estivesse lendo nossas mentes, Börell chegou e fez um anúncio com um grande sorriso no rosto, apesar da aparência cansada.|", "sound": ""}
+            ]
+        },
+        {
+            "id": "0061",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "|Assim que voltei para o centro da base, Börell chegou com um grande sorriso no rosto, apesar da aparência cansada e fez um anúncio|", "sound": ""}
+                
+            ]
+        },
+        {
+            "id": "0062",
+            "sequence": [
+                {"name": "Thunder", "expression": "Thunder_Happy.png", "text": "Atenção, Pessoal! Tenho uma notícia importante!", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Happy.png", "text": "Como vocês sabem, hoje conseguimos realizar uma missão muito importante.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sweet.png", "text": "E além disso, conseguimos aliados valiosos e poderosos para nosso time-", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "WOOHOOO!", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sweet.png", "text": "Hahaha, exatamente. Por isso, acho que precisamos comemorar, o que acham?", "sound": ""},
+                {"name": "", "expression": "", "text": "", "sound": "rebel_cheer.wav"},
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "AÊÊÊ, vamos festejar galera!", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Sweet.png", "text": "E eu quero conhecer mais de vocês!", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "Já estou cansada de ver pessoas que desistiram… Então ver pessoas que querem lutar contra esses tiranos me deixa muito animada!", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Happy.png", "text": "Falou e disse, Hammer! Vamos animar esse lugar!", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Happy.png", "text": "E eu quero conhecer mais de vocês!", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Neste momento a Sam correu até um painel na parede. Poucos segundos depois, luzes coloridas iluminaram a base e música começou a tocar.|", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Happy.png", "text": "Ah! Eu não escuto essa música há tantos anos!!", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Happy.png", "text": "Eu e o pessoal da cozinha preparamos uma coisa especial hoje", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "Isso….  Isso é realmente Macarronada?", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Sweet.png", "text": "Caramba, muito obrigado Capitão!", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Macarronada… Faz o dia todo de hoje valer a pena.", "sound": ""},
+                {"name": "Luka", "expression": "Happy", "text": "Na verdade, acho que estou lutando pra poder comer macarronada todos os dias.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Isso não seria muito saudável...", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Happy.png", "text": "Ah, quem liga?!", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Happy.png", "text": "Assim que isso tudo passar eu vou fazer a minha receita secreta de ovo com leite e batata frita pra vocês!", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sigh.png", "text": ".................", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sweet.png", "text": "E-eu posso provar haha", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Happy.png", "text": "AH! Pessoal vocês precisam ouvir as histórias do Tank. Tem umas coisas tão absurdas que só ele pra conseguir explicar!", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "Olha, que eu tenho umas histórias muito boas para contar também.", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "Já passei por umas situações tão absurdas que só dá para rir.", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Happy.png", "text": "Eu adoraria ouvir essas histórias!", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Surprised.png", "text": "Oh! Vejo que temos um cara de bom gosto aqui!", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Tired.png", "text": "Haha... Ai...", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Surprised.png", "text": "O que foi, Billy? Tá tudo bem?", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Happy.png", "text": "Ah... Haha... Está sim, só estou um pouco tonto.", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Tired.png", "text": "Meu corpo já não é mais o mesmo de antes, eu acho que devia me deitar por hoje...", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Surprised.png", "text": "Caramba, já está cansado?", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Serious.png", "text": "Hammer!", "sound": "elbow.wav"},
+                {"name": "Hammer", "expression": "Hammer_Surprised.png", "text": "Ai! Eu quero dizer, d-descanse bem.", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Happy.png", "text": "Hahah... Não tem quem acompanhe sua energia, Hammer!", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Sad.png", "text": "Verdade… E você deve ter passado por uns maus bocados naquela cela.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Happy.png", "text": "Vem, eu vou te levar para um quarto bem confortável.", "sound": ""},
+                {"name": "Billy", "expression": "Billy_Tired.png", "text": "Eu agradeço! Aproveitem a noite, pessoal!", "sound": ""},
+                {"name": "", "expression": "", "text": "", "sound": "single_walk.wav"},
+                {"name": "Hammer", "expression": "Hammer_Surprised.png", "text": "Então... Capitão! Fala um pouco de você!", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Eu realmente não sei o que dizer. Estive lutando contra HexaCorp há muitos anos.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Happy.png", "text": "Mas agora eu finalmente sinto que nós estamos perto de mudar o curso da história.", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Sweet.png", "text": "UM BRINDE A ISSO!", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Surprised.png", "text": "Mas fora sua missão… Fala das coisas que você gosta! Sonhos?", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Sweet.png", "text": "Tô curiosa… Cê é tão paizão, cuidando de todo mundo.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sweet.png", "text": "HAHAHA! É um bom jeito de chamá-lo. Ele é com certeza é bem mais experiente do que eu.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Happy.png", "text": "Ele que deveria ser o líder, eu só estou no comando dessa equipe porque eu estou na revolução do presente há mais tempo.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sweet.png", "text": "Mas ele com certeza está me ensinando muito!", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "No começo, achei que o Capitão era um pouco assustador, mas ele realmente tem esse ar meio paternal. É legal descobrir esse seu novo lado!", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Shy.png", "text": "Gente, eu realmente não acho que-", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Serious.png", "text": "PESSOAL, TEMOS UM PROBLEMA", "sound": "footsteps_run_luka_ruins.wav"},
+                {"name": "Sam", "expression": "Sam_Serious.png", "text": "“Nossos sensores estão detectando que tem uma pessoa se aproximando!", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Angry.png", "text": "Dei uma olhada nas câmeras... é a Morya! A Rampage!", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Aquela Sniper?! Isso é sério?!", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Angry.png", "text": "Essa mulher outra vez... arrrrgh-", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Angry.png", "text": "ATENÇÃO! Peguem as suas armas, se preparem, e se posicionem na entrada!", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Vamos deixar ela entrar, e prendê-la antes que possa reagir", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Apaguem as luzes e façam silêncio.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Depois de capturada, nós começamos a evacuação para a base 2B!", "sound": ""},
+                {"name": "", "expression": "", "text": "", "sound": "scatter_and_lights_out.wav"},
+                {"name": "Luka", "expression": "", "text": "...", "sound": ""},
+                {"name": "", "expression": "", "text": "", "sound": "Gate_open.wav"},
+                {"name": "", "expression": "", "text": "", "sound": "Punch_1.wav"},
+                {"name": "", "expression": "", "text": "|Em segundos, Thunder imobilizou a intrusa, a temida sniper da HexaCorp, Rampage.|", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Struggle.png", "text": "Hnnngh!", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Angry.png", "text": "Você está me subestimando tanto ao ponto de vir aqui sozinha, sua maluca?", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Susprised.png", "text": "Espera-", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Struggle.png", "text": "Só me deixe falar. Eu vim desarmada, podem checar. Eu não estou reagindo.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Angry.png", "text": "Ouviu quantas pessoas falarem isso antes de matá-las a sangue frio?", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Angry.png", "text": "Não importa o que você faça ou diga, você não vai comprometer meu batalhão.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Angry.png", "text": "“Acha que somos idiotas?!", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Struggle.png", "text": "Hngh-", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Struggle.png", "text": "Eu sei- Eu sei que cometi crimes terríveis. N-Não vim aqui me isentar de c-culpa.", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Struggle.png", "text": "Não gastaria tempo pedindo que me perdoe.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Angry.png", "text": "Então o que veio fazer?! Isso é uma missão suicida para me arrastar junto?!", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Struggle.png", "text": "Eu quero dar informações, para ajudar-", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Struggle.png", "text": "...O fim-", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Struggle.png", "text": "Fim da HexaCorp.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Angry.png", "text": "Você acha que somos idiotas?! Você acha que vamos acreditar em qualquer coisa que você diga?!", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Angry.png", "text": "Börell! Deixa ela respirar pra falar!", "sound": ""}
+
+            ]
+        },
+        {
+            "id": "0063",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Tank, ela está desarmada e imobilizada. Deixa ela falar. Isso pode ser algo bom.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Serious.png", "text": "Ele tem razão, não detectei nenhum tipo de escuta ou localizador. Só vamos ouvir o que ela tem a dizer.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Angry.png", "text": "Vocês acham mesmo que essa... essa Mulher merece nossa confiança?!", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Angry.png", "text": "Claro que não! Pensa, Grandão! Eles tão dizendo para pelo menos dar o benefício da dúvida!", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Nós não estamos em posição de rejeitar uma possível ajuda como essa, Garoto.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sigh.png", "text": "...", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Eu disse que ia tentar ser mais calmo.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Tudo bem. Mas é bom você ter cuidado com as palavras...", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Nesse momento, Thunder soltou o pescoço da intrusa e a imobilizou novamente, deixando seu pescoço livre.|", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Struggle.png", "text": "", "sound": "Morya_cough.wav"},
+                {"name": "Rampage", "expression": "Morya_Serious.png", "text": "E-Entendido. Tentarei ir direto ao ponto.", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Sigh.png", "text": "Eu trabalho na HexaCorp desde que me lembro. No começo eu não era nada além de uma assassina de aluguel.", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Serious.png", "text": "Se tem uma coisa que a empresa sempre deixou claro, é que se você não aguentar o trabalho, existem milhares de substitutos na fila.", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Sigh.png", "text": "Somos completamente descartáveis para eles.", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Sad.png", "text": "...", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Serious.png", "text": "Fiz o que fiz para sobreviver, e nada além disso.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Angry.png", "text": "E o que você quer? Uma medalha? Você quer que tenhamos pena de você?", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Você ainda está viva. Enquanto centenas morreram por sua culpa.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Sad.png", "text": "...", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Sad.png", "text": "...", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Serious.png", "text": "...", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Serious.png", "text": "Não se preocupe. Não vou gastar seu tempo com desculpas.", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Sigh.png", "text": "Eu sei mais que qualquer um que nada que eu diga ou faça vai mudar o passado.", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Serious.png", "text": "Mas talvez... Ainda haja tempo de mudar o futuro.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "...", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Serious.png", "text": "Eu conheço as bases e sistemas de segurança da HexaCorp.", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Serious.png", "text": "Posso tentar criar distrações, dispersar guardas.", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Serious.png", "text": "Tenho contato com algumas pessoas de rank alto.", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Sad.png", "text": "Não sei quanto tempo duraria meu disfarce... Mas isso não importa.", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Sigh.png", "text": "Caso eu seja descoberta, irão me matar de qualquer modo.", "sound": ""},               
+                {"name": "Rampage", "expression": "Morya_Serious.png", "text": "Mas antes disso, eu posso ser útil.", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Sad.png", "text": "...", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Sad.png", "text": "Eu sei que nada vai mudar o que eu fiz… Mas saiba que eu sinto muito pela sua irmã-", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Angry.png", "text": "VOCÊ NÃO TEM O DIREITO DE FALAR DELA.", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Surprised.png", "text": "...Grandão...", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "...O que mudou então? Porque você resolveu se virar contra a corporação agora?", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Sad.png", "text": "...Por que quero acreditar que vocês conseguiriam acabar com ela.", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Serious.png", "text": "Eu sou uma agente treinada, uma das melhores que existem... Mas sozinha não tenho a menor chance de fazer alguma diferença.", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Serious.png", "text": "Eu não tenho amigos nem família, então se vocês quiserem, me prendam. Me deixem apodrecer em uma cela vigiada, não importa.", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Sigh.png", "text": "Eu ajudarei da forma que puder, nem que seja só fornecendo informações.", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Serious.png", "text": "Mas se eu puder entrar em campo com vocês, teríamos uma chance muito melhor.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Chance melhor de nos guiar para uma armadilha, você quer dizer, certo?", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Thunder...Eu já conheci muitas pessoas da HexaCorp que foram forçadas a fazer trabalhos sujos, e se tornaram aliadas valiosas no futuro...", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Eu acho que devemos aceitar a ajuda dela. Me ofereço para vigia-la pessoalmente, se você estiver de acordo. ", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Angry.png", "text": "Capitão, eu acho que você está sendo ingênuo demais.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Angry.png", "text": "Se ela nos trair-", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Eu vou garantir que ela não tenha chances de nos prejudicar.", "sound": ""}
+                
+            ]
+        },
+        {
+            "id": "0064",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Nós deveríamos dar uma chance para ela, eu também quero acreditar que seja verdade.", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Serious.png", "text": "Ela pode ajudar nas missões… Mas só vamos descobrir tentando.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sigh.png", "text": "... Eu não estou acreditando em vocês.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Ela claramente não é alguém de confiança. Ela trabalha para a HexaCorp há anos!", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "O que nos garante que isso tudo não é só uma grande armação?!", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Angry.png", "text": "Vocês estão colocando tudo em risco por uma... Assassina?!", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Serious.png", "text": "...Börell, Eu sei que isso é demais pra engolir.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Sad.png", "text": "Mas pense no nosso objetivo final...", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sigh.png", "text": "...", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Angry.png", "text": "Eu nunca vou considerar esse monstro como parte da minha equipe.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Façam o que quiser com ela. Já que todos estão tão seguros, eu vou me retirar.", "sound": ""},
+                {"name": "Thunder", "expression": "", "text": "", "sound": "heavy_thunder_footsteps.wav"},
+                {"name": "Hammer", "expression": "Hammer_Serious.png", "text": "... Eu acho que estou começando a entender as coisas por aqui.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Sad.png", "text": "...", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Serious.png", "text": "Prendam a Sniper e não tirem os olhos dela. Vou atrás do meu-", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Surprised.png", "text": "...", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Sad.png", "text": "...Vou atrás do Thunder", "sound": ""},
+                {"name": "Sam", "expression": "Serious", "text": "", "sound": "single_walk.wav"},
+                {"name": "Cpt. Salvato", "expression": "Cap_Sad.png", "text": "", "sound": "Cap_sigh.wav"},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "...", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Creio que você entende o motivo dele reagir desse jeito. Mas, se você estiver falando a verdade, as coisas vão melhorar em breve.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Apesar de tudo. Bem vinda à Revolução.", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Surprised.png", "text": "...", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Sigh.png", "text": "Eu... agradeço.", "sound": ""},
+                {"name": "Hammer", "expression": "Hammer_Serious.png", "text": "Certo, mas nós vamos te manter algemada por enquanto… Você entende, né?", "sound": ""},
+                {"name": "Rampage", "expression": "Morya_Serious.png", "text": "Sim, estou ciente. Não se preocupe com isso.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Você está fazendo a coisa certa, Morya.", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Nós temos muito que conversar... Mas por enquanto, bem vinda a equipe.", "sound": ""}
+                
+            ]
+        },
+        {
+            "id": "0065",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Eu concordo com o Tank. Não podemos confiar nela. Ela já sabe onde é a nossa base. Não podemos deixar ela espalhar nossa localização.", "sound": ""},
+                {"name": "Thunder", "expression": "Serious", "text": "Exatamente. Não acredito que realmente achou que poderia nos enganar...", "sound": ""},
+                {"name": "Thunder", "expression": "Serious", "text": "Mas não se preocupe. Você vai ter um bom tempo para pensar no erro que cometeu ao vir aqui.", "sound": ""},
+                {"name": "Hammer", "expression": "Serious", "text": "Isso tudo é muito suspeito… Você tava tentando nos matar hoje cedo e agora vem aqui oferecer trégua?", "sound": ""},
+                {"name": "Hammer", "expression": "Serious", "text": "Essa história fede.", "sound": ""},
+                {"name": "Cpt. Thunder", "expression": "Serious", "text": "Thunder, você tem certeza que esta é a opção certa?", "sound": ""},
+                {"name": "Thunder", "expression": "Serious", "text": "Você tem o coração grande demais Capitão. Isso não é somente por vingança, é pela a revolução", "sound": ""},
+                {"name": "Thunder", "expression": "Serious", "text": "Confiar em qualquer coisa que ela diga agora é um risco grande demais.", "sound": ""},
+                {"name": "Thunder", "expression": "Serious", "text": "Tranquem ela na solitária. Ela não terá acesso a comida ou água por 5 dias. Depois poderemos conversar melhor.", "sound": ""},
+                {"name": "Rampage", "expression": "Serious", "text": "...", "sound": ""},
+                {"name": "", "expression": "", "text": "", "sound": "SOM DE GUARDAS LEVANDO A MORYA"},
+                {"name": "Thunder", "expression": "Serious", "text": "Dispensados. Vocês devem ir descansar. Eu cuido do resto por aqui.", "sound": ""},
+                {"name": "Sam", "expression": "Serious", "text": "Eu vou ficar com você, nem adianta tentar discutir.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Serious", "text": "Espero que não se arrependa, Börell", "sound": ""},
+                {"name": "Sam", "expression": "Angry", "text": "Agora não, Capitão.", "sound": ""},
+                {"name": "", "expression": "", "text": "", "sound": "SOM DE PASSOS"}
+                
+            ]
+        },
+        {
+            "id": "0066",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "|Que dia estressante...|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Eu vi a minha própria morte chegando algumas vezes.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Mas eu ainda estou aqui, ainda posso lutar.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Não vai ser fácil... Toda a situação da Sniper... foi intensa.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|No fim, tudo que importa é impedir que aquela tragédia aconteça.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Espero que tenhamos tomado a decisão certa.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Salvar todo mundo…. é só isso que importa.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|...|", "sound": ""}
+                
+            ]
+        },
+        {
+            "id": "0067",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Não podemos dar essa chance a ela. Eu concordo com o Tank, ela já sabe onde é a nossa base. Ela não pode sair daqui.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Angry.png", "text": "Exatamente. Não acredito que realmente achou que poderia nos enganar...", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sigh.png", "text": "Mas não se preocupe. Eu vou ser rápido. Não sou um monstro como você.", "sound": ""},
+                {"name": "Cpt. Thunder", "expression": "Cap_Serious.png", "text": "Thunder, você tem certeza que esta é a opção certa?", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sigh.png", "text": "Você tem o coração grande demais Capitão. Isso não é somente por vingança, é pela a revolução", "sound": ""},
+                {"name": "Cpt. Thunder", "expression": "Cap_Sad.png", "text": "...Garoto...", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "E é por isso que só existe uma escolha óbvia.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Sigh.png", "text": "...", "sound": ""},
+                {"name": "Thunder", "expression": "", "text": "...", "sound": "gunshot_body.png"},
+                {"name": "Luka", "expression": "", "text": "...", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "Apesar de tudo… essa é a escolha mais segura.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Dispensados. Vocês devem ir descansar. Eu cuido do resto por aqui.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Serious.png", "text": "Eu vou ficar com você, nem adianta tentar discutir.", "sound": ""},
+                {"name": "Cpt. Salvato", "expression": "Cap_Sad.png", "text": "Espero que não se arrependa, Börell.", "sound": ""},
+                {"name": "Sam", "expression": "Sam_Angry.png", "text": "Agora não capitão", "sound": ""},
+                {"name": "", "expression": "", "text": "", "sound": "Group_Walk.wav"}
+                
+            ]
+        },
+        {
+            "id": "0068",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "|Que dia estressante...|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Eu vi a minha própria morte chegando algumas vezes.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Mas eu ainda estou aqui, ainda posso lutar.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Não vai ser fácil... Toda a situação da Sniper... foi necessária. Não podemos arriscar o futuro por empatia.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|No fim, tudo que importa é impedir que aquela tragédia aconteça.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Salvar todo mundo…. é só isso que importa.|", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|Só isso...", "sound": ""},
+                {"name": "Luka", "expression": "", "text": "|...Não é?|", "sound": ""}
+                
             ]
         }
     ]

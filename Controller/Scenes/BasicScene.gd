@@ -1,6 +1,6 @@
 extends Node2D
 
-var DialogueBox = preload("res://View/Components/DialogueBox.tscn")
+var DialogueComponent = preload("res://View/Components/DialogueComponent.tscn")
 var QuestionBox = preload("res://View/Components/QuestionBox.tscn")
 var Tile = preload("res://View/Components/HexagonTile.tscn")
 var Character = preload("res://View/Components/Character.tscn")
@@ -17,6 +17,7 @@ var transition
 var turn_order_index = 0
 var turn_stage = "menu"
 var is_combat = false
+var has_target = true
 
 var allies = 0
 var foes = 0
@@ -26,12 +27,16 @@ var paths = []
 var actual_target_skill = {}
 var isMoved = false
 
-signal end_of_dialogue
+var able_attack = true
+var able_block = true
+var able_skill = true
+
+signal dialogue_ended
 signal answer_index
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_right") && characters.size() > 0:
-		print(characters[0].attack, " , ",characters[0].defense)
+		print("Estagio: " , turn_stage)
 		
 	if is_combat:
 		if allies == 0 || foes == 0:
@@ -71,10 +76,9 @@ func next_turn_stage():
 		"move":
 			turn_stage = "attack menu"
 			clean_paths()
-			yield(get_tree().create_timer(1.0), "timeout")
-			characters[turn_order_index].show_menu(false, true, true, true)
 			post_move_inserts()
 		"attack menu":
+			yield(get_tree().create_timer(0.5), "timeout")
 			turn_stage = "attack"
 			paths = pathfinder(characters[turn_order_index].index, characters[turn_order_index].character_info["range"], false)
 			var path_index = 0
@@ -83,8 +87,6 @@ func next_turn_stage():
 				path_index += 1
 			if characters[turn_order_index].team == "foe":
 				attack_foe_IA()
-#			else:
-#				check_if_has_targets()
 			post_attack_menu_inserts()
 		"attack":
 			turn_stage = "end of turn"
@@ -118,7 +120,10 @@ func check_if_has_targets():
 			if (character.index == ally_path) && (character.team == "foe") && (character.defeated == false) && !find_target:
 				find_target = true
 	if !find_target:
-		next_turn_stage()
+		has_target = false
+	else:
+		has_target = true
+	print(has_target)
 	
 func next_turn():
 	isMoved = false
@@ -132,11 +137,10 @@ func next_turn():
 		turn_stage = "menu"
 		yield(get_tree().create_timer(1.0), "timeout")
 		characters[turn_order_index].remove_buffs()
-		characters[turn_order_index].show_menu(true, true, true, true)
+		characters[turn_order_index].show_menu(true, able_attack, able_block, able_skill)
 
 func command_character_to(tile_index, tile_position):
-	print(tile_index, " , ", turn_stage)
-	
+	print("Estagio: " , turn_stage)
 	if characters[turn_order_index].team == "ally":
 		if turn_stage == "move":
 			move_character_to(tile_index, tile_position)
@@ -150,7 +154,7 @@ func command_character_to(tile_index, tile_position):
 					turn_stage = "menu"
 				clean_paths()
 				characters[turn_order_index].dismiss_skill_menu()
-				characters[turn_order_index].show_menu(!isMoved, true, true, true)
+				characters[turn_order_index].show_menu(!isMoved, able_attack, able_block, able_skill)
 		elif turn_stage == "skill":
 			if tile_index == characters[turn_order_index].index:
 				if isMoved:
@@ -158,7 +162,7 @@ func command_character_to(tile_index, tile_position):
 				else:
 					turn_stage = "menu"
 				clean_paths()
-				characters[turn_order_index].show_menu(!isMoved, true, true, true)
+				characters[turn_order_index].show_menu(!isMoved, able_attack, able_block, able_skill)
 			else:
 				target_skill_character_to(tile_index, tile_position)
 
@@ -211,7 +215,7 @@ func move_character_to(tile_index, tile_position):
 	if tile_index == characters[turn_order_index].index:
 		turn_stage = "menu"
 		clean_paths()
-		characters[turn_order_index].show_menu(true, true, true, true)
+		characters[turn_order_index].show_menu(true, able_attack, able_block, able_skill)
 	else:
 		isMoved = true
 		if tile_map[tile_index.y][tile_index.x].path:
@@ -230,7 +234,7 @@ func attack_character_to(tile_index, tile_position):
 		else:
 			turn_stage = "menu"
 		clean_paths()
-		characters[turn_order_index].show_menu(!isMoved, true, true, true)
+		characters[turn_order_index].show_menu(!isMoved, able_attack, able_block, able_skill)
 	else:
 		if tile_map[tile_index.y][tile_index.x].occupied:
 			if paths.find(tile_index, 0) != -1:
@@ -411,14 +415,14 @@ func pathfinder(tile_index, char_range, ignore_occupied_path):
 	
 func load_dialogue(text_code):
 	var window = get_viewport_rect().size
-	var dialogueBox = DialogueBox.instance()
-	dialogueBox.set_dialogue_code(text_code)
-	dialogueBox.set_position(Vector2(window.x/2, window.y))
-	dialogueBox.connect("end_of_dialogue", self, "end_of_dialogue")
-	self.add_child(dialogueBox)
+	var dialogueComponent = DialogueComponent.instance()
+	dialogueComponent.set_dialogue_code(text_code)
+	dialogueComponent.set_position(Vector2(window.x/2, window.y))
+	dialogueComponent.connect("end_of_dialogue", self, "dialogue_ended")
+	self.add_child(dialogueComponent)
 
-func end_of_dialogue():
-	emit_signal("end_of_dialogue")
+func dialogue_ended():
+	emit_signal("dialogue_ended")
 
 func load_question(text_code):
 	var window = get_viewport_rect().size
@@ -456,7 +460,7 @@ func dismiss_transition():
 func start_combat():
 	is_combat = true
 	yield(get_tree().create_timer(1.0), "timeout")
-	characters[turn_order_index].show_menu(true, true, true, true)
+	characters[turn_order_index].show_menu(true, able_attack, able_block, able_skill)
 	
 func end_combat():
 	pass

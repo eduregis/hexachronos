@@ -16,6 +16,8 @@ var dialogue_index = 0
 
 var finished = false
 
+signal end_of_dialogue
+
 func _ready():
 	load_dialogue()
 	
@@ -51,7 +53,7 @@ func load_dialogue():
 		
 		$Tween.start()
 	else:
-		queue_free()
+		emit_signal("end_of_dialogue")
 	dialogue_index += 1
 	
 func fade_in_character():
