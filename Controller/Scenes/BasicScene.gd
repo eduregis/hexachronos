@@ -103,6 +103,8 @@ func next_turn_stage():
 		"end of turn":
 			next_turn()
 			post_turn_inserts()
+		"end battle":
+			pass
 #	print(turn_stage)
 
 func clean_paths():

@@ -49,8 +49,12 @@ func post_turn_inserts():
 	pass
 	
 func end_combat():
+	turn_stage = "end combat"
 	yield(get_tree().create_timer(1.0), "timeout")
-	get_tree().change_scene("res://View/Scenes/Act1_Scene1.tscn")
+	load_quick_transition(false)
+	yield(get_tree().create_timer(0.4), "timeout")
+	get_tree().change_scene("res://View/Scenes/Act1_Scene2.tscn")
+	
 #	turn_order_index = 0
 #	turn_stage = "menu"
 #	for character in characters:

@@ -41,7 +41,7 @@ texture = ExtResource( 1 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Menu" type="Node2D" parent="."]
-z_index = 99
+z_index = 98
 
 [node name="MoveButton" type="Node2D" parent="Menu"]
 position = Vector2( 128.21, -94.578 )
@@ -99,7 +99,7 @@ polygon = PoolVector2Array( 70.0584, -38.1892, 84.0892, -15.4594, 70.76, 7.83174
 [node name="MenuTween" type="Tween" parent="."]
 
 [node name="SkillMenu" type="Node2D" parent="."]
-z_index = 98
+z_index = 97
 
 [node name="Skill_01Button" type="Node2D" parent="SkillMenu"]
 position = Vector2( -112.21, -142.578 )
