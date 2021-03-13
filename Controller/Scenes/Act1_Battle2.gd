@@ -7,7 +7,7 @@ func _ready():
 func combat():
 	load_tilemap("0001")
 	yield(get_tree().create_timer(1.0), "timeout")
-	set_ally("Protagonist", 3, 4)
+	set_ally("Protagonist", 2, 2)
 	set_ally("Tanker", 1, 5)
 	set_ally("Mechanic", 2, 8)
 	set_foe("Foe", 4, 2)

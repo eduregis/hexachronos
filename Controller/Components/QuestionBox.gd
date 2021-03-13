@@ -10,8 +10,6 @@ export var sound = ""
 
 signal answer_index
 
-var shido = preload("res://Assets/CharacterSprites/shido.png")
-
 var dialogue_index = 0
 
 var finished = false
@@ -81,7 +79,7 @@ func fade_in_character():
 	)
 
 func load_character_image(name, expression):
-	$CharacterImage.texture = shido
+	pass
 	
 func load_sound(sound):
 	match sound:
