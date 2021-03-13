@@ -7,8 +7,8 @@ func _ready():
 func combat():
 	load_tilemap("0001")
 	yield(get_tree().create_timer(1.0), "timeout")
-	set_ally("Hammer", 1, 3)
-	set_foe("Foe", 2, 4)
+	set_ally("Protagonist", 1, 3)
+	set_foe("Foe", 2, 5)
 	yield(get_tree().create_timer(1.0), "timeout")
 	load_dialogue("00069a")
 	yield(self, "dialogue_ended")
@@ -33,9 +33,19 @@ func post_move_inserts():
 					yield(self, "dialogue_ended")
 					yield(get_tree().create_timer(1.0), "timeout")
 			else:
-				able_block = true
+				if able_block == false:
+					able_block = true
+					load_dialogue("00069c")
+					yield(self, "dialogue_ended")
+					yield(get_tree().create_timer(1.0), "timeout")
 		characters[turn_order_index].show_menu(false, able_attack, able_block, able_skill)
 	else:
+		check_if_has_targets()
+		yield(get_tree().create_timer(1.0), "timeout")
+		if able_block == false && characters[turn_order_index].team == "ally" && !has_target:
+			able_block = true
+			load_dialogue("00069c")
+			yield(self, "dialogue_ended")
 		yield(get_tree().create_timer(1.0), "timeout")
 		characters[turn_order_index].show_menu(false, able_attack, able_block, able_skill)
 

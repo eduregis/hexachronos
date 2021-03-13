@@ -36,7 +36,7 @@ signal answer_index
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_right") && characters.size() > 0:
-		print("Estagio: " , turn_stage)
+		pass
 		
 	if is_combat:
 		if allies == 0 || foes == 0:
@@ -142,7 +142,7 @@ func next_turn():
 		characters[turn_order_index].show_menu(true, able_attack, able_block, able_skill)
 
 func command_character_to(tile_index, tile_position):
-	print("Estagio: " , turn_stage)
+	print(tile_index)
 	if characters[turn_order_index].team == "ally":
 		if turn_stage == "move":
 			move_character_to(tile_index, tile_position)
