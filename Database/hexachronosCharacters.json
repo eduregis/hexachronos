@@ -2,6 +2,17 @@
     "name": "hexachronos",
     "characters": [
         {
+            "name": "Protagonist",
+            "strength": 12,
+            "dexterity": 13,
+            "tecnical": 10,
+            "vitality": 14,
+            "agility": 11,
+            "luck": 12,
+            "range": 1,
+            "skills": []
+        },
+        {
             "name": "Tanker",
             "strength": 15,
             "dexterity": 9,

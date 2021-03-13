@@ -110,12 +110,13 @@
         {
             "id": "00069c",
             "sequence": [ 
-                {"name": "Luka", "expression": "", "text": "|Mais fácil do que eu esperava, parece que todo o meu treino valeu a pena.|", "sound": ""}
+                {"name": "Luka", "expression": "", "text": "|Não estou perto o suficiente pra atacar, parece que vou ter que me defender.|", "sound": ""}
             ]
         },
         {
             "id": "00069d",
             "sequence": [ 
+                {"name": "Luka", "expression": "", "text": "|Mais fácil do que eu esperava, parece que todo o meu treino valeu a pena.|", "sound": ""},
                 {"name": "Soldado", "expression": "Soldado.png", "text": "Desista logo, você não tem a menor chance.", "sound": ""},
                 {"name": "Luka", "expression": "", "text": "|Preciso tomar cuidado, se eu tomar mais uns acertos desses eu vou ter desperdiçado a chance de mudar o passado.|", "sound": ""},
                 {"name": "Soldado", "expression": "Soldado.png", "text": "Você está cercado, se renda logo se não quiser-", "sound": ""},
