@@ -504,7 +504,7 @@
                 {"name": "Thunder", "expression": "Thunder_Angry.png", "text": "TIME! Ela é a chefe de segurança da HexaCorp! Atrás dela, AGORA!", "sound": ""},
                 {"name": "Cpt. Salvato", "expression": "Cap_Angry.png", "text": "THUNDER! Não seja imprudente Garoto!", "sound": ""}, 
                 {"name": "Soldado", "expression": "Soldado.png", "text": "", "sound": "gunshot1.wav"},
-                {"name": "Thunder", "expression": "Thunder_Angry.ong", "text": "Hhnghh-!", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Angry.png", "text": "Hhnghh-!", "sound": ""},
                 {"name": "Soldado", "expression": "Soldado.png", "text": "Agora é o seu fim, Terrorista!", "sound": ""},
                 {"name": "Rampage", "expression": "Morya_Surprised.png", "text": "NÃO!", "sound": ""},
                 {"name": "Soldado", "expression": "Soldado.png", "text": "Hã?", "sound": ""},
@@ -530,7 +530,7 @@
                 {"name": "Thunder", "expression": "Thunder_Sigh.png", "text": "Sam, obrigado.", "sound": ""},
                 {"name": "Thunder", "expression": "Thunder_Sweet.png", "text": "Eu já estou mais calmo.", "sound": ""},
                 {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "text": "Thunder, não podemos ficar muito tempo aqui.", "sound": ""},
-                {"name": "Thunder", "expression": "Thunder_Serious", "text": "Sim, eu concordo.", "sound": ""},
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "text": "Sim, eu concordo.", "sound": ""},
                 {"name": "Thunder", "expression": "Thunder_Sigh.png", "text": "...", "sound": "SUSPIRO"},
                 {"name": "Thunder", "expression": "Thunder_Happy.png", "text": "Ah, não posso esquecer. Eu te devo a minha vida, Senhorita...?", "sound": ""},
                 {"name": "Hammer", "expression": "Hammer_Happy.png", "text": "Ah, que nada cara! Eu arrebento a cara deles até de graça.", "sound": ""},
@@ -808,6 +808,18 @@
             ]
         },
         {
+            "id": "0049a",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Já conversei com ela agora à pouco, devia ver como estão os outros...", "sound": ""}
+            ]
+        },
+        {
+            "id": "0049b",
+            "sequence": [
+                {"name": "Luka", "expression": "", "text": "Já conversei com ele antes, devia ver como estão os outros...", "sound": ""}
+            ]
+        },
+        {
             "id": "0055",
             "sequence": [
                 {"name": "Luka", "expression": "", "text": "|Caminhei até a pequena aglomeração ao redor da mesa principal.|", "sound": ""},
@@ -890,7 +902,7 @@
             ]
         },
         {
-                    "id": "0068",
+            "id": "0068",
             "sequence": [
                 {"name": "Luka", "expression": "", "text": "Estou bem! Só um pouco cansado.", "sound": ""},
                 {"name": "Cpt. Salvato", "expression": "Cap_Sad.png", "text": "Sinto muito que a sua primeira missão tenha sido tão complicada.", "sound": ""},
@@ -911,7 +923,7 @@
             ]
         },
         {
-                    "id": "0072",
+            "id": "0072",
             "sequence": [
                 {"name": "Luka", "expression": "", "text": "Capitão Salvato.... Cozinha?", "sound": ""},
                 {"name": "Cpt. Salvato", "expression": "Cap_Sad.png", "text": "Claro que sim! .", "sound": ""},
@@ -935,10 +947,8 @@
                 
             ]
         },
-        
         {
-
-                    "id": "0074",
+            "id": "0074",
             "sequence": [
                 {"name": "Luka", "expression": "", "text": "|Caminhei até a pequena aglomeração ao redor da mesa principal.|", "sound": ""},
                 {"name": "Luka", "expression": "", "text": "|Onde Hammer e um soldado disputavam uma queda de braço intensa. Rebeldes torciam e faziam apostas ao redor da mesa enquanto sorriam.|", "sound": ""},
@@ -1317,7 +1327,7 @@
             ]
         },
         {
-            "id": "0068",
+            "id": "0088",
             "sequence": [
                 {"name": "Luka", "expression": "", "text": "|Que dia estressante...|", "sound": ""},
                 {"name": "Luka", "expression": "", "text": "|Eu vi a minha própria morte chegando algumas vezes.|", "sound": ""},

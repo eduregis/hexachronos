@@ -2,6 +2,7 @@ extends Control
 
 var test = preload("res://Assets/Scenarios/test_tela.png")
 var black = preload("res://Assets/Scenarios/scenario_black.png")
+var bg_battle_01 = preload("res://Assets/Backgrounds/BG_1.png")
 
 var actual_background = ""
 var is_first_background_setted = true
@@ -56,5 +57,7 @@ func get_background(background_code):
 			background = black
 		"test":
 			background = test
+		"bg_battle_01":
+			background = bg_battle_01
 	return background
 	

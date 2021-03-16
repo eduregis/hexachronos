@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/char.png" type="Texture" id=1]
 [ext_resource path="res://Controller/Components/Character.gd" type="Script" id=2]
-[ext_resource path="res://Fonts/GaramondPremrPro-Smbd.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/MenuButtons/attack_btn.png" type="Texture" id=4]
 [ext_resource path="res://Assets/MenuButtons/move_btn.png" type="Texture" id=5]
 [ext_resource path="res://Assets/MenuButtons/defend_btn.png" type="Texture" id=6]
@@ -23,7 +23,7 @@ margin_top = -167.0
 margin_right = 101.0
 margin_bottom = -143.0
 custom_fonts/normal_font = SubResource( 1 )
-custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode_enabled = true
 bbcode_text = "100"
 text = "100"

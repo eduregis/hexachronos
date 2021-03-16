@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/TextBox/Textbox.png" type="Texture" id=1]
 [ext_resource path="res://Controller/Components/DialogueBox.gd" type="Script" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Assets/TextBox/Name Box.png" type="Texture" id=6]
 [ext_resource path="res://Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://View/Components/NextDialogueButton.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -52,10 +51,10 @@ anchor_left = 0.53
 anchor_top = 1.104
 anchor_right = 0.53
 anchor_bottom = 1.104
-margin_left = -307.85
-margin_top = -579.944
-margin_right = 306.15
-margin_bottom = 0.0559692
+margin_left = -354.85
+margin_top = -673.944
+margin_right = 357.15
+margin_bottom = -0.94397
 expand = true
 stretch_mode = 6
 __meta__ = {
@@ -63,13 +62,13 @@ __meta__ = {
 }
 
 [node name="NameBox" type="TextureRect" parent="DialogueBox"]
-anchor_left = 0.062
+anchor_left = 0.04
 anchor_top = 0.039
-anchor_right = 0.062
+anchor_right = 0.04
 anchor_bottom = 0.039
-margin_left = -10.59
-margin_top = -51.229
-margin_right = 175.41
+margin_left = -94.8
+margin_top = -50.229
+margin_right = 95.2
 margin_bottom = 5.771
 texture = ExtResource( 6 )
 expand = true
@@ -79,24 +78,29 @@ __meta__ = {
 }
 
 [node name="NameTextLabel" type="RichTextLabel" parent="DialogueBox"]
-anchor_left = 0.062
+anchor_left = -0.018
 anchor_top = 0.041
-anchor_right = 0.062
-anchor_bottom = 0.041
-margin_left = 36.41
+anchor_right = -0.018
+anchor_bottom = 0.043
+margin_left = 3.01
 margin_top = -35.651
-margin_right = 133.41
-margin_bottom = 1.349
+margin_right = 114.01
+margin_bottom = -3.073
 custom_fonts/normal_font = SubResource( 1 )
-bbcode_text = "-"
-text = "-"
+bbcode_enabled = true
+bbcode_text = "Rampage"
+text = "Rampage"
+scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TextureRect" type="TextureRect" parent="DialogueBox"]
-anchor_right = 1.0
+anchor_left = -0.126
+anchor_right = 1.116
 anchor_bottom = 1.0
+margin_left = 0.0699997
+margin_right = 0.380005
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 1
@@ -105,11 +109,12 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="DialogueBox"]
-anchor_right = 1.0
+anchor_left = -0.058
+anchor_right = 1.029
 anchor_bottom = 1.0
-margin_left = 71.0
+margin_left = 39.81
 margin_top = 26.0
-margin_right = -80.0
+margin_right = -36.405
 margin_bottom = -29.0
 custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
@@ -120,20 +125,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NextDialogueButton" type="Node2D" parent="DialogueBox"]
-position = Vector2( 820.323, 174.178 )
-script = ExtResource( 8 )
-
-[node name="Sprite" type="Sprite" parent="DialogueBox/NextDialogueButton"]
-position = Vector2( 0.960342, 0.718048 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
-
-[node name="NextDialogueButtonHitBox" type="StaticBody2D" parent="DialogueBox/NextDialogueButton"]
-input_pickable = true
-
-[node name="HitBox" type="CollisionPolygon2D" parent="DialogueBox/NextDialogueButton/NextDialogueButtonHitBox"]
-polygon = PoolVector2Array( 46.9149, -14.5696, 57.6057, 0.130188, 47.1376, 15.4982, -45.2931, 15.0527, -55.5385, 0.130188, -44.6249, -14.3469 )
+[node name="Button" type="Button" parent="DialogueBox"]
+margin_left = 845.0
+margin_top = 140.0
+margin_right = 980.0
+margin_bottom = 189.0
+action_mode = 0
+icon = ExtResource( 4 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Tween" type="Tween" parent="DialogueBox"]
 
@@ -142,5 +145,7 @@ polygon = PoolVector2Array( 46.9149, -14.5696, 57.6057, 0.130188, 47.1376, 15.49
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DialogueBox"]
 
 [node name="DialogueTween" type="Tween" parent="."]
-[connection signal="input_event" from="DialogueBox/NextDialogueButton/NextDialogueButtonHitBox" to="DialogueBox/NextDialogueButton" method="_on_NextDialogueButtonHitBox_input_event"]
+[connection signal="mouse_entered" from="DialogueBox/Button" to="DialogueBox" method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="DialogueBox/Button" to="DialogueBox" method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="DialogueBox/Button" to="DialogueBox" method="_on_Button_pressed"]
 [connection signal="tween_completed" from="DialogueBox/Tween" to="DialogueBox" method="_on_Tween_tween_completed"]
