@@ -2,6 +2,8 @@ extends "res://Controller/Scenes/SceneWithSkills.gd"
 
 func _ready():
 	randomize()
+	load_background("bg_battle_01")
+	yield(get_tree().create_timer(1.0), "timeout")
 	combat()
 
 func combat():
