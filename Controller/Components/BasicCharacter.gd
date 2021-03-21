@@ -68,6 +68,7 @@ func _ready():
 	set_stats()
 	$RichTextLabel.modulate = Color(1,1,1,0)
 	$Sprite.modulate = Color(1,1,1,0)
+	set_sprite()
 	$Menu.visible = false
 	$SkillMenu.visible = false
 	scale = Vector2(0.7, 0.7)
@@ -90,6 +91,9 @@ func _ready():
 		Tween.TRANS_QUAD, Tween.EASE_IN
 	)
 	tween.start()
+	
+func set_sprite():
+	pass
 
 func set_stats():
 	strength = character_info["strength"]
@@ -306,8 +310,10 @@ func take_tecnical_damage(char_attack):
 func move_to(tile_position):
 	var tween1 = get_node("Tween")
 	var tween2 = get_node("Tween")
+	$AnimationPlayer.play("Jump")
+	yield(get_tree().create_timer(0.28), "timeout")
 	tween1.interpolate_property(
-			self, "position:x", position.x , tile_position.x, 0.6, 
+			self, "position:x", position.x , tile_position.x, 0.36, 
 			Tween.TRANS_LINEAR, Tween.TRANS_LINEAR
 		)
 	tween1.start()
@@ -317,16 +323,18 @@ func move_to(tile_position):
 	else:
 		yAnchor = tile_position.y - 30
 	tween2.interpolate_property(
-			self, "position:y", position.y , yAnchor, 0.3, 
+			self, "position:y", position.y , yAnchor, 0.20, 
 			Tween.TRANS_SINE, Tween.EASE_OUT
 		)
 	tween2.start()
 	yield(tween2, "tween_completed")
 	tween2.interpolate_property(
-			self, "position:y", yAnchor, tile_position.y, 0.3, 
+			self, "position:y", yAnchor, tile_position.y, 0.16, 
 			Tween.TRANS_SINE, Tween.EASE_IN
 		)
 	tween2.start()
+	yield(tween2, "tween_completed")
+	$AnimationPlayer.stop()
 
 func _on_Tween_tween_completed(object, key):
 	if hp <= 0 && defeated == false && !inanimated:

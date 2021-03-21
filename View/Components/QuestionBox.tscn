@@ -7,11 +7,11 @@
 [ext_resource path="res://Assets/TextBox/Name Box.png" type="Texture" id=5]
 [ext_resource path="res://Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=6]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 24
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 26
 font_data = ExtResource( 2 )
 
@@ -75,7 +75,7 @@ margin_left = 1.23
 margin_top = -32.908
 margin_right = 105.23
 margin_bottom = 0.0919986
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "Dandara"
 text = "Dandara"
@@ -105,7 +105,7 @@ margin_left = -38.0
 margin_top = 15.0
 margin_right = 30.0
 margin_bottom = -136.0
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode_text = "Pergunta"
 text = "Pergunta"
