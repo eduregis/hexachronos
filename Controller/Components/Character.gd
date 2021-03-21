@@ -1,5 +1,7 @@
 extends "res://Controller/Components/BasicCharacter.gd"
 
+var sam_jump = preload("res://Assets/Animations/Sam - Pulo/Sam_Jump_SpriteSheet.png")
+
 signal skill_range_on
 signal skill_range_off
 
@@ -117,3 +119,7 @@ func _on_Skill_01ButtonHitBox_mouse_exited():
 
 func _on_SkillMenuTween_tween_all_completed():
 	$SkillMenu/Skill_01Button.position = skill01_btn_position
+
+func set_sprite():
+	$Sprite.scale = Vector2(0.4, 0.4)
+	$Sprite.texture = sam_jump
