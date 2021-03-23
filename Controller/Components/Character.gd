@@ -1,6 +1,31 @@
 extends "res://Controller/Components/BasicCharacter.gd"
 
-var sam_jump = preload("res://Assets/Animations/Sam - Pulo/Sam_Jump_SpriteSheet.png")
+var sam_jump = preload("res://Assets/Animations/Sam/Sam_Jump_SpriteSheet.png")
+var soldier_jump = preload("res://Assets/Animations/Soldier/Soldier_Jump_SpriteSheet.png")
+var thunder_jump = preload("res://Assets/Animations/Thunder/Thunder_Jump_SpriteSheet.png")
+var luka_jump = preload("res://Assets/Animations/Luka/Luka_Jump_SpriteSheet.png")
+var salvato_jump = preload("res://Assets/Animations/Salvato/Salvato_Jump_SpriteSheet.png")
+var billy_jump = preload("res://Assets/Animations/Billy/Billy_Jump_SpriteSheet.png")
+var dandara_jump = preload("res://Assets/Animations/Dandara/Dandara_Jump_SpriteSheet.png")
+var morya_jump = preload("res://Assets/Animations/Morya/Morya_Jump_SpriteSheet.png")
+
+var sam_hurt = preload("res://Assets/Animations/Sam/Sam_Hurt_SpriteSheet.png")
+var soldier_hurt = preload("res://Assets/Animations/Soldier/Soldier_Hurt_SpriteSheet.png")
+var thunder_hurt = preload("res://Assets/Animations/Thunder/Thunder_Hurt_SpriteSheet.png")
+var luka_hurt = preload("res://Assets/Animations/Luka/Luka_Hurt_SpriteSheet.png")
+var salvato_hurt = preload("res://Assets/Animations/Salvato/Salvato_Hurt_SpriteSheet.png")
+var billy_hurt = preload("res://Assets/Animations/Billy/Billy_Hurt_SpriteSheet.png")
+var dandara_hurt = preload("res://Assets/Animations/Dandara/Dandara_Hurt_SpriteSheet.png")
+var morya_hurt = preload("res://Assets/Animations/Morya/Morya_Hurt_SpriteSheet.png")
+
+var sam_faint = preload("res://Assets/Animations/Sam/Sam_Faint_SpriteSheet.png")
+var soldier_faint = preload("res://Assets/Animations/Soldier/Soldier_Faint_SpriteSheet.png")
+var thunder_faint = preload("res://Assets/Animations/Thunder/Thunder_Faint_SpriteSheet.png")
+var luka_faint = preload("res://Assets/Animations/Luka/Luka_Faint_SpriteSheet.png")
+var salvato_faint = preload("res://Assets/Animations/Salvato/Salvato_Faint_SpriteSheet.png")
+var billy_faint = preload("res://Assets/Animations/Billy/Billy_Faint_SpriteSheet.png")
+var dandara_faint = preload("res://Assets/Animations/Dandara/Dandara_Faint_SpriteSheet.png")
+var morya_faint = preload("res://Assets/Animations/Morya/Morya_Faint_SpriteSheet.png")
 
 signal skill_range_on
 signal skill_range_off
@@ -11,22 +36,22 @@ func buff_active(buff):
 	match buff.effect:
 		"defense":
 			defense = int(defense * buff.value)
-			buff_animation(["+ DEFESA"])
+			multi_text_animation(["+ DEFESA"])
 		"attack":
 			attack = int(attack * buff.value)
-			buff_animation(["+ ATAQUE"])
+			multi_text_animation(["+ ATAQUE"])
 		"hit_rate":
 			hit_rate = int(hit_rate * buff.value)
-			buff_animation(["+ PRECISÃO"])
+			multi_text_animation(["+ PRECISÃO"])
 		"evasion":
 			evasion = int(evasion * buff.value)
-			buff_animation(["+ EVASÃO"])
+			multi_text_animation(["+ EVASÃO"])
 		"taunt":
 			taunt = int(taunt * buff.value)
 		"berserk":
 			attack = int(attack * buff.value)
 			defense = int(defense * buff.value)
-			buff_animation(["+ ATAQUE", "- DEFESA"])
+			multi_text_animation(["+ ATAQUE", "- DEFESA"])
 
 func remove_buffs():
 	for buff in buffs:
@@ -47,21 +72,6 @@ func remove_buffs():
 					attack = int(attack / buff.value)
 					defense = int(defense / buff.value)
 			buffs.erase(buff)
-			
-func buff_animation(texts):
-	for text in texts:
-		$RichTextLabel.bbcode_text = "[center]" + String(text) + "[/center]"
-		$TextTween.interpolate_property(
-			$RichTextLabel, "modulate", Color(1,1,1,1), Color(1,1,1,0), 1, 
-			Tween.TRANS_SINE, Tween.EASE_IN_OUT
-		)
-		$TextTween.interpolate_property(
-			$RichTextLabel, "rect_position:y", damage_text_position.y, damage_text_position.y - 30, 1, 
-			Tween.TRANS_SINE, Tween.EASE_IN_OUT
-		)
-		$TextTween.start()
-		yield($TextTween, "tween_completed")
-
 
 func show_skill_menu():
 	yield(get_tree().create_timer(0.5), "timeout")
@@ -122,4 +132,108 @@ func _on_SkillMenuTween_tween_all_completed():
 
 func set_sprite():
 	$Sprite.scale = Vector2(0.4, 0.4)
-	$Sprite.texture = sam_jump
+	change_to_jump_sprite()
+		
+func change_to_jump_sprite():
+	$Sprite.hframes = 32
+	$Sprite.frame = 0
+	match character_info["name"]:
+		"Protagonist":
+			$Sprite.texture = luka_jump
+		"Mechanic":
+			$Sprite.texture = sam_jump
+		"Foe":
+			$Sprite.texture = soldier_jump
+		"Tanker":
+			$Sprite.texture = thunder_jump
+		"Captain":
+			$Sprite.texture = salvato_jump
+		"Berserk":
+			$Sprite.texture = billy_jump
+		"Hammer":
+			$Sprite.texture = dandara_jump
+		"Sniper":
+			$Sprite.texture = morya_jump
+
+func jump_animation(tile_position):
+	var tween1 = get_node("Tween")
+	var tween2 = get_node("Tween")
+	$AnimationPlayer.play("Jump")
+	yield(get_tree().create_timer(0.28), "timeout")
+	tween1.interpolate_property(
+			self, "position:x", position.x , tile_position.x, 0.36, 
+			Tween.TRANS_LINEAR, Tween.TRANS_LINEAR
+		)
+	tween1.start()
+	var yAnchor
+	if position.y < tile_position.y:
+		yAnchor = position.y - 30
+	else:
+		yAnchor = tile_position.y - 30
+	tween2.interpolate_property(
+			self, "position:y", position.y , yAnchor, 0.20, 
+			Tween.TRANS_SINE, Tween.EASE_OUT
+		)
+	tween2.start()
+	yield(tween2, "tween_completed")
+	z_index = index.y
+	tween2.interpolate_property(
+			self, "position:y", yAnchor, tile_position.y, 0.16, 
+			Tween.TRANS_SINE, Tween.EASE_IN
+		)
+	tween2.start()
+	yield(tween2, "tween_completed")
+	$AnimationPlayer.stop()
+
+func change_to_hurt_sprite():
+	$Sprite.hframes = 20
+	$Sprite.frame = 0
+	match character_info["name"]:
+		"Protagonist":
+			$Sprite.texture = luka_hurt
+		"Mechanic":
+			$Sprite.texture = sam_hurt
+		"Foe":
+			$Sprite.texture = soldier_hurt
+		"Tanker":
+			$Sprite.texture = thunder_hurt
+		"Captain":
+			$Sprite.texture = salvato_hurt
+		"Berserk":
+			$Sprite.texture = billy_hurt
+		"Hammer":
+			$Sprite.texture = dandara_hurt
+		"Sniper":
+			$Sprite.texture = morya_hurt
+			
+func hurt_animation():
+	$AnimationPlayer.play("Jump")
+	yield(get_tree().create_timer(0.40), "timeout")
+	$AnimationPlayer.stop()
+	change_to_jump_sprite()
+	
+func change_to_faint_sprite():
+	$Sprite.hframes = 15
+	$Sprite.frame = 0
+	match character_info["name"]:
+		"Protagonist":
+			$Sprite.texture = luka_faint
+		"Mechanic":
+			$Sprite.texture = sam_faint
+		"Foe":
+			$Sprite.texture = soldier_faint
+		"Tanker":
+			$Sprite.texture = thunder_faint
+		"Captain":
+			$Sprite.texture = salvato_faint
+		"Berserk":
+			$Sprite.texture = billy_faint
+		"Hammer":
+			$Sprite.texture = dandara_faint
+		"Sniper":
+			$Sprite.texture = morya_faint
+			
+func faint_animation():
+	$AnimationPlayer.play("Faint")
+	yield(get_tree().create_timer(0.30), "timeout")
+	$AnimationPlayer.stop()

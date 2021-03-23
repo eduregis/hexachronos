@@ -120,7 +120,7 @@
             "strength": 11,
             "dexterity": 11,
             "tecnical": 11,
-            "vitality": 11,
+            "vitality": 1,
             "agility": 11,
             "luck": 11,
             "range": 1,
