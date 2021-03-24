@@ -255,6 +255,7 @@ func able_submenus(move, attack, block, skill):
 		$Menu/SkillButton/Sprite.texture = skill_btn_disabled
 	
 func take_damage(char_attack):
+	yield(get_tree().create_timer(0.50), "timeout")
 	var hit_rate_final = ((85 * char_attack.hit_rate) / evasion)
 	var hit_rate_random = (randi() % 100)
 	if hit_rate_final >= hit_rate_random:
@@ -287,6 +288,7 @@ func take_damage(char_attack):
 	$Tween.start()
 
 func take_tecnical_damage(char_attack):
+	yield(get_tree().create_timer(0.46), "timeout")
 	var hit_rate_final = ((85 * char_attack.hit_rate) / evasion)
 	var hit_rate_random = (randi() % 100)
 	if hit_rate_final >= hit_rate_random:

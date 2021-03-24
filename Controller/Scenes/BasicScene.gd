@@ -243,6 +243,8 @@ func attack_character_to(tile_index, tile_position):
 				for character in characters:
 					if character.index == tile_index:
 						if (character.team != characters[turn_order_index].team) && (character.defeated == false):
+							characters[turn_order_index].change_to_attack_sprite()
+							characters[turn_order_index].attack_animation()
 							character.take_damage(characters[turn_order_index])
 							next_turn_stage()
 

@@ -27,6 +27,15 @@ var billy_faint = preload("res://Assets/Animations/Billy/Billy_Faint_SpriteSheet
 var dandara_faint = preload("res://Assets/Animations/Dandara/Dandara_Faint_SpriteSheet.png")
 var morya_faint = preload("res://Assets/Animations/Morya/Morya_Faint_SpriteSheet.png")
 
+var sam_attack = preload("res://Assets/Animations/Sam/Sam_Attack_SpriteSheet.png")
+var soldier_attack = preload("res://Assets/Animations/Soldier/Soldier_Attack_SpriteSheet.png")
+var thunder_attack = preload("res://Assets/Animations/Thunder/Thunder_Attack_SpriteSheet.png")
+var luka_attack = preload("res://Assets/Animations/Luka/Luka_Attack_SpriteSheet.png")
+var salvato_attack = preload("res://Assets/Animations/Salvato/Salvato_Attack_SpriteSheet.png")
+var billy_attack = preload("res://Assets/Animations/Billy/Billy_Attack_SpriteSheet.png")
+var dandara_attack = preload("res://Assets/Animations/Dandara/Dandara_Attack_SpriteSheet.png")
+var morya_attack = preload("res://Assets/Animations/Morya/Morya_Attack_SpriteSheet.png")
+
 signal skill_range_on
 signal skill_range_off
 
@@ -186,6 +195,7 @@ func jump_animation(tile_position):
 	$AnimationPlayer.stop()
 
 func change_to_hurt_sprite():
+	yield(get_tree().create_timer(0.48), "timeout")
 	$Sprite.hframes = 20
 	$Sprite.frame = 0
 	match character_info["name"]:
@@ -207,12 +217,14 @@ func change_to_hurt_sprite():
 			$Sprite.texture = morya_hurt
 			
 func hurt_animation():
-	$AnimationPlayer.play("Jump")
+	yield(get_tree().create_timer(0.50), "timeout")
+	$AnimationPlayer.play("Hurt")
 	yield(get_tree().create_timer(0.40), "timeout")
 	$AnimationPlayer.stop()
 	change_to_jump_sprite()
 	
 func change_to_faint_sprite():
+	yield(get_tree().create_timer(0.48), "timeout")
 	$Sprite.hframes = 15
 	$Sprite.frame = 0
 	match character_info["name"]:
@@ -234,6 +246,41 @@ func change_to_faint_sprite():
 			$Sprite.texture = morya_faint
 			
 func faint_animation():
+	yield(get_tree().create_timer(0.50), "timeout")
 	$AnimationPlayer.play("Faint")
 	yield(get_tree().create_timer(0.30), "timeout")
 	$AnimationPlayer.stop()
+	
+func change_to_attack_sprite():
+	$Sprite.frame = 0
+	match character_info["name"]:
+		"Protagonist":
+			$Sprite.hframes = 27
+			$Sprite.texture = luka_attack
+		"Mechanic":
+			$Sprite.hframes = 23
+			$Sprite.texture = sam_attack
+		"Foe":
+			$Sprite.hframes = 23
+			$Sprite.texture = soldier_attack
+		"Tanker":
+			$Sprite.hframes = 20
+			$Sprite.texture = thunder_attack
+		"Captain":
+			$Sprite.hframes = 23
+			$Sprite.texture = salvato_attack
+		"Berserk":
+			$Sprite.hframes = 27
+			$Sprite.texture = billy_attack
+		"Hammer":
+			$Sprite.hframes = 27
+			$Sprite.texture = dandara_attack
+		"Sniper":
+			$Sprite.hframes = 23
+			$Sprite.texture = morya_attack
+			
+func attack_animation():
+	$AnimationPlayer.play("Attack")
+	yield(get_tree().create_timer(0.46), "timeout")
+	$AnimationPlayer.stop()
+	change_to_jump_sprite()
