@@ -13,7 +13,7 @@ var path = false
 signal path_move_to
 
 func _ready():
-	scale = Vector2(0.58, 0.7)
+	scale = Vector2(0.83, 1)
 	$Sprite.scale = Vector2.ZERO
 	$Sprite.texture = default_floor
 	

@@ -72,7 +72,6 @@ func _ready():
 	$Sprite.z_index = index.y
 	$Menu.visible = false
 	$SkillMenu.visible = false
-	scale = Vector2(0.7, 0.7)
 	if team == "foe":
 		$Sprite.flip_h = true
 	damage_text_position = $RichTextLabel.rect_position

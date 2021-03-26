@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/HAMMER V2.png-61c8056b6258ddcaab9e3d5028eb88a3.stex"
+path="res://.import/Cap_Happy.png-08a557c6aed61703d4fd98e6c85e96b7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/CharacterSprites/Hammer - Dandara/HAMMER V2.png"
-dest_files=[ "res://.import/HAMMER V2.png-61c8056b6258ddcaab9e3d5028eb88a3.stex" ]
+source_file="res://Assets/CharacterSprites/Capitão Salvato/Cap_Happy.png"
+dest_files=[ "res://.import/Cap_Happy.png-08a557c6aed61703d4fd98e6c85e96b7.stex" ]
 
 [params]
 
