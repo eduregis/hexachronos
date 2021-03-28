@@ -6,6 +6,7 @@
 [node name="Background" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -20,6 +21,10 @@ margin_left = -640.0
 margin_top = -715.68
 margin_right = 639.0
 margin_bottom = 0.320007
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Background1" type="TextureRect" parent="BackgroundBox"]
 anchor_right = 1.0
@@ -28,6 +33,7 @@ margin_left = -6.0
 margin_top = -7.0
 margin_right = 9.0
 margin_bottom = 8.0
+mouse_filter = 2
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 1
@@ -43,6 +49,7 @@ margin_left = -6.0
 margin_top = -7.0
 margin_right = 9.0
 margin_bottom = 8.0
+mouse_filter = 2
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 1

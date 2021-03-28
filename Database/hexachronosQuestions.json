@@ -4,7 +4,98 @@
         {
             "id": "0001",
             "question": 
-                {"name": "Ryuji", "expression": "happy", "statement": "Bonde dos careca, come cu...", "answer_01": "Come biscoito",  "answer_02": "Come xereca",  "answer_03": "", "sound": ""}
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "statement": "Quem é você? E o que estava fazendo no pátio central durante a Patrulha da HexaCorp?", "answer_01": "Explicar toda a situação.",  "answer_02": "Derrotar HexaCorp.",  "answer_03": "Vocên não acreditariam.", "sound": ""}
+        },
+        {
+            "id": "0002",
+            "question": 
+                {"name": "Thunder", "expression": "Thunder_Happy.png", "statement": "E então, o que me diz?", "answer_01": "Pode ter certeza!",  "answer_02": "Temos que impedir a HexaCorp a qualquer custo.",  "answer_03": "Vou me vingar por tudo que eles fizeram.", "sound": ""}
+        },
+        {
+            "id": "0003",
+            "question": 
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "statement": "Bom, por hoje você deveria descansar. Amanhã cedo eu quero você na minha equipe. Se precisar de algo, é só dizer!", "answer_01": "Vocês teriam algo para comer?",  "answer_02": "Obrigado, preciso mesmo descansar",  "answer_03": "", "sound": ""}
+        },
+        {
+            "id": "0004",
+            "question": 
+                {"name": "Sam", "expression": "Sam_Happy.png", "statement": "Calma, Viajante! Termina de mastigar, não vai se engasgar no primeiro dia, né? Isso seria muuuito vergonhoso...haha...", "answer_01": "Isso aconteceu com você?",  "answer_02": "Desculpe, como eu dizia...",  "answer_03": "", "sound": ""}
+        },
+        {
+            "id": "0005",
+            "question": 
+                {"name": "Sam", "expression": "Sam_Happy.png", "statement": "Eu entendo. Apesar de eu não saber o que houve no seu mundo, se você voltou para esse tempo, as coisas não deviam estar boas por lá.", "answer_01": "Vamos para a missão.",  "answer_02": "O que aconteceu na sua realidade?",  "answer_03": "", "sound": ""}
+        },
+        {
+            "id": "0006",
+            "question": 
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "statement": "E é nesse momento que nós atacaremos. Viajante, eu quero que você, Capitão e a Sam venham comigo", "answer_01": "Estou pronto para partir imediatamente.",  "answer_02": "Pode repetir o plano mais uma vez?",  "answer_03": "", "sound": ""}
+        },
+        {
+            "id": "0007",
+            "question": 
+                {"name": "Sam", "expression": "Sam_Sad.png", "statement": "...", "answer_01": "Nós vamos conseguir.",  "answer_02": "Não podemos cometer erros.",  "answer_03": "", "sound": ""}
+        },
+        {
+            "id": "0008",
+            "question": 
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "statement": "Mas Imagino que deva ser muito para assimilar.", "answer_01": "Está tudo bem... obrigado.",  "answer_02": "Não se preocupe, vou conseguir lutar.",  "answer_03": "", "sound": ""}
+
+        },
+        {
+            "id": "0009",
+            "question": 
+                {"name": "Sam", "expression": "Sam_Serious.png", "statement": "Pode deixar. Todos prontos?", "answer_01": "Poderia repetir?",  "answer_02": "Sim, vamos lá.",  "answer_03": "", "sound": ""}
+        },
+        {
+            "id": "0010",
+            "question": 
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "statement": "O meu nome é Dandara, mas eu prefiro ser chamada de Hammer.", "answer_01": "Hammer?",  "answer_02": "O que você está fazendo por aqui?",  "answer_03": "Bem vinda ao time.", "sound": ""}
+        },
+        {
+            "id": "0011",
+            "question": 
+                {"name": "Thunder", "expression": "Thunder_Serious.png", "statement": "O que vocês acham?", "answer_01": "Nós damos conta.",  "answer_02": "Procurar outro caminho.",  "answer_03": "", "sound": ""}
+        },
+        {
+            "id": "0012",
+            "question": 
+                {"name": "Thunder", "expression": "Thunder_Happy.png", "statement": "Bom, o inimigo do meu inimigo é meu amigo...", "answer_01": "Vamos olhar.",  "answer_02": "É melhor não nos metermos nisso.",  "answer_03": "", "sound": ""}
+        },
+        {
+            "id": "0013",
+            "question": 
+                {"name": "Luka", "expression": "", "statement": "Apesar de estar curioso, sinto que não devia interromper. Então, o que faço agora?", "answer_01": "Falar com o Capitão",  "answer_02": "Falar com Hammer.",  "answer_03": "Falar com Billy", "sound": ""}
+        },
+        {
+            "id": "0016",
+            "question": 
+                {"name": "Luka", "expression": "", "statement": "Então, o que faço agora?", "answer_01": "Falar com o Capitão",  "answer_02": "Falar com Hammer.",  "answer_03": "Falar com Billy", "sound": ""}
+        },
+        {
+            "id": "0014",
+            "question": 
+                {"name": "Sam", "expression": "Sam_Angry.png", "statement": "Börell! Deixa ela respirar pra falar!", "answer_01": "Deveríamos ouvir ela primeiro",  "answer_02": "Acabe com ela enquanto pode.",  "answer_03": "", "sound": ""}
+        },
+        {
+            "id": "0015",
+            "question": 
+                {"name": "Cpt. Salvato", "expression": "Cap_Serious.png", "statement": "Eu vou garantir que ela não tenha chances de nos prejudicar.", "answer_01": "Confiar na Rampage",  "answer_02": "Não confiar na Rampage",  "answer_03": "", "sound": ""}
+        },
+        {
+            "id": "0017",
+            "question": 
+                {"name": "Hammer", "expression": "Hammer_Happy.png", "statement": "Mas ei! Não quer tentar me desafiar não?", "answer_01": "Vamos lá! Por que não?",  "answer_02": "Não é meu tipo de coisa.",  "answer_03": "", "sound": ""}
+        },
+        {
+            "id": "0018",
+            "question": 
+                {"name": "Luka", "expression": "", "statement": "Boa noite viajante, como está se sentindo?", "answer_01": "Surpreso!",  "answer_02": "Estou Bem!",  "answer_03": "", "sound": ""}
+        },
+        {
+            "id": "0019",
+            "question": 
+                {"name": "Luka", "expression": "", "statement": "Obrigado por compartilhar sua história comigo, Viajante.", "answer_01": "E qual a sua história?",  "answer_02": "Vou falar com os outros!",  "answer_03": "", "sound": ""}
         }
     ]
 }

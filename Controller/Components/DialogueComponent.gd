@@ -42,7 +42,7 @@ func set_dialogue_code(text_code):
 			for dialogue in dialogues["sequence"]:
 				names.append(dialogue["name"])
 				expressions.append(dialogue["expression"])
-				text.append("(" + dialogue["name"] + ") " + dialogue["text"])
+				text.append(dialogue["text"])
 				sounds.append(dialogue["sound"])
 			$DialogueBox.dialogue = text
 			$DialogueBox.names = names
