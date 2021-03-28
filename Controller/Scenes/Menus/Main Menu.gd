@@ -4,7 +4,7 @@ extends Control
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var scenes = ["res://View/Scenes/Act1_Battle2.tscn",null,null,"res://View/Scenes/Menus/Options.tscn"]
+var scenes = ["res://View/Scenes/Act1_Scene2.tscn",null,null,"res://View/Scenes/Menus/Options.tscn"]
 var scenetochange = 3
 
 # Called when the node enters the scene tree for the first time.

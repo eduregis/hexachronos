@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Interface/Frame 2.png" type="Texture" id=1]
-[ext_resource path="res://Interface/Frame 1.png" type="Texture" id=2]
-[ext_resource path="res://Interface/Lifebar.png" type="Texture" id=3]
-[ext_resource path="res://Lifebar.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Interface/Frame 2.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Interface/Frame 1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Interface/Lifebar.png" type="Texture" id=3]
+[ext_resource path="res://Controller/Scenes/Menus/Lifebar.gd" type="Script" id=4]
 
 [node name="Lifebar" type="Node2D"]
 script = ExtResource( 4 )
