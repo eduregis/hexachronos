@@ -1,0 +1,457 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://View/Scenes/Menus/Menu Components/BackgroundMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://View/Scenes/Menus/Menu Components/BackgroundImg.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Themes/Hexachronos_Theme.tres" type="Theme" id=3]
+[ext_resource path="res://Controller/Scenes/Menus/Options.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Interface/Opcoes/BG/Musica.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Interface/Opcoes/BG/SFX.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Interface/Opcoes/BG/Modo.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Interface/Opcoes/BG/Resolucao.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Interface/Opcoes/Arrows/Arrow.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Interface/Opcoes/Arrows/Arrow_Hover.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Interface/Fonts/RobotoMono-Bold.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://Assets/Interface/Opcoes/Arrows/Arrow_HoverL.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Interface/Opcoes/Arrows/ArrowL.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Interface/Opcoes/Arrows/ArrowL,Disabled.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Interface/Opcoes/Arrows/Arrow,Disabled.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Interface/Opcoes/Back Buttons/Menu Disabled.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Interface/Opcoes/Back Buttons/Menu Hover.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Interface/Opcoes/Back Buttons/Reset Disabled.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Interface/Opcoes/Back Buttons/Reset.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Interface/Opcoes/Back Buttons/Reset Hover.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Interface/Opcoes/Back Buttons/Menu.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Interface/Opcoes/Opções Title.png" type="Texture" id=22]
+
+[sub_resource type="Animation" id=1]
+resource_name = "ScreenEntering"
+length = 1.2
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Musica:rect_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -664, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.3, 0.8 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("SFX:rect_position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -664, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.4, 0.9 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Modo:rect_position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -664, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.5, 1 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Resolucao:rect_position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( -664, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.6, 1.1 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Background:rect_position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1240, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.1, 0.6 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("BackMenu:rect_position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1136, -0.25, 0, 0.25, 0, 632.807, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.4, 0.9 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("ResetOptions:rect_position:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 1138, -0.25, 0, 0.25, 0, 630.191, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.5, 1 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "ScreenOut"
+length = 1.2
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Musica:rect_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -664, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.3, 0.8 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("SFX:rect_position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -664, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.4, 0.9 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Modo:rect_position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -664, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.5, 1 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Resolucao:rect_position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( -664, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.6, 1.1 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Background:rect_position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1240, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.1, 0.6 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("BackMenu:rect_position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1136, -0.25, 0, 0.25, 0, 632.807, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.4, 0.9 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("ResetOptions:rect_position:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 1138, -0.25, 0, 0.25, 0, 630.191, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.5, 1 )
+}
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ null, ExtResource( 22 ), null, ExtResource( 22 ), null, ExtResource( 22 ) ],
+"loop": false,
+"name": "screenenter",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 22 ), null, ExtResource( 22 ), null, ExtResource( 22 ), null ],
+"loop": false,
+"name": "screenout",
+"speed": 10.0
+} ]
+
+[sub_resource type="DynamicFont" id=4]
+size = 29
+font_data = ExtResource( 11 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 365.689, 694.527 ],
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 528.0 ]
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/ScreenEntering = SubResource( 1 )
+anims/ScreenOut = SubResource( 2 )
+
+[node name="AnimatedSprite" parent="." instance=ExtResource( 2 )]
+scale = Vector2( 0.666878, 0.666878 )
+
+[node name="PageTitle" type="AnimatedSprite" parent="."]
+position = Vector2( -1.68726, 273.655 )
+scale = Vector2( 0.6, 0.6 )
+frames = SubResource( 3 )
+animation = "screenenter"
+centered = false
+
+[node name="Background" parent="." instance=ExtResource( 1 )]
+margin_left = 1240.0
+margin_right = 1240.0
+
+[node name="Musica" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -664.0
+margin_top = 358.61
+margin_right = -1328.0
+margin_bottom = -239.39
+rect_scale = Vector2( 0.6, 0.6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Musica"]
+texture = ExtResource( 5 )
+centered = false
+
+[node name="HMusica" type="HBoxContainer" parent="Musica"]
+margin_left = 104.0
+margin_top = 48.0
+margin_right = 534.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 300, 0 )
+custom_constants/separation = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider" type="HSlider" parent="Musica/HMusica"]
+margin_right = 376.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 376, 0 )
+value = 50.0
+scrollable = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Musica/HMusica"]
+margin_left = 408.0
+margin_top = 8.0
+margin_right = 430.0
+margin_bottom = 32.0
+text = "22"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFX" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -664.0
+margin_top = 420.814
+margin_right = -1293.0
+margin_bottom = -185.186
+rect_scale = Vector2( 0.6, 0.6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="SFX"]
+texture = ExtResource( 6 )
+centered = false
+
+[node name="HSFX" type="HBoxContainer" parent="SFX"]
+margin_left = 104.0
+margin_top = 48.0
+margin_right = 534.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 300, 0 )
+custom_constants/separation = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFX_Slider" type="HSlider" parent="SFX/HSFX"]
+margin_right = 376.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 376, 0 )
+value = 50.0
+scrollable = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="SFX/HSFX"]
+margin_left = 408.0
+margin_top = 8.0
+margin_right = 430.0
+margin_bottom = 32.0
+text = "22"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Modo" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -664.0
+margin_top = 481.29
+margin_right = -1302.0
+margin_bottom = -120.71
+rect_scale = Vector2( 0.6, 0.6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Modo"]
+texture = ExtResource( 7 )
+centered = false
+
+[node name="Window" type="TextureButton" parent="Modo"]
+margin_left = 96.0
+margin_top = 48.0
+margin_right = 125.0
+margin_bottom = 87.0
+texture_normal = ExtResource( 13 )
+texture_hover = ExtResource( 12 )
+texture_disabled = ExtResource( 14 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WindowModeLabel" type="Label" parent="Modo"]
+margin_left = 232.0
+margin_top = 48.0
+margin_right = 402.0
+margin_bottom = 87.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "FULLSCREEN"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Full" type="TextureButton" parent="Modo"]
+margin_left = 504.0
+margin_top = 48.0
+margin_right = 533.0
+margin_bottom = 87.0
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+texture_disabled = ExtResource( 15 )
+
+[node name="Resolucao" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -664.0
+margin_top = 541.766
+margin_right = -1289.0
+margin_bottom = -64.2339
+rect_scale = Vector2( 0.6, 0.6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Resolucao"]
+texture = ExtResource( 8 )
+centered = false
+
+[node name="LowRes" type="TextureButton" parent="Resolucao"]
+margin_left = 96.0
+margin_top = 50.0
+margin_right = 125.0
+margin_bottom = 89.0
+texture_normal = ExtResource( 13 )
+texture_hover = ExtResource( 12 )
+texture_disabled = ExtResource( 14 )
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Resolucao"]
+margin_left = 220.0
+margin_top = 50.0
+margin_right = 407.0
+margin_bottom = 89.0
+custom_fonts/font = SubResource( 4 )
+text = "1920 X 1080"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GrowRes" type="TextureButton" parent="Resolucao"]
+margin_left = 502.0
+margin_top = 50.0
+margin_right = 531.0
+margin_bottom = 89.0
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+texture_disabled = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackMenu" type="TextureButton" parent="."]
+anchor_top = 0.889
+anchor_right = 0.017
+anchor_bottom = 0.889
+margin_left = 51.882
+margin_top = 495.92
+margin_right = 250.882
+margin_bottom = 578.92
+rect_scale = Vector2( 0.6, 0.6 )
+texture_normal = ExtResource( 21 )
+texture_hover = ExtResource( 17 )
+texture_disabled = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetOptions" type="TextureButton" parent="."]
+margin_left = 202.651
+margin_top = 1138.0
+margin_right = 400.651
+margin_bottom = 1222.0
+rect_scale = Vector2( 0.6, 0.6 )
+texture_normal = ExtResource( 19 )
+texture_hover = ExtResource( 20 )
+texture_disabled = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="value_changed" from="Musica/HMusica/HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="value_changed" from="SFX/HSFX/SFX_Slider" to="." method="_on_SFX_Slider_value_changed"]
+[connection signal="pressed" from="Modo/Window" to="." method="_on_Window_pressed"]
+[connection signal="pressed" from="Modo/Full" to="." method="_on_Full_pressed"]
+[connection signal="pressed" from="Resolucao/LowRes" to="." method="_on_LowRes_pressed"]
+[connection signal="pressed" from="Resolucao/GrowRes" to="." method="_on_GrowRes_pressed"]
+[connection signal="pressed" from="BackMenu" to="." method="_on_BackMenu_pressed"]
+[connection signal="pressed" from="ResetOptions" to="." method="_on_ResetOptions_pressed"]

@@ -1,0 +1,191 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Themes/SliderButton.tres" type="ButtonGroup" id=1]
+[ext_resource path="res://Assets/Interface/Menu/tab_test_normal.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Interface/Menu/tab_test.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Interface/Menu/Hologram/Morya_Neutral.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Interface/Menu/MenuHologram.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Interface/Menu/Hologram/Thunder_Happy.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Interface/Menu/Hologram/HAMMER V2.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Interface/Menu/Hologram/Cap_Serious.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Interface/Menu/Hologram/Billy_Speechless.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Interface/Menu/Hologram/Sam_Happy.png" type="Texture" id=10]
+[ext_resource path="res://Controller/Scenes/Menus/BackgroundMenu.gd" type="Script" id=11]
+
+[sub_resource type="Animation" id=1]
+resource_name = "FadeIn"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Characters:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Characters:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+} ]
+
+[node name="Background" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FadeIn = SubResource( 1 )
+anims/FadeOut = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.66629, 0.66629 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Characters" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Characters"]
+modulate = Color( 0.188235, 0.639216, 0.709804, 1 )
+position = Vector2( 953.944, 359.3 )
+scale = Vector2( 0.291753, 0.291754 )
+frames = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_left = -0.00206769
+anchor_top = 0.00317405
+anchor_right = 0.0145728
+anchor_bottom = 0.013914
+margin_left = 673.106
+margin_top = 655.381
+margin_right = 1211.81
+margin_bottom = 657.649
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SlideButton1" type="TextureButton" parent="HBoxContainer"]
+margin_right = 90.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 90, 10 )
+mouse_default_cursor_shape = 2
+toggle_mode = true
+shortcut_in_tooltip = false
+pressed = true
+group = ExtResource( 1 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+
+[node name="SlideButton2" type="TextureButton" parent="HBoxContainer"]
+margin_left = 94.0
+margin_right = 184.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 90, 10 )
+mouse_default_cursor_shape = 2
+toggle_mode = true
+shortcut_in_tooltip = false
+group = ExtResource( 1 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+
+[node name="SlideButton3" type="TextureButton" parent="HBoxContainer"]
+margin_left = 188.0
+margin_right = 278.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 90, 10 )
+mouse_default_cursor_shape = 2
+toggle_mode = true
+shortcut_in_tooltip = false
+group = ExtResource( 1 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+
+[node name="SlideButton4" type="TextureButton" parent="HBoxContainer"]
+margin_left = 282.0
+margin_right = 372.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 90, 10 )
+mouse_default_cursor_shape = 2
+toggle_mode = true
+shortcut_in_tooltip = false
+group = ExtResource( 1 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+
+[node name="SlideButton5" type="TextureButton" parent="HBoxContainer"]
+margin_left = 376.0
+margin_right = 466.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 90, 10 )
+mouse_default_cursor_shape = 2
+toggle_mode = true
+shortcut_in_tooltip = false
+group = ExtResource( 1 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+
+[node name="SlideButton6" type="TextureButton" parent="HBoxContainer"]
+margin_left = 470.0
+margin_right = 560.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 90, 10 )
+mouse_default_cursor_shape = 2
+toggle_mode = true
+shortcut_in_tooltip = false
+group = ExtResource( 1 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="toggled" from="HBoxContainer/SlideButton1" to="." method="_on_SlideButton1_toggled"]
+[connection signal="toggled" from="HBoxContainer/SlideButton2" to="." method="_on_SlideButton2_toggled"]
+[connection signal="toggled" from="HBoxContainer/SlideButton3" to="." method="_on_SlideButton3_toggled"]
+[connection signal="toggled" from="HBoxContainer/SlideButton4" to="." method="_on_SlideButton4_toggled"]
+[connection signal="toggled" from="HBoxContainer/SlideButton5" to="." method="_on_SlideButton5_toggled"]
+[connection signal="toggled" from="HBoxContainer/SlideButton6" to="." method="_on_SlideButton6_toggled"]

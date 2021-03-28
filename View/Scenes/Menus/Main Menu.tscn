@@ -1,0 +1,336 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://View/Scenes/Menus/Menu Components/BackgroundImg.tscn" type="PackedScene" id=1]
+[ext_resource path="res://View/Scenes/Menus/Menu Components/BackgroundMenu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Interface/Menu/Buttons/Button=Novo Jogo, State=Hover, Style=Filled.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Interface/Menu/Buttons/Button=Novo Jogo, State=Default, Style=Filled.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Interface/Menu/Buttons/Button=Continuar, State=Default, Style=Filled.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Interface/Menu/Buttons/Button=Novo Jogo, State=Disabled, Style=Glass.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Interface/Menu/Buttons/Button=Continuar, State=Hover, Style=Filled.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Interface/Menu/Buttons/Button=Opcoes, State=Hover, Style=Filled.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Interface/Menu/Buttons/Button=Opcoes, State=Disabled, Style=Glass.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Interface/Menu/Buttons/Button=Continuar, State=Disabled, Style=Glass.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Interface/Menu/Buttons/Button=Opcoes, State=Default, Style=Filled.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Interface/Menu/Buttons/Button=Sair, State=Hover, Style=Filled.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Interface/Menu/Buttons/Button=Sair, State=Default, Style=Filled.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Interface/Menu/Buttons/Button=Sair, State=Disabled, Style=Glass.png" type="Texture" id=16]
+[ext_resource path="res://Themes/Hexachronos_Theme.tres" type="Theme" id=17]
+[ext_resource path="res://Controller/Scenes/Menus/Main Menu.gd" type="Script" id=24]
+[ext_resource path="res://Assets/Interface/Menu/Buttons/Button=Créditos, State=Disabled, Style=Glass.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Interface/Menu/Buttons/Button=Créditos, State=Hover, Style=Filled.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Interface/Menu/Buttons/Button=Créditos, State=Default, Style=Filled.png" type="Texture" id=27]
+
+[sub_resource type="Animation" id=1]
+resource_name = "NewGameTransition"
+length = 1.2
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Novo Jogo:rect_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -512, -0.25, 0, 0.25, 0, 59, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.3, 0.8 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Continuar:rect_position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -512, -0.25, 0, 0.25, 0, 59, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.4, 0.9 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Creditos:rect_position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -512, -0.25, 0, 0.25, 0, 59, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.5, 1 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Opcoes:rect_position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( -512, -0.25, 0, 0.25, 0, 59, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.6, 1.1 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Sair:rect_position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( -512, -0.25, 0, 0.25, 0, 59, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.7, 1.2 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Background:rect_position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1232, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.2, 0.7 )
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ColorRect:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 1.2
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Novo Jogo:rect_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -512, -0.25, 0, 0.25, 0, 59, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.3, 0.8 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Continuar:rect_position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -512, -0.25, 0, 0.25, 0, 59, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.4, 0.9 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Creditos:rect_position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -512, -0.25, 0, 0.25, 0, 59, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.5, 1 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Opcoes:rect_position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( -512, -0.25, 0, 0.25, 0, 59, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.6, 1.1 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Sair:rect_position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( -512, -0.25, 0, 0.25, 0, 59, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.7, 1.2 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Background:rect_position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1232, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.2, 0.7 )
+}
+
+[sub_resource type="Animation" id=3]
+length = 1.2
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Novo Jogo:rect_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -512, -0.25, 0, 0.25, 0, 59, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.3, 0.8 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Continuar:rect_position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -512, -0.25, 0, 0.25, 0, 59, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.4, 0.9 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Creditos:rect_position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -512, -0.25, 0, 0.25, 0, 59, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.5, 1 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Opcoes:rect_position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( -512, -0.25, 0, 0.25, 0, 59, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.6, 1.1 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Sair:rect_position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( -512, -0.25, 0, 0.25, 0, 59, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.7, 1.2 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Background:rect_position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1232, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.2, 0.7 )
+}
+
+[node name="Main Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 17 )
+script = ExtResource( 24 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 1032.0 ],
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" parent="." instance=ExtResource( 1 )]
+scale = Vector2( 0.666756, 0.666756 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/NewGameTransition = SubResource( 1 )
+anims/ScreenEnter = SubResource( 2 )
+anims/ScreenOut = SubResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1936.0
+margin_bottom = 1076.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" parent="." instance=ExtResource( 3 )]
+margin_left = 1232.0
+margin_right = 1232.0
+
+[node name="Novo Jogo" type="TextureButton" parent="."]
+margin_left = -512.0
+margin_top = 260.0
+margin_right = -217.0
+margin_bottom = 347.0
+rect_pivot_offset = Vector2( 48, 64 )
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continuar" type="TextureButton" parent="."]
+margin_left = -512.0
+margin_top = 336.0
+margin_right = -244.0
+margin_bottom = 423.0
+rect_pivot_offset = Vector2( 0, -0.156 )
+disabled = true
+texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 9 )
+texture_disabled = ExtResource( 12 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Creditos" type="TextureButton" parent="."]
+margin_left = -512.0
+margin_top = 423.0
+margin_right = -272.0
+margin_bottom = 510.0
+rect_pivot_offset = Vector2( 0, -0.156 )
+disabled = true
+texture_normal = ExtResource( 27 )
+texture_hover = ExtResource( 26 )
+texture_disabled = ExtResource( 25 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Opcoes" type="TextureButton" parent="."]
+margin_left = -512.0
+margin_top = 505.0
+margin_right = -298.0
+margin_bottom = 592.0
+rect_pivot_offset = Vector2( 0, -0.156 )
+texture_normal = ExtResource( 13 )
+texture_hover = ExtResource( 10 )
+texture_disabled = ExtResource( 11 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sair" type="TextureButton" parent="."]
+margin_left = -512.0
+margin_top = 587.0
+margin_right = -340.0
+margin_bottom = 674.0
+rect_pivot_offset = Vector2( 0, -0.156 )
+texture_normal = ExtResource( 15 )
+texture_hover = ExtResource( 14 )
+texture_disabled = ExtResource( 16 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="pressed" from="Novo Jogo" to="." method="_on_Novo_Jogo_pressed"]
+[connection signal="pressed" from="Continuar" to="." method="_on_Continuar_pressed"]
+[connection signal="pressed" from="Creditos" to="." method="_on_Creditos_pressed"]
+[connection signal="pressed" from="Opcoes" to="." method="_on_Opcoes_pressed"]
+[connection signal="pressed" from="Sair" to="." method="_on_Sair_pressed"]
