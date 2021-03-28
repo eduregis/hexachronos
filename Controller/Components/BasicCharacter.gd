@@ -69,9 +69,9 @@ func _ready():
 	$RichTextLabel.modulate = Color(1,1,1,0)
 	$Sprite.modulate = Color(1,1,1,0)
 	set_sprite()
+	z_index = index.y
 	$Menu.visible = false
 	$SkillMenu.visible = false
-	scale = Vector2(0.7, 0.7)
 	if team == "foe":
 		$Sprite.flip_h = true
 	damage_text_position = $RichTextLabel.rect_position
@@ -254,6 +254,7 @@ func able_submenus(move, attack, block, skill):
 		$Menu/SkillButton/Sprite.texture = skill_btn_disabled
 	
 func take_damage(char_attack):
+	yield(get_tree().create_timer(0.50), "timeout")
 	var hit_rate_final = ((85 * char_attack.hit_rate) / evasion)
 	var hit_rate_random = (randi() % 100)
 	if hit_rate_final >= hit_rate_random:
@@ -261,15 +262,20 @@ func take_damage(char_attack):
 		var damage = int((damage_oscilation * char_attack.attack * char_attack.attack) / (defense * 100))
 		var crit_rate_random = (randi() % 40)
 		if luck >= crit_rate_random:
-			print("CRITICAL")
+			multi_text_animation([String(damage), "CRÍTICO"])
 			damage = int(damage * 1.5)
-		if hp - damage < 0:
+		else:
+			$RichTextLabel.bbcode_text = "[center]" + String(damage) + "[/center]"
+		if hp - damage <= 0:
 			hp = 0
+			change_to_faint_sprite()
+			faint_animation()
 		else:
 			hp -= damage
-		$RichTextLabel.bbcode_text = "[center]" + String(damage) + "[/center]"
+			change_to_hurt_sprite()
+			hurt_animation()
 	else:
-		$RichTextLabel.bbcode_text = "[center]MISS[/center]"
+		$RichTextLabel.bbcode_text = "[center]ERROU[/center]"
 	$Tween.interpolate_property(
 		$RichTextLabel, "modulate", Color(1,1,1,1), Color(1,1,1,0), 1, 
 		Tween.TRANS_SINE, Tween.EASE_IN_OUT
@@ -281,6 +287,7 @@ func take_damage(char_attack):
 	$Tween.start()
 
 func take_tecnical_damage(char_attack):
+	yield(get_tree().create_timer(0.46), "timeout")
 	var hit_rate_final = ((85 * char_attack.hit_rate) / evasion)
 	var hit_rate_random = (randi() % 100)
 	if hit_rate_final >= hit_rate_random:
@@ -288,13 +295,18 @@ func take_tecnical_damage(char_attack):
 		var damage = int((damage_oscilation * char_attack.tecnical * char_attack.tecnical) / (defense * 60))
 		var crit_rate_random = (randi() % 40)
 		if luck >= crit_rate_random:
-			print("CRITICAL")
+			multi_text_animation([String(damage), "CRÍTICO"])
 			damage = int(damage * 1.5)
+		else:
+			$RichTextLabel.bbcode_text = "[center]" + String(damage) + "[/center]"
 		if hp - damage < 0:
 			hp = 0
+			change_to_faint_sprite()
+			faint_animation()
 		else:
 			hp -= damage
-		$RichTextLabel.bbcode_text = "[center]" + String(damage) + "[/center]"
+			change_to_hurt_sprite()
+			hurt_animation()
 	else:
 		$RichTextLabel.bbcode_text = "[center]MISS[/center]"
 	$Tween.interpolate_property(
@@ -308,33 +320,22 @@ func take_tecnical_damage(char_attack):
 	$Tween.start()
 
 func move_to(tile_position):
-	var tween1 = get_node("Tween")
-	var tween2 = get_node("Tween")
-	$AnimationPlayer.play("Jump")
-	yield(get_tree().create_timer(0.28), "timeout")
-	tween1.interpolate_property(
-			self, "position:x", position.x , tile_position.x, 0.36, 
-			Tween.TRANS_LINEAR, Tween.TRANS_LINEAR
+	change_to_jump_sprite()
+	jump_animation(tile_position)
+
+func multi_text_animation(texts):
+	for text in texts:
+		$RichTextLabel.bbcode_text = "[center]" + String(text) + "[/center]"
+		$TextTween.interpolate_property(
+			$RichTextLabel, "modulate", Color(1,1,1,1), Color(1,1,1,0), 1, 
+			Tween.TRANS_SINE, Tween.EASE_IN_OUT
 		)
-	tween1.start()
-	var yAnchor
-	if position.y < tile_position.y:
-		yAnchor = position.y - 30
-	else:
-		yAnchor = tile_position.y - 30
-	tween2.interpolate_property(
-			self, "position:y", position.y , yAnchor, 0.20, 
-			Tween.TRANS_SINE, Tween.EASE_OUT
+		$TextTween.interpolate_property(
+			$RichTextLabel, "rect_position:y", damage_text_position.y, damage_text_position.y - 30, 1, 
+			Tween.TRANS_SINE, Tween.EASE_IN_OUT
 		)
-	tween2.start()
-	yield(tween2, "tween_completed")
-	tween2.interpolate_property(
-			self, "position:y", yAnchor, tile_position.y, 0.16, 
-			Tween.TRANS_SINE, Tween.EASE_IN
-		)
-	tween2.start()
-	yield(tween2, "tween_completed")
-	$AnimationPlayer.stop()
+		$TextTween.start()
+		yield($TextTween, "tween_completed")
 
 func _on_Tween_tween_completed(object, key):
 	if hp <= 0 && defeated == false && !inanimated:
@@ -423,4 +424,22 @@ func _on_SkillButtonHitBox_mouse_exited():
 
 # Menu de técnicas
 func show_skill_menu():
+	pass
+
+func change_to_hurt_sprite():
+	pass
+	
+func hurt_animation():
+	pass
+	
+func change_to_jump_sprite():
+	pass
+	
+func jump_animation(tile_position):
+	pass
+	
+func change_to_faint_sprite():
+	pass
+	
+func faint_animation():
 	pass

@@ -83,7 +83,12 @@ func next_turn_stage():
 			paths = pathfinder(characters[turn_order_index].index, characters[turn_order_index].character_info["range"], false)
 			var path_index = 0
 			for path in paths:
-				tile_map[path.y][path.x].attack_tile(path_index)
+				var is_ally_path = false
+				for character in characters:
+					if character.index == Vector2(path.x, path.y) && character.team == characters[turn_order_index].team:
+						is_ally_path = true
+				if !is_ally_path:
+					tile_map[path.y][path.x].attack_tile(path_index)
 				path_index += 1
 			if characters[turn_order_index].team == "foe":
 				attack_foe_IA()
@@ -243,6 +248,8 @@ func attack_character_to(tile_index, tile_position):
 				for character in characters:
 					if character.index == tile_index:
 						if (character.team != characters[turn_order_index].team) && (character.defeated == false):
+							characters[turn_order_index].change_to_attack_sprite()
+							characters[turn_order_index].attack_animation()
 							character.take_damage(characters[turn_order_index])
 							next_turn_stage()
 
@@ -268,7 +275,7 @@ func instance_tilemap():
 		x = 0
 		var tile_vector_position = []
 		for cell in array:
-			var tile_position = Vector2(window.x/6 + x*127 + (y % 2)*63, 3*window.y/5 + y *21)
+			var tile_position = Vector2(window.x/8 + x*184 + (y % 2)*92, 6*window.y/11 + y *31)
 			var tile = Tile.instance()
 			tile.set_position(tile_position)
 			tile.tile_index = Vector2(x, y)

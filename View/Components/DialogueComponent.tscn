@@ -4,17 +4,17 @@
 [ext_resource path="res://Controller/Components/DialogueBox.gd" type="Script" id=2]
 [ext_resource path="res://Controller/Components/DialogueComponent.gd" type="Script" id=3]
 [ext_resource path="res://Assets/TextBox/Button.png" type="Texture" id=4]
-[ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Fonts/RobotoMono-Bold.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Assets/TextBox/Name Box.png" type="Texture" id=6]
-[ext_resource path="res://Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Fonts/RobotoMono-Medium.ttf" type="DynamicFontData" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
-font_data = ExtResource( 7 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 24
-font_data = ExtResource( 5 )
+font_data = ExtResource( 7 )
 
 [node name="DialogueComponent" type="Control"]
 anchor_left = 0.000604659
@@ -112,9 +112,9 @@ __meta__ = {
 anchor_left = -0.058
 anchor_right = 1.029
 anchor_bottom = 1.0
-margin_left = 39.81
+margin_left = 40.2555
 margin_top = 26.0
-margin_right = -36.405
+margin_right = -35.9596
 margin_bottom = -29.0
 custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )

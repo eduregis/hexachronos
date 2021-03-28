@@ -16,7 +16,7 @@ texture = ExtResource( 1 )
 input_pickable = true
 
 [node name="HitBox" type="CollisionPolygon2D" parent="TileHitBox"]
-polygon = PoolVector2Array( 30.6949, -28.9081, 59.3004, -0.435017, 30.6949, 28.7002, -30.6216, 28.5678, -59.4919, 0.227146, -30.4891, -29.173 )
+polygon = PoolVector2Array( 30.6949, -28.9081, 64.2258, -0.220535, 30.6949, 28.7002, -30.6216, 28.5678, -64.509, 0.113552, -30.4891, -29.173 )
 script = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="."]
