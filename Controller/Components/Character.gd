@@ -193,6 +193,7 @@ func jump_animation(tile_position):
 	tween2.start()
 	yield(tween2, "tween_completed")
 	$AnimationPlayer.stop()
+	z_index = index.y
 
 func change_to_hurt_sprite():
 	yield(get_tree().create_timer(0.48), "timeout")
@@ -217,7 +218,7 @@ func change_to_hurt_sprite():
 			$Sprite.texture = morya_hurt
 			
 func hurt_animation():
-	yield(get_tree().create_timer(0.50), "timeout")
+	yield(get_tree().create_timer(0.20), "timeout")
 	$AnimationPlayer.play("Hurt")
 	yield(get_tree().create_timer(0.40), "timeout")
 	$AnimationPlayer.stop()
@@ -246,7 +247,7 @@ func change_to_faint_sprite():
 			$Sprite.texture = morya_faint
 			
 func faint_animation():
-	yield(get_tree().create_timer(0.50), "timeout")
+	yield(get_tree().create_timer(0.20), "timeout")
 	$AnimationPlayer.play("Faint")
 	yield(get_tree().create_timer(0.30), "timeout")
 	$AnimationPlayer.stop()

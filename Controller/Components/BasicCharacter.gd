@@ -69,7 +69,7 @@ func _ready():
 	$RichTextLabel.modulate = Color(1,1,1,0)
 	$Sprite.modulate = Color(1,1,1,0)
 	set_sprite()
-	$Sprite.z_index = index.y
+	z_index = index.y
 	$Menu.visible = false
 	$SkillMenu.visible = false
 	if team == "foe":
