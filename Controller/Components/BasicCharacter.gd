@@ -425,17 +425,17 @@ func _on_SkillButtonHitBox_mouse_exited():
 # Menu de técnicas
 func show_skill_menu():
 	pass
-
-func change_to_hurt_sprite():
-	pass
-	
-func hurt_animation():
-	pass
 	
 func change_to_jump_sprite():
 	pass
 	
 func jump_animation(tile_position):
+	pass
+
+func change_to_hurt_sprite():
+	pass
+	
+func hurt_animation():
 	pass
 	
 func change_to_faint_sprite():

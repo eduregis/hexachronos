@@ -168,9 +168,9 @@ func jump_animation(tile_position):
 	var tween1 = get_node("Tween")
 	var tween2 = get_node("Tween")
 	$AnimationPlayer.play("Jump")
-	yield(get_tree().create_timer(0.28), "timeout")
+	yield(get_tree().create_timer(0.26), "timeout")
 	tween1.interpolate_property(
-			self, "position:x", position.x , tile_position.x, 0.36, 
+			self, "position:x", position.x , tile_position.x, 0.26, 
 			Tween.TRANS_LINEAR, Tween.TRANS_LINEAR
 		)
 	tween1.start()
@@ -180,23 +180,24 @@ func jump_animation(tile_position):
 	else:
 		yAnchor = tile_position.y - 30
 	tween2.interpolate_property(
-			self, "position:y", position.y , yAnchor, 0.20, 
+			self, "position:y", position.y , yAnchor, 0.16, 
 			Tween.TRANS_SINE, Tween.EASE_OUT
 		)
 	tween2.start()
 	yield(tween2, "tween_completed")
 	z_index = index.y
 	tween2.interpolate_property(
-			self, "position:y", yAnchor, tile_position.y, 0.16, 
+			self, "position:y", yAnchor, tile_position.y, 0.10, 
 			Tween.TRANS_SINE, Tween.EASE_IN
 		)
 	tween2.start()
 	yield(tween2, "tween_completed")
+	yield(get_tree().create_timer(0.12), "timeout")
 	$AnimationPlayer.stop()
 	z_index = index.y
 
 func change_to_hurt_sprite():
-	yield(get_tree().create_timer(0.48), "timeout")
+#	yield(get_tree().create_timer(0.48), "timeout")
 	$Sprite.hframes = 20
 	$Sprite.frame = 0
 	match character_info["name"]:
@@ -218,14 +219,14 @@ func change_to_hurt_sprite():
 			$Sprite.texture = morya_hurt
 			
 func hurt_animation():
-	yield(get_tree().create_timer(0.20), "timeout")
+#	yield(get_tree().create_timer(0.20), "timeout")
 	$AnimationPlayer.play("Hurt")
 	yield(get_tree().create_timer(0.40), "timeout")
 	$AnimationPlayer.stop()
 	change_to_jump_sprite()
 	
 func change_to_faint_sprite():
-	yield(get_tree().create_timer(0.48), "timeout")
+#	yield(get_tree().create_timer(0.48), "timeout")
 	$Sprite.hframes = 15
 	$Sprite.frame = 0
 	match character_info["name"]:
@@ -247,7 +248,7 @@ func change_to_faint_sprite():
 			$Sprite.texture = morya_faint
 			
 func faint_animation():
-	yield(get_tree().create_timer(0.20), "timeout")
+#	yield(get_tree().create_timer(0.20), "timeout")
 	$AnimationPlayer.play("Faint")
 	yield(get_tree().create_timer(0.30), "timeout")
 	$AnimationPlayer.stop()
