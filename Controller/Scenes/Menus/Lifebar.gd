@@ -1,37 +1,52 @@
 extends Node2D
-var hp=0
-var hpmax=100
+var hp = 0
+var hpMax = 100
+export var battle_id = 0
+export var char_name = ""
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	$HScrollBar.max_value=hpmax
-	updatehpbar()
-	
-	
-	pass # Replace with function body.
+	$HScrollBar.max_value = hpMax
+	scale = Vector2(0.6, 0.6)
+	print(char_name)
+	hp = hpMax
+	set_portrait()
+	updateHpBar()
 
-func updatehpbar():
-	$TextureProgress.value=0
+func enlarge():
+	scale = Vector2(0.7, 0.7)
 	
-	var hp_percentage=(hp/hpmax)*100
-	
-	$TextureProgress.value=clamp(hp_percentage,0,100)
-	
-	pass
-	
+func retract():
+	scale = Vector2(0.6, 0.6)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func set_portrait():
+	match char_name:
+		"Protagonist":
+			$TextureProgress.texture_over = Global.lifebar_morya
+		"Mechanic":
+			$TextureProgress.texture_over = Global.lifebar_sam
+		"Tanker":
+			$TextureProgress.texture_over = Global.lifebar_borell
+		"Berserk":
+			$TextureProgress.texture_over = Global.lifebar_billy
+		"Sniper":
+			$TextureProgress.texture_over = Global.lifebar_morya
+		"Hammer":
+			$TextureProgress.texture_over = Global.lifebar_dandara
+		"Captain":
+			$TextureProgress.texture_over = Global.lifebar_salvato
+		"Foe":
+			$TextureProgress.texture_over = Global.lifebar_morya
+
+func updateHp(value):
+	hp = value
+	updateHpBar()
+
+func updateHpBar():
+	var hp_percentage = (float(hp)/float(hpMax))*100
+	$TextureProgress.value = clamp(hp_percentage,0,100)
 
 
 func _on_HScrollBar_value_changed(value):
-	
-	hp=value
-	updatehpbar()
+#	hp = value
+#	updateHpBar()
 	pass # Replace with function body.

@@ -21,6 +21,7 @@ export var character_info = {}
 export var team = ""
 export var defeated = false
 export var inanimated = false
+export var battle_id = 0
 var able_move = true
 var able_attack = true
 var able_block = true
@@ -57,6 +58,7 @@ signal skill_menu
 signal skill
 signal defeated
 signal pass_stage
+signal actual_hp
 
 var damage_text_position
 var move_btn_position
@@ -285,6 +287,7 @@ func take_damage(char_attack):
 		Tween.TRANS_SINE, Tween.EASE_IN_OUT
 	)
 	$Tween.start()
+	emit_signal("actual_hp", battle_id, hp)
 
 func take_tecnical_damage(char_attack):
 	yield(get_tree().create_timer(0.46), "timeout")
@@ -318,6 +321,7 @@ func take_tecnical_damage(char_attack):
 		Tween.TRANS_SINE, Tween.EASE_IN_OUT
 	)
 	$Tween.start()
+	emit_signal("actual_hp", battle_id, hp)
 
 func move_to(tile_position):
 	change_to_jump_sprite()

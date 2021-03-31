@@ -41,6 +41,12 @@ var thunder_sweet = preload("res://Assets/CharacterSprites/Thunder - Borell/Thun
 
 var morya_neutral = preload("res://Assets/CharacterSprites/Rampage - Morya/Morya_Neutral.png")
 
+var lifebar_billy = preload("res://Assets/Interface/Portraits/lifebar_billy.png")
+var lifebar_borell = preload("res://Assets/Interface/Portraits/lifebar_borell.png")
+var lifebar_dandara = preload("res://Assets/Interface/Portraits/lifebar_dandara.png")
+var lifebar_morya = preload("res://Assets/Interface/Portraits/lifebar_morya.png")
+var lifebar_salvato = preload("res://Assets/Interface/Portraits/lifebar_salvato.png")
+var lifebar_sam = preload("res://Assets/Interface/Portraits/lifebar_sam.png")
 
 var actualres = 1
 

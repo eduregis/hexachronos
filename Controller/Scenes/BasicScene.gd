@@ -6,10 +6,12 @@ var Tile = preload("res://View/Components/HexagonTile.tscn")
 var Character = preload("res://View/Components/Character.tscn")
 var Background = preload("res://View/Components/Background.tscn")
 var Transition = preload("res://View/Components/Transition.tscn")
+var LifeBar = preload("res://View/Scenes/Menus/Lifebar.tscn")
 
 var tile_code = []
 var tile_map = []
 var characters = []
+var lifebars = []
 
 var background
 var transition
@@ -21,6 +23,7 @@ var has_target = true
 
 var allies = 0
 var foes = 0
+var char_count = 0
 
 var answer_index = 0
 var paths = []
@@ -141,6 +144,7 @@ func next_turn():
 	if characters[turn_order_index].defeated == true || characters[turn_order_index].inanimated == true:
 		next_turn()
 	else:
+		grow_currently_lifebar()
 		turn_stage = "menu"
 		yield(get_tree().create_timer(1.0), "timeout")
 		characters[turn_order_index].remove_buffs()
@@ -218,6 +222,20 @@ func character_defeated(team):
 		"foe":
 			foes -= 1
 
+func character_actual_hp(battle_id, hp):
+	for lifebar in lifebars:
+		if lifebar.battle_id == battle_id:
+			lifebar.updateHp(hp)
+
+func grow_currently_lifebar():
+	for i in range(lifebars.size()):
+		if i == turn_order_index:
+			lifebars[i].enlarge()
+			if i > 0:
+				lifebars[i - 1].retract()
+			else:
+				lifebars[lifebars.size() - 1].retract()
+				
 func move_character_to(tile_index, tile_position):
 	if tile_index == characters[turn_order_index].index:
 		turn_stage = "menu"
@@ -254,7 +272,6 @@ func attack_character_to(tile_index, tile_position):
 							next_turn_stage()
 
 func load_tilemap(text_code):
-	
 	var file = File.new()
 	file.open("res://Database/hexachronosTilemaps.json", file.READ)
 	var json = file.get_as_text()
@@ -307,6 +324,8 @@ func set_character(char_name, char_index, team, is_character):
 				character.index = Vector2(char_index.x, char_index.y)
 				character.character_info = character_info
 				character.team = team
+				character.battle_id = char_count
+				char_count += 1
 				character.set_position(tile_map[char_index.y][char_index.x].position)
 				tile_map[char_index.y][char_index.x].char_tile()
 				if is_character:
@@ -319,6 +338,7 @@ func set_character(char_name, char_index, team, is_character):
 					character.taunt = 3
 				character.connect("char_attack_to", self, "command_character_to")
 				character.connect("defeated", self, "character_defeated")
+				character.connect("actual_hp", self, "character_actual_hp")
 				character.connect("move", self, "menu_to_move")
 				character.connect("attack", self, "menu_to_attack")
 				character.connect("defend", self, "next_turn")
@@ -452,6 +472,7 @@ func load_background(background_code):
 		background = Background.instance()
 		background.set_position(Vector2(window.x/2, window.y))
 		background.change_background(background_code)
+		background.change_background(background_code)
 		self.add_child(background)
 	else:
 		background.change_background(background_code)
@@ -469,7 +490,42 @@ func dismiss_transition():
 func start_combat():
 	is_combat = true
 	yield(get_tree().create_timer(1.0), "timeout")
+	createHUD()
+	createLifebars()
 	characters[turn_order_index].show_menu(true, able_attack, able_block, able_skill)
+	
+func createHUD():
+	var window = get_viewport_rect().size
+	var HUD_glass_ally = Sprite.new()
+	HUD_glass_ally.texture = load("res://Assets/Interface/HUD_glass_Ally.png")
+	HUD_glass_ally.scale = Vector2(0.7, 0.7)
+	HUD_glass_ally.position = Vector2(HUD_glass_ally.texture.get_size().x/3, HUD_glass_ally.texture.get_size().y/3)
+	self.add_child(HUD_glass_ally)
+	var HUD_glass_foe = Sprite.new()
+	HUD_glass_foe.texture = load("res://Assets/Interface/HUD_glass_Foe.png")
+	HUD_glass_foe.scale = Vector2(0.7, 0.7)
+	HUD_glass_foe.position = Vector2(window.x - HUD_glass_ally.texture.get_size().x/3, HUD_glass_ally.texture.get_size().y/3)
+	self.add_child(HUD_glass_foe)
+	
+func createLifebars():
+	var alliesPosition = 80
+	var window = get_viewport_rect().size
+	var foesPosition = window.x - 80
+	for character in characters:
+		var lifebar = LifeBar.instance()
+		if character.team == "ally":
+			lifebar.set_position(Vector2(alliesPosition, 85))
+			alliesPosition += 110
+		elif character.team == "foe":
+			lifebar.set_position(Vector2(foesPosition, 85))
+			foesPosition -= 110
+		lifebar.battle_id = character.battle_id
+		lifebar.char_name = character.character_info["name"]
+		lifebar.hp = character.hp
+		lifebar.hpMax = character.hp_max
+		lifebars.append(lifebar)
+		self.add_child(lifebar)
+	grow_currently_lifebar()
 	
 func end_combat():
 	pass

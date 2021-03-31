@@ -9,8 +9,10 @@
 script = ExtResource( 4 )
 
 [node name="TextureProgress" type="TextureProgress" parent="."]
-margin_right = 195.0
-margin_bottom = 207.0
+margin_left = -94.9966
+margin_top = -103.335
+margin_right = 100.003
+margin_bottom = 103.665
 value = 100.0
 texture_under = ExtResource( 1 )
 texture_over = ExtResource( 3 )
@@ -24,6 +26,7 @@ __meta__ = {
 }
 
 [node name="HScrollBar" type="HScrollBar" parent="."]
+visible = false
 margin_left = 3.30356
 margin_top = 207.652
 margin_right = 188.303
