@@ -8,9 +8,6 @@ var Transition = preload("res://View/Components/Transition.tscn")
 var background
 var transition
 
-var allies = 0
-var foes = 0
-
 var answer_index = 0
 
 signal dialogue_ended
