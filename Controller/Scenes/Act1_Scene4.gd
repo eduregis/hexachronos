@@ -1,4 +1,4 @@
-extends "res://Controller/Scenes/SceneWithSkills.gd"
+extends "res://Controller/Scenes/BasicScene.gd"
 
 func _ready():
 	load_dialogue("0037")
@@ -50,9 +50,9 @@ func other_way():
 		load_dialogue("0046")
 		yield(self, "dialogue_ended")
 		yield(get_tree().create_timer(1.0), "timeout")
-		fight_with_billy()
+		# vai para quarta batalha, com o billy
 	elif answer_index == 2:
 		load_dialogue("0048")
 		yield(self, "dialogue_ended")
 		yield(get_tree().create_timer(1.0), "timeout")
-		fight_without_billy()
+		# vai para quarta batalha, sem o billy

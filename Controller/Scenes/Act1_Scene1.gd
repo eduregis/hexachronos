@@ -1,4 +1,4 @@
-extends "res://Controller/Scenes/SceneWithSkills.gd"
+extends "res://Controller/Scenes/BasicScene.gd"
 
 func _ready():
 	randomize()
@@ -42,5 +42,5 @@ func _ready():
 	load_dialogue("0009")
 	yield(self, "dialogue_ended")
 	yield(get_tree().create_timer(1.0), "timeout")
-	get_tree().change_scene("res://View/Scenes/Act1_Battle1.tscn")
+	# vai para primeira batalha
 	

@@ -1,4 +1,4 @@
-extends "res://Controller/Scenes/SceneWithSkills.gd"
+extends "res://Controller/Scenes/BasicScene.gd"
 
 var talk_to_captain = false
 var talk_to_hammer = false

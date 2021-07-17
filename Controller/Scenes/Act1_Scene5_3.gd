@@ -1,4 +1,4 @@
-extends "res://Controller/Scenes/SceneWithSkills.gd"
+extends "res://Controller/Scenes/BasicScene.gd"
 
 func _ready():
 	load_dialogue("0050")
@@ -6,4 +6,4 @@ func _ready():
 	yield(get_tree().create_timer(1.0), "timeout")
 	load_quick_transition(false)
 	yield(get_tree().create_timer(1.0), "timeout")
-	get_tree().change_scene("res://View/Scenes/Act1_Battle5.tscn")
+	# vai para quinta batalha

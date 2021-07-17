@@ -1,4 +1,4 @@
-extends "res://Controller/Scenes/SceneWithSkills.gd"
+extends "res://Controller/Scenes/BasicScene.gd"
 
 func _ready():
 	load_dialogue("00010")
@@ -138,4 +138,5 @@ func explain_the_plan_2():
 		explain_the_plan_2()	
 
 func init_the_plan_2():
-	get_tree().change_scene("res://View/Scenes/Act1_Battle3.tscn")
+	pass
+	# vai para terceira batalha
