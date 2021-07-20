@@ -1,6 +1,7 @@
 extends "res://Controller/Scenes/BasicScene.gd"
 
 var Character = preload("res://View/Components/Character.tscn")
+var BattleMenuHUD = preload("res://View/Components/BattleMenuHUD.tscn")
 
 var allies = []
 var foes = []
@@ -41,8 +42,35 @@ func set_character(char_name, team, is_character):
 #			self.add_child(character)
 
 func start_combat():
-	var x_distances = [0, 100, -50, 25, -100, 150]
+	var window = get_viewport_rect().size
+	var x_distances = [0, 150, -75, 75, -150]
+	# colocando os personagens no combate
+	x_distances = shuffleList(x_distances)
 	for i in range(0, allies.size()):
-		allies[i].set_position(Vector2(300 + x_distances[i], 400 + (i * 100)))
+		allies[i].set_position(Vector2(window.x/4 + x_distances[i], 3*window.y/5 + (allies.size() * 35) - (i * 70)))
 		yield(get_tree().create_timer(0.2), "timeout")
+		allies[i].z_index = 100 - i
 		self.add_child(allies[i])
+	x_distances = shuffleList(x_distances)
+	for i in range(0, foes.size()):
+		foes[i].set_position(Vector2(3*window.x/4 + x_distances[i], 3*window.y/5 + (foes.size() * 35) - (i * 70)))
+		yield(get_tree().create_timer(0.2), "timeout")
+		foes[i].z_index = 100 - i
+		self.add_child(foes[i])
+	# colocando a HUD
+	var battleMenuHUD = BattleMenuHUD.instance()
+	battleMenuHUD.set_position(Vector2(185, window.y - 120))
+	battleMenuHUD.z_index = 101
+	self.add_child(battleMenuHUD)
+	
+		
+func shuffleList(list):
+	var shuffledList = []
+	var indexList = range(list.size())
+	for i in range(list.size()):
+		randomize()
+		var x = randi()%indexList.size()
+		shuffledList.append(list[x])
+		indexList.remove(x)
+		list.remove(x)
+	return shuffledList

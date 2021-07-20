@@ -48,7 +48,7 @@ func change_to_jump_sprite():
 			$Sprite.texture = luka_jump
 		"Mechanic":
 			$Sprite.texture = sam_jump
-		"Foe":
+		"BasicSoldier":
 			$Sprite.texture = soldier_jump
 		"Tanker":
 			$Sprite.texture = thunder_jump
@@ -63,7 +63,8 @@ func change_to_jump_sprite():
 
 func jump_animation():
 	$AnimationPlayer.play("Jump")
-	yield(get_tree().create_timer(0.26), "timeout")
+	yield(get_tree().create_timer(0.64), "timeout")
+	$AnimationPlayer.stop()
 	
 
 func change_to_hurt_sprite():
@@ -75,7 +76,7 @@ func change_to_hurt_sprite():
 			$Sprite.texture = luka_hurt
 		"Mechanic":
 			$Sprite.texture = sam_hurt
-		"Foe":
+		"BasicSoldier":
 			$Sprite.texture = soldier_hurt
 		"Tanker":
 			$Sprite.texture = thunder_hurt
@@ -104,7 +105,7 @@ func change_to_faint_sprite():
 			$Sprite.texture = luka_faint
 		"Mechanic":
 			$Sprite.texture = sam_faint
-		"Foe":
+		"BasicSoldier":
 			$Sprite.texture = soldier_faint
 		"Tanker":
 			$Sprite.texture = thunder_faint
@@ -132,7 +133,7 @@ func change_to_attack_sprite():
 		"Mechanic":
 			$Sprite.hframes = 23
 			$Sprite.texture = sam_attack
-		"Foe":
+		"BasicSoldier":
 			$Sprite.hframes = 23
 			$Sprite.texture = soldier_attack
 		"Tanker":

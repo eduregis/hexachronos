@@ -116,7 +116,7 @@
             ]
         },
         {
-            "name": "Foe",
+            "name": "BasicSoldier",
             "strength": 11,
             "dexterity": 11,
             "tecnical": 11,
@@ -127,7 +127,7 @@
             "skills": []
         },
         {
-            "name": "Bizarre Construct",
+            "name": "BizarreConstruct",
             "strength": 10,
             "dexterity": 10,
             "tecnical": 10,
